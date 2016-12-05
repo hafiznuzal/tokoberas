@@ -1,0 +1,22 @@
+{
+  "name": "tokoberas",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Muzza Dev"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/hafiznuzal/tokoberas",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "gentelella": "^1.3.0"
+  }
+}

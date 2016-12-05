@@ -12,25 +12,19 @@
     <title>Gentellela Alela! | </title>
 
     <!-- Bootstrap -->
-    <link href=" {{ url('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href=" {{ url('bower_components/gentelella/vendors/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Custom Theme Style -->
-    <link href=" {{ url('css/custom.min.css') }}" rel="stylesheet">
+    <link href=" {{ url('bower_components/gentelella/build/css/custom.min.css') }}" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href=" {{ url('css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href=" {{ url('bower_components/gentelella/vendors/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
     <!-- NProgress -->
-    <link href=" {{ url('css/nprogress.css') }}" rel="stylesheet">
+    <link href=" {{ url('bower_components/gentelella/vendors/nprogress/nprogress.css') }}" rel="stylesheet">
     <!-- iCheck -->
-    <link href=" {{ url('css/green.css') }}" rel="stylesheet">
-    <!-- bootstrap-wysiwyg -->
-    <link href=" {{ url('css/prettify.min.css') }}" rel="stylesheet">
-    <!-- Select2 -->
-    <link href=" {{ url('css/select2.min.css') }}" rel="stylesheet">
-    <!-- Switchery -->
-    <link href=" {{ url('css/switchery.min.css') }}" rel="stylesheet">
-    <!-- starrr -->
-    <link href=" {{ url('css/starrr.css') }}" rel="stylesheet">
-    <!-- bootstrap-daterangepicker -->
-    <link href=" {{ url('css/daterangepicker.css') }}" rel="stylesheet">
+    <link href=" {{ url('bower_components/gentelella/vendors/iCheck/skins/flat/green.css') }}" rel="stylesheet">
+    <!-- bootstrap-progressbar -->
+    <link href=" {{ url('bower_components/gentelella/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css') }}" rel="stylesheet">
+    <!-- jVectorMap -->
+    <link href=" {{ url('bower_components/gentelella/production/css/maps/jquery-jvectormap-2.0.3.css') }}" rel="stylesheet">
 
   </head>
 
@@ -986,41 +980,34 @@
       </div>
     </div>
 <!-- jQuery -->
-    <script src="{{ url('js/jquery/dist/jquery.min.js')}}"></script>
-    <!-- Bootstrap -->
-    <script src="{{ url('js/bootstrap/dist/js/bootstrap.min.js')}}"></script>
-    <!-- Custom Theme Scripts -->
-    <script src="{{ url('js/custom.js')}}"></script>
-    <!-- FastClick -->
-    <script src="{{ url('js/fastclick/lib/fastclick.js')}}"></script>
-    <!-- NProgress -->
-    <script src="{{ url('js/nprogress/nprogress.js')}}"></script>
-    <!-- bootstrap-progressbar -->
-    <script src="{{ url('js/bootstrap-progressbar/bootstrap-progressbar.min.js')}}"></script>
-    <!-- iCheck -->
-    <script src="{{ url('js/iCheck/icheck.min.js')}}"></script>
-    <!-- bootstrap-daterangepicker -->
-    <script src="{{ url('js/moment/min/moment.min.js')}}"></script>
-    <script src="{{ url('js/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
-    <!-- bootstrap-wysiwyg -->
-    <script src="{{ url('js/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js')}}"></script>
-    <script src="{{ url('js/jquery.hotkeys/jquery.hotkeys.js')}}"></script>
-    <script src="{{ url('js/google-code-prettify/src/prettify.js')}}"></script>
-    <!-- jQuery Tags Input -->
-    <script src="{{ url('js/jquery.tagsinput/src/jquery.tagsinput.js')}}"></script>
-    <!-- Switchery -->
-    <script src="{{ url('js/switchery/dist/switchery.min.js')}}"></script>
-    <!-- Select2 -->
-    <script src="{{ url('js/select2/dist/js/select2.full.min.js')}}"></script>
-    <!-- Parsley -->
-    <script src="{{ url('js/parsleyjs/dist/parsley.min.js')}}"></script>
-    <!-- Autosize -->
-    <script src="{{ url('js/autosize/dist/autosize.min.js')}}"></script>
-    <!-- jQuery autocomplete -->
-    <script src="{{ url('js/devbridge-autocomplete/dist/jquery.autocomplete.min.js')}}"></script>
-    <!-- starrr -->
-    <script src="{{ url('js/starrr/dist/starrr.js')}}"></script>
 
+    <!-- jQuery -->
+    <script src="{{ url('bower_components/gentelella/vendors/jquery/dist/jquery.min.js')}}"></script>
+    <!-- Bootstrap -->
+    <script src="{{ url('bower_components/gentelella/vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+    <!-- FastClick -->
+    <script src="{{ url('bower_components/gentelella/vendors/fastclick/lib/fastclick.js')}}"></script>
+    <!-- NProgress -->
+    <script src="{{ url('bower_components/gentelella/vendors/nprogress/nprogress.js')}}"></script>
+    <!-- Chart.js -->
+    <script src="{{ url('bower_components/gentelella/vendors/Chart.js/dist/Chart.min.js')}}"></script>
+    <!-- gauge.js -->
+    <script src="{{ url('bower_components/gentelella/vendors/bernii/gauge.js/dist/gauge.min.js')}}"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="{{ url('bower_components/gentelella/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js')}}"></script>
+    <!-- iCheck -->
+    <script src="{{ url('bower_components/gentelella/vendors/iCheck/icheck.min.js')}}"></script>
+    <!-- Skycons -->
+    <script src="{{ url('bower_components/gentelella/vendors/skycons/skycons.js')}}"></script>
+    <!-- Flot -->
+    <script src="{{ url('bower_components/gentelella/vendors/Flot/jquery.flot.js')}}"></script>
+    <script src="{{ url('bower_components/gentelella/vendors/Flot/jquery.flot.pie.js')}}"></script>
+    <script src="{{ url('bower_components/gentelella/vendors/Flot/jquery.flot.time.js')}}"></script>
+    <script src="{{ url('bower_components/gentelella/vendors/Flot/jquery.flot.stack.js')}}"></script>
+    <script src="{{ url('bower_components/gentelella/vendors/Flot/jquery.flot.resize.js')}}"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="{{ url('bower_components/gentelella/build/js/custom.js')}}"></script>
 
     <!-- bootstrap-daterangepicker -->
     <script>
