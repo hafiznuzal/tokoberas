@@ -6,3 +6,7 @@
 Homestead.json
 Homestead.yaml
 .env
+
+/database/*.bak
+
+npm-debug.log
