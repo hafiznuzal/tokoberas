@@ -15,4 +15,8 @@ class HomeController extends Controller
     {
         return view('navbar');
     }
+    public function test()
+    {
+        return view('addperson');
+    }
 }
