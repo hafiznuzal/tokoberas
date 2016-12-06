@@ -15,4 +15,5 @@ Route::get('/','HomeController@index');
 
 Route::get('index','HomeController@index');
 Route::get('test','HomeController@test');
+Route::get('addprodusen','HomeController@addprodusen');
 Route::get('test_tabel','HomeController@test_tabel');
