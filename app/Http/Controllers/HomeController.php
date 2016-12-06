@@ -12,4 +12,8 @@ class HomeController extends Controller
     {
         return view('app.example');
     }
+    public function test()
+    {
+        return view('app.addperson');
+    }
 }
