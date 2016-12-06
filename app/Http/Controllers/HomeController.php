@@ -19,4 +19,8 @@ class HomeController extends Controller
     {
         return view('addperson');
     }
+    public function test_tabel()
+    {
+        return view('tabel');
+    }
 }

@@ -327,6 +327,7 @@
     <!-- Custom Theme Scripts -->
     <script src="{{ url('bower_components/gentelella/build/js/custom.js')}}"></script>
 
+
     <!-- bootstrap-daterangepicker -->
     <script>
       $(document).ready(function() {
@@ -516,5 +517,6 @@
           $('.stars-count-existing').html(value);
         });
       });
-    </script>        
+    </script>
+    @yield('javascript')        
 </html>
