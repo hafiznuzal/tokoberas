@@ -18,8 +18,12 @@ class HomeController extends Controller
     }
      public function addprodusen()
     {
-        return view('app.addprodusen');
-    }
+       return view('app.addprodusen');
+    } 
+     public function addkonsumen()
+    {
+       return view('app.addkonsumen');
+    } 
     public function test_tabel()
     {
         return view('app.tabel');
