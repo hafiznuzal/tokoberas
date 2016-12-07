@@ -78,7 +78,7 @@
           <thead>
             <tr>
               <th class="text-center">No</th>
-              <th>Inventory</th>
+              <th>Operasional</th>
               <th class="text-right">Jumlah</th>
               <th class="text-right">Harga</th>
             </tr>

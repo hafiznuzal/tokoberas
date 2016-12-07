@@ -22,4 +22,9 @@ class Inventory extends Model
     {
         return $this->hasMany('App\ItemTransaksi');
     }
+
+    public function scopeAvailable($query)
+    {
+        return $query->where('jumlah_aktual', '>', 0);
+    }
 }
