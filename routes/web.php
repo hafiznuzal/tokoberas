@@ -18,3 +18,5 @@ Route::get('test','HomeController@test');
 Route::get('addprodusen','HomeController@addprodusen');
 Route::get('addkonsumen','HomeController@addkonsumen');
 Route::get('test_tabel','HomeController@test_tabel');
+Route::get('laporan_pembayaran','HomeController@laporan_pembayaran');
+Route::get('laporan_penjualan','HomeController@laporan_penjualan');

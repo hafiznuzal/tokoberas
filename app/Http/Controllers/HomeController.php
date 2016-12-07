@@ -28,4 +28,12 @@ class HomeController extends Controller
     {
         return view('app.tabel');
     }
+    public function laporan_pembayaran()
+    {
+        return view('app.tabel_laporan_pembayaran');
+    }
+    public function laporan_penjualan()
+    {
+        return view('app.tabel_laporan_penjualan');
+    }
 }
