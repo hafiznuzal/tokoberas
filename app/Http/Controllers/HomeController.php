@@ -18,6 +18,6 @@ class HomeController extends Controller
     }
     public function test_tabel()
     {
-        return view('tabel');
+        return view('app.tabel');
     }
 }
