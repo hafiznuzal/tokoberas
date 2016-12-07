@@ -2,7 +2,6 @@
 <html lang="en"> 
 
   <head>
- <!--  {{ url('css/bootstrap.min.css') }} -->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
@@ -52,7 +51,6 @@
         <!-- /footer content -->
       </div>
     </div>
-<!-- jQuery -->
 
     <!-- jQuery -->
     <script src="{{ url('bower_components/gentelella/vendors/jquery/dist/jquery.min.js')}}"></script>
