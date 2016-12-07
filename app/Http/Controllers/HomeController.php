@@ -24,6 +24,10 @@ class HomeController extends Controller
     {
        return view('app.addkonsumen');
     } 
+    public function addkaryawan()
+    {
+       return view('app.addkaryawan');
+    } 
     public function test_tabel()
     {
         return view('app.tabel');
