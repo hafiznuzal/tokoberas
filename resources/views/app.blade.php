@@ -2,7 +2,6 @@
 <html lang="en"> 
 
   <head>
- <!--  {{ url('css/bootstrap.min.css') }} -->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
@@ -33,10 +32,10 @@
     <div class="container body">
       <div class="main_container">
         <div class="col-md-3 left_col">
-          @include('app.components.sidebar')
+          @include('components.sidebar')
         </div>
 
-        @include('app.components.topnav')
+        @include('components.topnav')
 
         <div class="right_col" role="main">
           @yield('content')
@@ -52,7 +51,6 @@
         <!-- /footer content -->
       </div>
     </div>
-<!-- jQuery -->
 
     <!-- jQuery -->
     <script src="{{ url('bower_components/gentelella/vendors/jquery/dist/jquery.min.js')}}"></script>
