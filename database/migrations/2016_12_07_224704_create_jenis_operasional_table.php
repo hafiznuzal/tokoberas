@@ -15,6 +15,7 @@ class CreateJenisOperasionalTable extends Migration
     {
         Schema::create('jenis_operasional', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('nama');
             $table->timestamps();
         });
     }

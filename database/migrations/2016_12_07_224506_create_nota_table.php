@@ -15,6 +15,14 @@ class CreateNotaTable extends Migration
     {
         Schema::create('nota', function (Blueprint $table) {
             $table->increments('id');
+            $table->dateTime('tanggal');
+            $table->bigInteger('total_modal');
+            $table->bigInteger('total_harga');
+            $table->bigInteger('total_pembayaran');
+            $table->bigInteger('keuntungan_bersih');
+            $table->integer('konsumen_id')->unsigned();
+            $table->integer('status');
+            $table->integer('user_id')->unsigned();
             $table->timestamps();
         });
     }

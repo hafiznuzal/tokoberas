@@ -15,6 +15,9 @@ class CreateRiwayatOperasionalTable extends Migration
     {
         Schema::create('riwayat_operasional', function (Blueprint $table) {
             $table->increments('id');
+            $table->bigInteger('biaya');
+            $table->integer('jenis_operasional_id')->unsigned();
+            $table->integer('nota_id')->unsigned();
             $table->timestamps();
         });
     }

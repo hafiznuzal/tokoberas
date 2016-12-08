@@ -15,6 +15,11 @@ class CreatePembayaranTable extends Migration
     {
         Schema::create('pembayaran', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('nota_id')->unsigned();
+            $table->integer('nota_konsumen_id')->unsigned();
+            $table->bigInteger('biaya');
+            $table->date('tanggal');
+            $table->integer('user_id')->unsigned();
             $table->timestamps();
         });
     }

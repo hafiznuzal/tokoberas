@@ -15,6 +15,12 @@ class CreateItemTransaksiTable extends Migration
     {
         Schema::create('item_transaksi', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('jumlah');
+            $table->integer('nota_id')->unsigned();
+            $table->bigInteger('biaya');
+            $table->integer('inventory_id')->unsigned();
+            $table->integer('inventory_jenis')->unsigned();
+            $table->integer('inventory_modal')->unsigned();
             $table->timestamps();
         });
     }
