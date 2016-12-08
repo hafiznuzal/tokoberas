@@ -23,3 +23,4 @@ Route::get('laporan_pembayaran','HomeController@laporan_pembayaran');
 Route::get('laporan_penjualan','HomeController@laporan_penjualan');
 
 Route::get('transaksi_penjualan','PenjualanController@index');
+Route::get('transaksi_pembelian','PembelianController@index');

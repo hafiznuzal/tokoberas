@@ -13,13 +13,13 @@ use App\Pembayaran;
 use App\RiwayatOperasional;
 
 
-class PenjualanController extends Controller
+class PembelianController extends Controller
 {
     public function index()
     {
         // $inventory = Inventory::available()->with('jenis.kurs')->get();
         // $operasional = JenisOperasional::get();
 
-        return view('app.transaksi_penjualan');
+        return view('app.transaksi_pembelian');
     }
 }
