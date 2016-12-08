@@ -7,9 +7,7 @@ use App\Http\Controllers\Controller;
 
 use App\Inventory;
 use App\ItemTransaksi;
-use App\Jenis;
 use App\JenisOperasional;
-use App\KursBarang;
 use App\Nota;
 use App\Pembayaran;
 use App\RiwayatOperasional;
@@ -19,6 +17,9 @@ class PenjualanController extends Controller
 {
     public function index()
     {
+        $inventory = Inventory::available()->with('jenis.kurs')->get();
+        $operasional = JenisOperasional::get();
+
         return view('app.transaksi_penjualan');
     }
 }

@@ -1,5 +1,7 @@
 @extends('app')
 
+@include('plugins.selectize')
+
 @section('css')
 <style type="text/css">
   .form-inline .btn {
@@ -9,26 +11,25 @@
 @endsection
 
 @section('content')
-<h3>Transaksi Penjualan</h3>
-<hr>
 <div class="x_panel">
   <div class="x_title">
-    <h4>Inventory</h4>
+    <h4>Transaksi Penjualan</h4>
   </div>
   <div class="x_content">
     <div class="row">
       <div class="col-md-6">
-        <form class="form-inline">
+        <form class="">
+          <label>Tambah inventory</label>
           <div class="form-group">
-            <select id="pilihinventory" class="form-control" name="pilihinventory">
-              <option disabled selected>Pilih inventory</option>
+            <select id="pilihinventory">
+              <value="">Pilih inventory</option>
               <option>Beras Pandan Wangi 20kg</option>
               <option>Beras Pandan Wangi 50kg</option>
               <option>Jagung Manis Hangat 10kg</option>
             </select>
           </div>
           <div class="form-group">
-            <input type="number" class="form-control" id="exampleInputEmail2" placeholder="Jumlah inventory">
+            <input type="number" class="form-control" id="jumlahinventory" placeholder="Jumlah inventory">
           </div>
           <button type="submit" class="btn btn-default">
             <i class="fa fa-plus"></i>
@@ -61,13 +62,17 @@
         </table>
       </div>
       <div class="col-md-6">
-        <form class="form-inline">
+        <form class="">
+          <label>Tambah operasional</label>
           <div class="form-group">
-            <select id="pilihoperasional" class="form-control" name="pilihoperasional">
-              <option disabled selected>Pilih operasional</option>
+            <select id="pilihoperasional">
+              <option value="">Pilih operasional</option>
               <option>Kuli</option>
               <option>Karung</option>
             </select>
+          </div>
+          <div class="form-group">
+            <input type="number" class="form-control" id="hargaoperasional" placeholder="Biaya operasional">
           </div>
           <button type="submit" class="btn btn-default">
             <i class="fa fa-plus"></i>
@@ -96,4 +101,13 @@
     </div>
   </div>
 </div>
+@endsection
+
+@section('js')
+<script>
+$(function(){
+  $("#pilihinventory").selectize();
+  $("#pilihoperasional").selectize();
+})
+</script>
 @endsection

@@ -32,10 +32,10 @@
     <div class="container body">
       <div class="main_container">
         <div class="col-md-3 left_col">
-          @include('app.components.sidebar')
+          @include('components.sidebar')
         </div>
 
-        @include('app.components.topnav')
+        @include('components.topnav')
 
         <div class="right_col" role="main">
           @yield('content')
