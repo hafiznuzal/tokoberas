@@ -52,7 +52,9 @@
             <tr>
               <td class="text-center">{{$loop->iteration}}</td>
               <td>{{$barang->nama}}</td>
-              <td class="text-center"><a class="text-danger" href="{{url('jenis/destroy/'.encrypt($barang->id))}}"><i class="fa fa-close"></i></a></td>
+              <td class="text-center">
+                <a class="text-danger delete-resource" data-id="{{encrypt($barang->id)}}"><i class="fa fa-close"></i></a>
+              </td>
             </tr>
             @empty
             <tr>
@@ -65,4 +67,24 @@
     </div>
   </div>
 </div>
+@endsection
+
+@section('js')
+<script>
+$(function() {
+  $(".delete-resource").click(function() {
+    id = $(this).data('id');
+    $.ajax({
+      url: $('meta[name="base_url"]').attr('content') + '/jenis/' + id,
+      method: 'POST',
+      data: {
+        '_method': 'DELETE'
+      },
+      success: function() {
+        window.location = window.location
+      }
+    })
+  })
+})
+</script>
 @endsection

@@ -23,7 +23,9 @@ Route::get('laporan_pembayaran','HomeController@laporan_pembayaran');
 Route::get('laporan_penjualan','HomeController@laporan_penjualan');
 
 /* Transaksi pembelian dan penjualan */
-Route::get('transaksi_penjualan','TransaksiController@getPenjualan');
-Route::get('transaksi_pembelian','TransaksiController@getPembelian');
+Route::get('transaksi/pembelian','TransaksiController@getPembelian');
+Route::post('transaksi/pembelian','TransaksiController@postPembelian');
+Route::get('transaksi/penjualan','TransaksiController@getPenjualan');
+Route::post('transaksi/penjualan','TransaksiController@postPenjualan');
 
 Route::resource('jenis','JenisController');
