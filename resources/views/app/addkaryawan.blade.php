@@ -1,6 +1,7 @@
 @extends('app')
 
 @section('content')
+
  <div class="row">
 
               <div class="col-md-12 col-sm-12 col-xs-12">
@@ -19,21 +20,12 @@
                             <span class="step_no">2</span>
                           </a>
                         </li>
-                        <li>
-                          <a href="#step-33">
-                            <span class="step_no">3</span>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#step-44">
-                            <span class="step_no">4</span>
-                          </a>
-                        </li>
+                        
                       </ul>
 
                       <div id="step-11">
                         <h2 class="StepTitle">Step 1 Content</h2>
-                        <form class="form-horizontal form-label-left">
+                        <form class="form-horizontal form-label-left" method="post" action="url{{('users')}}">
 
                           <span class="section">Personal Info</span>
 
@@ -41,14 +33,14 @@
                             <label class="control-label col-md-3 col-sm-3" for="first-name">Nama <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6">
-                              <input type="text" id="first-name2" required="required" class="form-control col-md-7 col-xs-12">
+                              <input type="text" name="nama" id="first-name2" required="required" class="form-control col-md-7 col-xs-12">
                             </div>
                           </div>
                           <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3" for="last-name">Alamat <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6">
-                              <input type="text" id="last-name2" name="last-name" required="required" class="form-control col-md-7 col-xs-12">
+                              <input type="text" id="last-name2" name="alamat" required="required" class="form-control col-md-7 col-xs-12">
                             </div>
                           </div>
                           <div class="form-group">
@@ -62,10 +54,10 @@
                             <div class="col-md-6 col-sm-6">
                               <div id="gender2" class="btn-group" data-toggle="buttons">
                                 <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                                  <input type="radio" name="gender" value="male"> &nbsp; Male &nbsp;
+                                  <input type="radio" name="jeniskelamin" value="male"> &nbsp; Male &nbsp;
                                 </label>
                                 <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                                  <input type="radio" name="gender" value="female" checked=""> Female
+                                  <input type="radio" name="jeniskelamin" value="female" checked=""> Female
                                 </label>
                               </div>
                             </div>
@@ -74,7 +66,7 @@
                             <label class="control-label col-md-3 col-sm-3">Tempat lahir <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6">
-                              <input id="birthday2" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
+                              <input id="birthday2" name="tempatlahir" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
                             </div>
                           </div>
                            
@@ -86,7 +78,7 @@
                           <div class="control-group">
                             <div class="controls">
                               <div class="col-md-11 xdisplay_inputx form-group has-feedback">
-                                <input type="text" class="form-control has-feedback-left" id="single_cal4" placeholder="First Name" aria-describedby="inputSuccess2Status4">
+                                <input type="text" class="form-control has-feedback-left" id="single_cal4" name="tanggallahir" placeholder="First Name" aria-describedby="inputSuccess2Status4">
                                 <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
                                 <span id="inputSuccess2Status4" class="sr-only">(success)</span>
                               </div>
@@ -100,7 +92,7 @@
                             <label class="control-label col-md-3 col-sm-3">Jabatan <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6">
-                              <input id="birthday2" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
+                              <input id="jabatan" name="jabatan" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
                             </div>
                           </div>
 
@@ -111,7 +103,14 @@
 
                         <!-- <h2 class="StepTitle">Step 2 Content</h2> -->
 
-                        <form> 
+                        <form>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3" for="last-name">username <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6">
+                              <input type="text" id="last-name2" name="last-name" required="required" class="form-control col-md-7 col-xs-12">
+                            </div>
+                          </div> 
                         
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3" for="first-name">password <span class="required">*</span>
@@ -129,40 +128,11 @@
                           </div>
 
                           <br></br>
-                          <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3" for="last-name">username <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6">
-                              <input type="text" id="last-name2" name="last-name" required="required" class="form-control col-md-7 col-xs-12">
-                            </div>
-                          </div>
+                          
                           </form>
                       </div>
 
-                      <div id="step-33">
-                        <h2 class="StepTitle">Step 3 Content</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </p>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                          in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </p>
-                      </div>
-                      <div id="step-44">
-                        <h2 class="StepTitle">Step 4 Content</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </p>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                          in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </p>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                          in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </p>
-                      </div>
+
                     </div>
                     <!-- End SmartWizard Content -->
                   </div>
