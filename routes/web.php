@@ -22,5 +22,8 @@ Route::get('test_tabel','HomeController@test_tabel');
 Route::get('laporan_pembayaran','HomeController@laporan_pembayaran');
 Route::get('laporan_penjualan','HomeController@laporan_penjualan');
 
-Route::get('transaksi_penjualan','PenjualanController@index');
-Route::get('transaksi_pembelian','PembelianController@index');
+/* Transaksi pembelian dan penjualan */
+Route::get('transaksi_penjualan','TransaksiController@getPenjualan');
+Route::get('transaksi_pembelian','TransaksiController@getPembelian');
+
+Route::resource('jenis','JenisController');
