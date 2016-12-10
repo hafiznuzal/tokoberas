@@ -43,6 +43,7 @@
               <th>Inventory</th>
               <th class="text-right">Jumlah</th>
               <th class="text-right">Harga</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -51,12 +52,14 @@
               <td>Beras Pandan Wangi 20kg</td>
               <td class="text-right">2</td>
               <td class="text-right">100.000</td>
+              <td><i class="fa fa-close"></i></td>
             </tr>
             <tr>
               <td class="text-center">2</td>
               <td>Beras Pandan Wangi 50kg</td>
               <td class="text-right">1</td>
               <td class="text-right">100.000</td>
+              <td><i class="fa fa-close"></i></td>
             </tr>
           </tbody>
         </table>
@@ -86,6 +89,7 @@
               <th>Operasional</th>
               <th class="text-right">Jumlah</th>
               <th class="text-right">Harga</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -94,6 +98,7 @@
               <td>Kuli</td>
               <td class="text-right">4</td>
               <td class="text-right">200.000</td>
+              <td><i class="fa fa-close"></i></td>
             </tr>
           </tbody>
         </table>

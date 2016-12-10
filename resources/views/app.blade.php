@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="en" ng-app="tokoberas">
 
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -7,6 +7,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="base_url" content="{{ url('/') }}">
 
     <title>Toko Beras | @yield('title')</title>
 
@@ -52,6 +54,8 @@
       </div>
     </div>
 
+    <!-- moment -->
+    <script src="{{ url('bower_components/gentelella/vendors/moment/moment.js')}}"></script>
     <!-- jQuery -->
     <script src="{{ url('bower_components/gentelella/vendors/jquery/dist/jquery.min.js')}}"></script>
     <!-- Bootstrap -->
@@ -60,8 +64,6 @@
     <script src="{{ url('bower_components/gentelella/vendors/fastclick/lib/fastclick.js')}}"></script>
     <!-- NProgress -->
     <script src="{{ url('bower_components/gentelella/vendors/nprogress/nprogress.js')}}"></script>
-    <!-- Chart.js -->
-    <script src="{{ url('bower_components/gentelella/vendors/Chart.js/dist/Chart.min.js')}}"></script>
     <!-- gauge.js -->
     <script src="{{ url('bower_components/gentelella/vendors/bernii/gauge.js/dist/gauge.min.js')}}"></script>
     <!-- bootstrap-progressbar -->
@@ -79,6 +81,10 @@
 
     <!-- Custom Theme Scripts -->
     <script src="{{ url('bower_components/gentelella/build/js/custom.js')}}"></script>
+
+    <!-- Angular -->
+    <script src="{{ url('bower_components/angular/angular.min.js')}}"></script>
+    <script src="{{ url('js/app.js')}}"></script>
 
     @yield('js')
   </body>
