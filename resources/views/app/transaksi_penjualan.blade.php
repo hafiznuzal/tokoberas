@@ -2,20 +2,16 @@
 
 @include('plugins.selectize')
 
-@section('css')
-<style type="text/css">
-  .form-inline .btn {
-    margin-bottom: 0;
-  }
-</style>
+@section('content-title')
+Transaksi Penjualan
 @endsection
 
 @section('content')
-<div class="x_panel">
-  <div class="x_title">
-    <h4>Transaksi Penjualan</h4>
+<div class="box">
+  <div class="box-header">
+    <h4>Tambah barang dan operasional</h4>
   </div>
-  <div class="x_content">
+  <div class="box-body">
     <div class="row">
       <div class="col-lg-6">
         <div class="form-horizontal">

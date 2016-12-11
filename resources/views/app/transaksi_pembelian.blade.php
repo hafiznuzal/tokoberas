@@ -15,7 +15,7 @@
   <div class="col-lg-8 col-md-10 col-sm-10 col-xs-12">
     <div class="x_panel">
       <div class="x_title">
-        <h4>Transaksi Pembelian</h4>
+        <h4>Tambah barang dan operasional</h4>
       </div>
       <div class="x_content">
         <div class="form-horizontal">
