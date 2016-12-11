@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Konsumen;
 
 class KonsumenController extends Controller
 {
@@ -13,8 +14,8 @@ class KonsumenController extends Controller
      */
     public function index()
     {
-        //
-        return view('app.addkonsumen');
+        $data['konsumen'] = Konsumen::get();
+        return view('app.addkonsumen', $data);
     }
 
     /**
@@ -36,6 +37,10 @@ class KonsumenController extends Controller
     public function store(Request $request)
     {
         //
+        $konsumen = new Konsumen;
+        $konsumen->nama = $request->input('nama');
+        $konsumen->tanggallahir = $request->input('tanggallahir');
+        // $konsumen->
     }
 
     /**
