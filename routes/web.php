@@ -37,3 +37,4 @@ Route::get('transaksi/penjualan','TransaksiController@getPenjualan');
 Route::post('transaksi/penjualan','TransaksiController@postPenjualan');
 
 Route::resource('jenis','JenisController');
+Route::resource('jenis_operasional','JenisOperasionalController');

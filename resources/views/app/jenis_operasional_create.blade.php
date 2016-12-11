@@ -13,13 +13,13 @@
   <div class="col-md-8">
     <div class="x_panel">
       <div class="x_title">
-        <h4>Tambah Jenis Barang</h4>
+        <h4>Tambah Jenis Operasional</h4>
       </div>
       <div class="x_content">
-        <form method="post" class="form-horizontal" action="{{ url('jenis') }}">
+        <form method="post" class="form-horizontal" action="{{ url('jenis_operasional') }}">
           {{ csrf_field() }}
           <div class="form-group">
-            <label class="col-sm-3 control-label">Nama Barang</label>
+            <label class="col-sm-3 control-label">Nama Operasional</label>
             <div class="col-sm-8">
               <input type="text" class="form-control" name="nama" placeholder="">
             </div>
@@ -36,24 +36,24 @@
     </div>
     <div class="x_panel">
       <div class="x_title">
-        <h4>List Jenis Barang</h4>
+        <h4>List Jenis Operasional</h4>
       </div>
       <div class="x_content">
         <table class="table">
           <thead>
             <tr>
-              <th class="text-center col-sm-2">No</th>
+              <th class="text-center col-sm-1">No</th>
               <th>Nama</th>
               <th></th>
             </tr>
           </thead>
           <tbody>
-            @forelse ($jenis as $barang)
+            @forelse ($jenis as $operasional)
             <tr>
               <td class="text-center">{{$loop->iteration}}</td>
-              <td>{{$barang->nama}}</td>
+              <td>{{$operasional->nama}}</td>
               <td class="text-center">
-                <a class="text-danger delete-resource" data-id="{{encrypt($barang->id)}}"><i class="fa fa-close"></i></a>
+                <a class="text-danger delete-resource" data-id="{{encrypt($operasional->id)}}"><i class="fa fa-close"></i></a>
               </td>
             </tr>
             @empty
@@ -75,7 +75,7 @@ $(function() {
   $(".delete-resource").click(function() {
     id = $(this).data('id');
     $.ajax({
-      url: $('meta[name="base_url"]').attr('content') + '/jenis/' + id,
+      url: $('meta[name="base_url"]').attr('content') + '/jenis_operasional/' + id,
       method: 'POST',
       data: {
         '_method': 'DELETE'
