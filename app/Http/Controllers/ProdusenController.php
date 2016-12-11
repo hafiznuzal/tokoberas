@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Produsen;
 
 class ProdusenController extends Controller
 {
@@ -14,7 +15,8 @@ class ProdusenController extends Controller
     public function index()
     {
         //
-        return view('app.addprodusen');
+        $data['produsen'] = Produsen::get();
+        return view('app.addprodusen', $data);
     }
 
     /**
@@ -36,6 +38,15 @@ class ProdusenController extends Controller
     public function store(Request $request)
     {
         //
+        // dd($request->input());
+        $produsen = new Produsen;
+        $produsen->nama = $request->input('nama');
+        $produsen->alamat = $request->input('alamat');
+        $produsen->telepon = $request->input('telepon');
+        $produsen->hp = $request->input('hp');
+        $produsen->save();
+
+        return redirect()->back();
     }
 
     /**
@@ -58,7 +69,8 @@ class ProdusenController extends Controller
     public function edit($id)
     {
         //
-        return view('app.editprodusen');
+        $data['produsen'] = Produsen::find($id);
+        return view('app.editprodusen', $data);
     }
 
     /**
@@ -69,8 +81,16 @@ class ProdusenController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //
+    {        
+        // dd($request->input());
+        $produsen = Produsen::find($id);
+        $produsen->nama = $request->input('nama');
+        $produsen->alamat = $request->input('alamat');
+        $produsen->telepon = $request->input('telepon');
+        $produsen->hp = $request->input('hp');
+        $produsen->save();
+
+        return redirect('produsen');
     }
 
     /**
@@ -82,5 +102,8 @@ class ProdusenController extends Controller
     public function destroy($id)
     {
         //
+        $produsen = Produsen::find(decrypt($id));
+        $produsen->delete();
+        return redirect()->back();
     }
 }
