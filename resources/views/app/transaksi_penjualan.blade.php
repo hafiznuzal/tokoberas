@@ -17,25 +17,28 @@
   </div>
   <div class="x_content">
     <div class="row">
-      <div class="col-md-6">
-        <form class="">
-          <label>Tambah inventory</label>
+      <div class="col-lg-6">
+        <div class="form-horizontal">
           <div class="form-group">
-            <select id="pilihinventory">
-              <value="">Pilih inventory</option>
-              <option>Beras Pandan Wangi 20kg</option>
-              <option>Beras Pandan Wangi 50kg</option>
-              <option>Jagung Manis Hangat 10kg</option>
-            </select>
+            <label class="col-md-3 control-label">Inventory</label>
+            <div class="col-md-9">
+              <select id="pilihinventory" placeholder="Pilih inventory">
+                
+              </select>
+            </div>
           </div>
           <div class="form-group">
-            <input type="number" class="form-control" id="jumlahinventory" placeholder="Jumlah inventory">
+            <label class="col-md-3 control-label">Jumlah</label>
+            <div class="col-md-9">
+              <input type="number" class="form-control" id="jumlahinventory" placeholder="Jumlah inventory">
+            </div>
           </div>
-          <button type="submit" class="btn btn-default">
-            <i class="fa fa-plus"></i>
-          </button>
-        </form>
-        <hr>
+          <div class="form-group">
+            <div class="col-md-offset-3 col-md-9">
+              <button type="submit" class="btn btn-primary">Tambahkan</button>
+            </div>
+          </div>
+        </div>
         <table class="table">
           <thead>
             <tr>
@@ -49,39 +52,45 @@
           <tbody>
             <tr>
               <td class="text-center">1</td>
-              <td>Beras Pandan Wangi 20kg</td>
-              <td class="text-right">2</td>
+              <td>Beras Pandan Wangi Top</td>
+              <td class="text-right">20</td>
               <td class="text-right">100.000</td>
               <td><i class="fa fa-close"></i></td>
             </tr>
             <tr>
               <td class="text-center">2</td>
-              <td>Beras Pandan Wangi 50kg</td>
-              <td class="text-right">1</td>
+              <td>Beras Pandan Wangi Top</td>
+              <td class="text-right">20</td>
               <td class="text-right">100.000</td>
               <td><i class="fa fa-close"></i></td>
             </tr>
           </tbody>
         </table>
       </div>
-      <div class="col-md-6">
-        <form class="">
-          <label>Tambah operasional</label>
+      <div class="col-lg-6">
+        <div class="form-horizontal">
           <div class="form-group">
-            <select id="pilihoperasional">
-              <option value="">Pilih operasional</option>
-              <option>Kuli</option>
-              <option>Karung</option>
-            </select>
+            <label class="col-md-3 control-label">Operasional</label>
+            <div class="col-md-9">
+              <select id="pilihoperasional" placeholder="Pilih operasional">
+                @foreach ($operasional as $op)
+                <option value="{{$op->id}}">{{$op->nama}}</option>
+                @endforeach
+              </select>
+            </div>
           </div>
           <div class="form-group">
-            <input type="number" class="form-control" id="hargaoperasional" placeholder="Biaya operasional">
+            <label class="col-md-3 control-label">Biaya</label>
+            <div class="col-md-9">
+              <input type="number" class="form-control" id="hargaoperasional" placeholder="Biaya operasional">
+            </div>
           </div>
-          <button type="submit" class="btn btn-default">
-            <i class="fa fa-plus"></i>
-          </button>
-        </form>
-        <hr>
+          <div class="form-group">
+            <div class="col-md-offset-3 col-md-9">
+              <button type="submit" class="btn btn-primary">Tambahkan</button>
+            </div>
+          </div>
+        </div>
         <table class="table">
           <thead>
             <tr>
@@ -111,7 +120,32 @@
 @section('js')
 <script>
 $(function(){
-  $("#pilihinventory").selectize();
+  $("#pilihinventory").selectize({
+    valueField: 'id',
+    labelField: 'jenis.nama',
+    searchField: ['jenis.nama', 'merek'],
+    create: false,
+    options: {!!json_encode($dotinvent)!!},
+    render: {
+      option: function(item, escape) {
+        return '<div>' +
+          '<strong>' +
+            escape(item['jenis.nama']) +
+          '</strong>' +
+          '<div class="row small">' +
+            '<div class="col-sm-6">' +
+              '<span>' + escape(item.merek) + '</span>' +
+            '</div>' +
+            '<div class="col-sm-6">' +
+              '<span>' + escape(item.tanggal_masuk) + '</span>' +
+            '</div>' +
+            '<div class="col-sm-6">' +
+              '<span><strong>Stok: </strong>' + escape(item.jumlah_aktual) + '</span>' +
+          '</div>' +
+        '</div>';
+      }
+    },
+  });
   $("#pilihoperasional").selectize();
 })
 </script>

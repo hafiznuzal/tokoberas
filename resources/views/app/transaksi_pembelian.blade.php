@@ -4,9 +4,9 @@
 
 @section('css')
 <style type="text/css">
-  .form-inline .btn {
-    margin-bottom: 0;
-  }
+.form-inline .btn {
+  margin-bottom: 0;
+}
 </style>
 @endsection
 

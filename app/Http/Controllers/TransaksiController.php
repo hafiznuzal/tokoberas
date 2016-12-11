@@ -49,9 +49,14 @@ class TransaksiController extends Controller
 
     public function getPenjualan()
     {
-        $inventory = Inventory::available()->with('jenis.kurs')->get();
+        $inventory = Inventory::available()->with('jenis')->get();
         $operasional = JenisOperasional::get();
+        $dotinvent = $inventory->map(function ($item) {
+            return array_dot($item->toArray());
+        });
 
-        return view('app.transaksi_penjualan');
+        $data = compact('inventory', 'operasional', 'dotinvent');
+        // dd($data);
+        return view('app.transaksi_penjualan', $data);
     }
 }
