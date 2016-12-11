@@ -58,6 +58,7 @@ class ProdusenController extends Controller
     public function edit($id)
     {
         //
+        return view('app.editprodusen');
     }
 
     /**

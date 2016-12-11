@@ -14,6 +14,7 @@ class UsersController extends Controller
     public function index()
     {
         //
+        return view('app.addkaryawan');
     }
 
     /**
@@ -23,17 +24,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        if ($request->isMethod('get')) 
-        {
-
-
-        }
-
-        else if($request->isMethod('post'))
-        {
-            
-        }
-        //
+      
         
     }
 

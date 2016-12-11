@@ -103,7 +103,8 @@
                           <th>Nama</th>
                           <th>Alamat</th>
                           <th>No Telepon</th>
-                          <th>No Handphone</th>                     
+                          <th>No Handphone</th>
+                          <th>Aksi</th>                     
                         </tr>
                       </thead>
 
@@ -114,204 +115,238 @@
                           <td>System Architect</td>
                           <td>Edinburgh</td>
                           <th>19/02/95</th>
+                          <th><button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("produsen.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("produsen.index") }}'"> </button> </th>
                           </tr>
                         <tr>
                           <td>Garrett Winters</td>
                           <td>Accountant</td>
                           <td>Tokyo</td>
                           <th>19/02/95</th>
+                          <th><button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("produsen.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("produsen.index") }}'"> </button> </th>
                           </tr>
                         <tr>
                           <td>Ashton Cox</td>
                           <td>Junior Technical Author</td>
                           <td>San Francisco</td>
                           <th>19/02/95</th>
+                          <th><button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("produsen.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("produsen.index") }}'"> </button> </th>
                           </tr>
                         <tr>
                           <td>Cedric Kelly</td>
                           <td>Senior Javascript Developer</td>
                           <td>Edinburgh</td>
                           <th>19/02/95</th>
+                          <th><button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("produsen.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("produsen.index") }}'"> </button> </th>
                           </tr>
                         <tr>
                           <td>Airi Satou</td>
                           <td>Accountant</td>
                           <td>Tokyo</td>
                           <th>19/02/95</th>
+                          <th><button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("produsen.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("produsen.index") }}'"> </button> </th>
                           </tr>
                         <tr>
                           <td>Brielle Williamson</td>
                           <td>Integration Specialist</td>
                           <td>New York</td>
                           <th>19/02/95</th>
+                          <th><button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("produsen.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("produsen.index") }}'"> </button> </th>
                           </tr>
                         <tr>
                           <td>Herrod Chandler</td>
                           <td>Sales Assistant</td>
                           <td>San Francisco</td>
                           <th>19/02/95</th>
+                          <th><button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("produsen.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("produsen.index") }}'"> </button> </th>
                           </tr>
                         <tr>
                           <td>Rhona Davidson</td>
                           <td>Integration Specialist</td>
                           <td>Tokyo</td>
                           <th>19/02/95</th>
+                          <th><button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("produsen.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("produsen.index") }}'"> </button> </th>
                           </tr>
                         <tr>
                           <td>Colleen Hurst</td>
                           <td>Javascript Developer</td>
                           <td>San Francisco</td>
                           <th>19/02/95</th>
+                          <th><button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("produsen.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("produsen.index") }}'"> </button> </th>
                           </tr>
                         <tr>
                           <td>Sonya Frost</td>
                           <td>Software Engineer</td>
                           <td>Edinburgh</td>
                           <th>19/02/95</th>
+                          <th><button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("produsen.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("produsen.index") }}'"> </button> </th>
                           </tr>
                         <tr>
                           <td>Jena Gaines</td>
                           <td>Office Manager</td>
                           <td>London</td>
                           <th>19/02/95</th>
+                          <th><button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("produsen.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("produsen.index") }}'"> </button> </th>
                           </tr>
                         <tr>
                           <td>Quinn Flynn</td>
                           <td>Support Lead</td>
                           <td>Edinburgh</td>
                           <th>19/02/95</th>
+                          <th><button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("produsen.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("produsen.index") }}'"> </button> </th>
                           </tr>
                         <tr>
                           <td>Charde Marshall</td>
                           <td>Regional Director</td>
                           <td>San Francisco</td>
                           <th>19/02/95</th>
+                          <th><button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("produsen.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("produsen.index") }}'"> </button> </th>
                           </tr>
                         <tr>
                           <td>Haley Kennedy</td>
                           <td>Senior Marketing Designer</td>
                           <td>London</td>
                           <th>19/02/95</th>
+                          <th><button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("produsen.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("produsen.index") }}'"> </button> </th>
                           </tr>
                         <tr>
                           <td>Tatyana Fitzpatrick</td>
                           <td>Regional Director</td>
                           <td>London</td>
                           <th>19/02/95</th>
+                          <th><button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("produsen.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("produsen.index") }}'"> </button> </th>
                           </tr>
                         <tr>
                           <td>Michael Silva</td>
                           <td>Marketing Designer</td>
                           <td>London</td>
                           <th>19/02/95</th>
+                          <th><button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("produsen.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("produsen.index") }}'"> </button> </th>
                           </tr>
                         <tr>
                           <td>Paul Byrd</td>
                           <td>Chief Financial Officer (CFO)</td>
                           <td>New York</td>
                           <th>19/02/95</th>
+                          <th><button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("produsen.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("produsen.index") }}'"> </button> </th>
                           </tr>
                         <tr>
                           <td>Gloria Little</td>
                           <td>Systems Administrator</td>
                           <td>New York</td>
                           <th>19/02/95</th>
+                          <th><button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("produsen.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("produsen.index") }}'"> </button> </th>
                           </tr>
                         <tr>
                           <td>Bradley Greer</td>
                           <td>Software Engineer</td>
                           <td>London</td>
                           <th>19/02/95</th>
+                          <th><button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("produsen.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("produsen.index") }}'"> </button> </th>
                           </tr>
                         <tr>
                           <td>Dai Rios</td>
                           <td>Personnel Lead</td>
                           <td>Edinburgh</td>
                           <th>19/02/95</th>
+                          <th><button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("produsen.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("produsen.index") }}'"> </button> </th>
                           </tr>
                         <tr>
                           <td>Jenette Caldwell</td>
                           <td>Development Lead</td>
                           <td>New York</td>
                           <th>19/02/95</th>
+                          <th><button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("produsen.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("produsen.index") }}'"> </button> </th>
                           </tr>
                         <tr>
                           <td>Yuri Berry</td>
                           <td>Chief Marketing Officer (CMO)</td>
                           <td>New York</td>
                           <th>19/02/95</th>
+                          <th><button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("produsen.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("produsen.index") }}'"> </button> </th>
                           </tr>
                         <tr>
                           <td>Caesar Vance</td>
                           <td>Pre-Sales Support</td>
                           <td>New York</td>
                           <th>19/02/95</th>
+                          <th><button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("produsen.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("produsen.index") }}'"> </button> </th>
                           </tr>
                         <tr>
                           <td>Doris Wilder</td>
                           <td>Sales Assistant</td>
                           <td>Sidney</td>
                           <th>19/02/95</th>
+                          <th><button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("produsen.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("produsen.index") }}'"> </button> </th>
                           </tr>
                         <tr>
                           <td>Angelica Ramos</td>
                           <td>Chief Executive Officer (CEO)</td>
                           <td>London</td>
                           <th>19/02/95</th>
+                          <th><button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("produsen.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("produsen.index") }}'"> </button> </th>
                           </tr>
                         <tr>
                           <td>Gavin Joyce</td>
                           <td>Developer</td>
                           <td>Edinburgh</td>
                           <th>19/02/95</th>
+                          <th><button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("produsen.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("produsen.index") }}'"> </button> </th>
                           </tr>
                         <tr>
                           <td>Jennifer Chang</td>
                           <td>Regional Director</td>
                           <td>Singapore</td>
                           <th>19/02/95</th>
+                          <th><button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("produsen.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("produsen.index") }}'"> </button> </th>
                           </tr>
                         <tr>
                           <td>Brenden Wagner</td>
                           <td>Software Engineer</td>
                           <td>San Francisco</td>
                           <th>19/02/95</th>
+                          <th><button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("produsen.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("produsen.index") }}'"> </button> </th>
                           </tr>
                         <tr>
                           <td>Fiona Green</td>
                           <td>Chief Operating Officer (COO)</td>
                           <td>San Francisco</td>
                           <th>19/02/95</th>
+                          <th><button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("produsen.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("produsen.index") }}'"> </button> </th>
                           </tr>
                         <tr>
                           <td>Shou Itou</td>
                           <td>Regional Marketing</td>
                           <td>Tokyo</td>
                           <th>19/02/95</th>
+                          <th><button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("produsen.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("produsen.index") }}'"> </button> </th>
                           </tr>
                         <tr>
                           <td>Michelle House</td>
                           <td>Integration Specialist</td>
                           <td>Sidney</td>
                           <th>19/02/95</th>
+                          <th><button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("produsen.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("produsen.index") }}'"> </button> </th>
                           </tr>
                         <tr>
                           <td>Suki Burks</td>
                           <td>Developer</td>
                           <td>London</td>
                           <th>19/02/95</th>
+                          <th><button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("produsen.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("produsen.index") }}'"> </button> </th>
                           </tr>
                         <tr>
                           <td>Prescott Bartlett</td>
                           <td>Technical Author</td>
                           <td>London</td>
                           <th>19/02/95</th>
+                          <th><button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("produsen.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("produsen.index") }}'"> </button> </th>
                           </tr>
                         <tr>
                           <td>Gavin Cortez</td>
                           <td>Team Leader</td>
                           <td>San Francisco</td>
                           <th>19/02/95</th>
+                          <th><button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("produsen.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("produsen.index") }}'"> </button> </th>
                           </tr>
 
                       </tbody>

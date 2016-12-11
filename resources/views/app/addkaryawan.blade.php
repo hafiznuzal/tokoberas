@@ -1,84 +1,49 @@
 @extends('app')
 
 @section('content')
+<div class="row">
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>Tambah Karyawan<small>different form elements</small></h2>
+        <ul class="nav navbar-right panel_toolbox">
+          <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">Settings 1</a>
+              </li>
+              <li><a href="#">Settings 2</a>
+              </li>
+            </ul>
+          </li>
+  <a class="close-link"><i class="fa fa-close"></i></a>
+          </li>
+        </ul>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <br />
+        <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
- <div class="row">
-
-              <div class="col-md-12 col-sm-12 col-xs-12">
-
-                    <h2>Tambah Karyawan</h2>
-                    <!-- Tabs -->
-                    <div id="wizard_verticle" class="form_wizard wizard_verticle">
-                      <ul class="list-unstyled wizard_steps">
-                        <li>
-                          <a href="#step-11">
-                            <span class="step_no">1</span>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#step-22">
-                            <span class="step_no">2</span>
-                          </a>
-                        </li>
-                        
-                      </ul>
-
-                      <div id="step-11">
-                        <h2 class="StepTitle">Step 1 Content</h2>
-                        <form class="form-horizontal form-label-left" method="post" action="url{{('users')}}">
-
-                          <span class="section">Personal Info</span>
-
-                          <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3" for="first-name">Nama <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6">
-                              <input type="text" name="nama" id="first-name2" required="required" class="form-control col-md-7 col-xs-12">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3" for="last-name">Alamat <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6">
-                              <input type="text" id="last-name2" name="alamat" required="required" class="form-control col-md-7 col-xs-12">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label for="middle-name" class="control-label col-md-3 col-sm-3">Nomor Handphone</label>
-                            <div class="col-md-6 col-sm-6">
-                              <input id="middle-name2" class="form-control col-md-7 col-xs-12" type="text" name="middle-name">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3">Jenis Kelamin</label>
-                            <div class="col-md-6 col-sm-6">
-                              <div id="gender2" class="btn-group" data-toggle="buttons">
-                                <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                                  <input type="radio" name="jeniskelamin" value="male"> &nbsp; Male &nbsp;
-                                </label>
-                                <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                                  <input type="radio" name="jeniskelamin" value="female" checked=""> Female
-                                </label>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3">Tempat lahir <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6">
-                              <input id="birthday2" name="tempatlahir" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
-                            </div>
-                          </div>
-                           
-                          <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Tanggal lahir<span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                             <fieldset>
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nama<span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Tanggal lahir<span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+             <fieldset>
                           <div class="control-group">
                             <div class="controls">
                               <div class="col-md-11 xdisplay_inputx form-group has-feedback">
-                                <input type="text" class="form-control has-feedback-left" id="single_cal4" name="tanggallahir" placeholder="First Name" aria-describedby="inputSuccess2Status4">
+                                <input type="text" class="form-control has-feedback-left" id="single_cal4" placeholder="First Name" aria-describedby="inputSuccess2Status4">
                                 <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
                                 <span id="inputSuccess2Status4" class="sr-only">(success)</span>
                               </div>
@@ -88,62 +53,327 @@
              </div>
           </div>
           
-                          <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3">Jabatan <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6">
-                              <input id="jabatan" name="jabatan" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
-                            </div>
-                          </div>
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Alamat <span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <input type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">nomor telepon</label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="middle-name">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">nomor handphone <span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+            </div>
+          </div>
+          <div class="ln_solid"></div>
+          <div class="form-group">
+            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+              <button type="submit" class="btn btn-primary">Cancel</button>
+              <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+          </div>
 
-                        </form>
-                      </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Karyawan</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <p class="text-muted font-13 m-b-30">
+                      
+                    </p>
 
-                      <div id="step-22" class="row" class="col-md-12 col-sm-12 col-xs-12">
-
-                        <!-- <h2 class="StepTitle">Step 2 Content</h2> -->
-
-                        <form>
-                        <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3" for="last-name">username <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6">
-                              <input type="text" id="last-name2" name="last-name" required="required" class="form-control col-md-7 col-xs-12">
-                            </div>
-                          </div> 
-                        
-                        <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3" for="first-name">password <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6">
-                              <input type="text" id="first-name2" required="required" class="form-control col-md-7 col-xs-12">
-                            </div>
-                        </div>
-                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3" for="first-name">re-type password <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6">
-                              <input type="text" id="first-name2" required="required" class="form-control col-md-7 col-xs-12">
-                            </div>
-                          </div>
-
-                          <br></br>
-                          
-                          </form>
-                      </div>
+                    <!-- <div class="col-md-4"> -->
+                      
+                      <!-- </div> -->
+                    <table id="datatable-buttons" class="table table-striped table-bordered">
+                      <thead>
+                        <tr>
+                          <th>Nama</th>
+                          <th>Alamat</th>
+                          <th>No Telepon</th>
+                          <th>No Handphone</th>
+                          <th>Aksi</th>                     
+                        </tr>
+                      </thead>
 
 
-                    </div>
-                    <!-- End SmartWizard Content -->
+                      <tbody>
+                        <tr>
+                          <td>Tiger Nixon</td>
+                          <td>System Architect</td>
+                          <td>Edinburgh</td>
+                          <th>19/02/95</th>
+                          <th> <button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("users.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("users.index") }}'"> </button> </th>
+                          </tr>
+                        <tr>
+                          <td>Garrett Winters</td>
+                          <td>Accountant</td>
+                          <td>Tokyo</td>
+                          <th>19/02/95</th>
+                          <th> <button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("users.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("users.index") }}'"> </button> </th>
+                          </tr>
+                        <tr>
+                          <td>Ashton Cox</td>
+                          <td>Junior Technical Author</td>
+                          <td>San Francisco</td>
+                          <th>19/02/95</th>
+                          <th> <button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("users.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("users.index") }}'"> </button> </th>
+                          </tr>
+                        <tr>
+                          <td>Cedric Kelly</td>
+                          <td>Senior Javascript Developer</td>
+                          <td>Edinburgh</td>
+                          <th>19/02/95</th>
+                          <th> <button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("users.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("users.index") }}'"> </button> </th>
+                          </tr>
+                        <tr>
+                          <td>Airi Satou</td>
+                          <td>Accountant</td>
+                          <td>Tokyo</td>
+                          <th>19/02/95</th>
+                          <th> <button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("users.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("users.index") }}'"> </button> </th>
+                          </tr>
+                        <tr>
+                          <td>Brielle Williamson</td>
+                          <td>Integration Specialist</td>
+                          <td>New York</td>
+                          <th>19/02/95</th>
+                          <th> <button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("users.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("users.index") }}'"> </button> </th>
+                          </tr>
+                        <tr>
+                          <td>Herrod Chandler</td>
+                          <td>Sales Assistant</td>
+                          <td>San Francisco</td>
+                          <th>19/02/95</th>
+                          <th> <button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("users.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("users.index") }}'"> </button> </th>
+                          </tr>
+                        <tr>
+                          <td>Rhona Davidson</td>
+                          <td>Integration Specialist</td>
+                          <td>Tokyo</td>
+                          <th>19/02/95</th>
+                          <th> <button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("users.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("users.index") }}'"> </button> </th>
+                          </tr>
+                        <tr>
+                          <td>Colleen Hurst</td>
+                          <td>Javascript Developer</td>
+                          <td>San Francisco</td>
+                          <th>19/02/95</th>
+                          <th> <button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("users.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("users.index") }}'"> </button> </th>
+                          </tr>
+                        <tr>
+                          <td>Sonya Frost</td>
+                          <td>Software Engineer</td>
+                          <td>Edinburgh</td>
+                          <th>19/02/95</th>
+                          <th> <button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("users.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("users.index") }}'"> </button> </th>
+                          </tr>
+                        <tr>
+                          <td>Jena Gaines</td>
+                          <td>Office Manager</td>
+                          <td>London</td>
+                          <th>19/02/95</th>
+                          <th> <button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("users.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("users.index") }}'"> </button> </th>
+                          </tr>
+                        <tr>
+                          <td>Quinn Flynn</td>
+                          <td>Support Lead</td>
+                          <td>Edinburgh</td>
+                          <th>19/02/95</th>
+                          <th> <button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("users.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("users.index") }}'"> </button> </th>
+                          </tr>
+                        <tr>
+                          <td>Charde Marshall</td>
+                          <td>Regional Director</td>
+                          <td>San Francisco</td>
+                          <th>19/02/95</th>
+                          <th> <button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("users.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("users.index") }}'"> </button> </th>
+                          </tr>
+                        <tr>
+                          <td>Haley Kennedy</td>
+                          <td>Senior Marketing Designer</td>
+                          <td>London</td>
+                          <th>19/02/95</th>
+                          <th> <button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("users.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("users.index") }}'"> </button> </th>
+                          </tr>
+                        <tr>
+                          <td>Tatyana Fitzpatrick</td>
+                          <td>Regional Director</td>
+                          <td>London</td>
+                          <th>19/02/95</th>
+                          <th> <button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("users.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("users.index") }}'"> </button> </th>
+                          </tr>
+                        <tr>
+                          <td>Michael Silva</td>
+                          <td>Marketing Designer</td>
+                          <td>London</td>
+                          <th>19/02/95</th>
+                          <th> <button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("users.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("users.index") }}'"> </button> </th>
+                          </tr>
+                        <tr>
+                          <td>Paul Byrd</td>
+                          <td>Chief Financial Officer (CFO)</td>
+                          <td>New York</td>
+                          <th>19/02/95</th>
+                          <th> <button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("users.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("users.index") }}'"> </button> </th>
+                          </tr>
+                        <tr>
+                          <td>Gloria Little</td>
+                          <td>Systems Administrator</td>
+                          <td>New York</td>
+                          <th>19/02/95</th>
+                          <th> <button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("users.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("users.index") }}'"> </button> </th>
+                          </tr>
+                        <tr>
+                          <td>Bradley Greer</td>
+                          <td>Software Engineer</td>
+                          <td>London</td>
+                          <th>19/02/95</th>
+                          <th> <button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("users.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("users.index") }}'"> </button> </th>
+                          </tr>
+                        <tr>
+                          <td>Dai Rios</td>
+                          <td>Personnel Lead</td>
+                          <td>Edinburgh</td>
+                          <th>19/02/95</th>
+                          <th> <button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("users.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("users.index") }}'"> </button> </th>
+                          </tr>
+                        <tr>
+                          <td>Jenette Caldwell</td>
+                          <td>Development Lead</td>
+                          <td>New York</td>
+                          <th>19/02/95</th>
+                          <th> <button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("users.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("users.index") }}'"> </button> </th>
+                          </tr>
+                        <tr>
+                          <td>Yuri Berry</td>
+                          <td>Chief Marketing Officer (CMO)</td>
+                          <td>New York</td>
+                          <th>19/02/95</th>
+                          <th> <button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("users.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("users.index") }}'"> </button> </th>
+                          </tr>
+                        <tr>
+                          <td>Caesar Vance</td>
+                          <td>Pre-Sales Support</td>
+                          <td>New York</td>
+                          <th>19/02/95</th>
+                          <th> <button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("users.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("users.index") }}'"> </button> </th>
+                          </tr>
+                        <tr>
+                          <td>Doris Wilder</td>
+                          <td>Sales Assistant</td>
+                          <td>Sidney</td>
+                          <th>19/02/95</th>
+                          <th> <button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("users.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("users.index") }}'"> </button> </th>
+                          </tr>
+                        <tr>
+                          <td>Angelica Ramos</td>
+                          <td>Chief Executive Officer (CEO)</td>
+                          <td>London</td>
+                          <th>19/02/95</th>
+                          <th> <button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("users.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("users.index") }}'"> </button> </th>
+                          </tr>
+                        <tr>
+                          <td>Gavin Joyce</td>
+                          <td>Developer</td>
+                          <td>Edinburgh</td>
+                          <th>19/02/95</th>
+                          <th> <button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("users.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("users.index") }}'"> </button> </th>
+                          </tr>
+                        <tr>
+                          <td>Jennifer Chang</td>
+                          <td>Regional Director</td>
+                          <td>Singapore</td>
+                          <th>19/02/95</th>
+                          <th> <button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("users.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("users.index") }}'"> </button> </th>
+                          </tr>
+                        <tr>
+                          <td>Brenden Wagner</td>
+                          <td>Software Engineer</td>
+                          <td>San Francisco</td>
+                          <th>19/02/95</th>
+                          <th> <button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("users.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("users.index") }}'"> </button> </th>
+                          </tr>
+                        <tr>
+                          <td>Fiona Green</td>
+                          <td>Chief Operating Officer (COO)</td>
+                          <td>San Francisco</td>
+                          <th>19/02/95</th>
+                          <th> <button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("users.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("users.index") }}'"> </button> </th>
+                          </tr>
+                        <tr>
+                          <td>Shou Itou</td>
+                          <td>Regional Marketing</td>
+                          <td>Tokyo</td>
+                          <th>19/02/95</th>
+                          <th> <button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("users.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("users.index") }}'"> </button> </th>
+                          </tr>
+                        <tr>
+                          <td>Michelle House</td>
+                          <td>Integration Specialist</td>
+                          <td>Sidney</td>
+                          <th>19/02/95</th>
+                          <th> <button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("users.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("users.index") }}'"> </button> </th>
+                          </tr>
+                        <tr>
+                          <td>Suki Burks</td>
+                          <td>Developer</td>
+                          <td>London</td>
+                          <th>19/02/95</th>
+                          <th> <button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("users.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("users.index") }}'"> </button> </th>
+                          </tr>
+                        <tr>
+                          <td>Prescott Bartlett</td>
+                          <td>Technical Author</td>
+                          <td>London</td>
+                          <th>19/02/95</th>
+                          <th> <button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("users.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("users.index") }}'"> </button> </th>
+                          </tr>
+                        <tr>
+                          <td>Gavin Cortez</td>
+                          <td>Team Leader</td>
+                          <td>San Francisco</td>
+                          <th>19/02/95</th>
+                          <th> <button class="btn btn-primary fa fa-edit" onclick="window.location='{{ route("users.index") }}'"></button> <button class="btn btn-danger fa fa-trash" onclick="window.location='{{ route("users.index") }}'"> </button> </th>
+                          </tr>
+
+                      </tbody>
+                    </table>
                   </div>
                 </div>
               </div>
-            </div>
 @endsection
-
 @section('js')
- <script src="{{ url('bower_components/gentelella/vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js')}}"></script>
- 
 <script src="{{ url('bower_components/gentelella/vendors/datatables.net/js/jquery.dataTables.min.js')}}"></script>
     <script src="{{ url('bower_components/gentelella/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
     <script src="{{ url('bower_components/gentelella/vendors/datatables.net-buttons/js/dataTables.buttons.min.js')}}"></script>
@@ -166,19 +396,7 @@
     <script src="{{ url('bower_components/gentelella/build/js/custom.min.js')}}"></script>
 
     <!-- Datatables -->
- <script>
-      $(document).ready(function() {
-        $('#wizard').smartWizard();
-
-        $('#wizard_verticle').smartWizard({
-          transitionEffect: 'slide'
-        });
-
-        $('.buttonNext').addClass('btn btn-success');
-        $('.buttonPrevious').addClass('btn btn-primary');
-        $('.buttonFinish').addClass('btn btn-default');
-      });
-    </script>
+    
 
     <script>
       $(document).ready(function() {
@@ -373,6 +591,87 @@
         });
       });
     </script>
+
+     <script>
+      $(document).ready(function() {
+        var handleDataTableButtons = function() {
+          if ($("#datatable-buttons").length) {
+            $("#datatable-buttons").DataTable({
+              dom: "Bfrtip",
+              buttons: [
+                {
+                  extend: "copy",
+                  className: "btn-sm"
+                },
+                {
+                  extend: "csv",
+                  className: "btn-sm"
+                },
+                {
+                  extend: "excel",
+                  className: "btn-sm"
+                },
+                {
+                  extend: "pdfHtml5",
+                  className: "btn-sm"
+                },
+                {
+                  extend: "print",
+                  className: "btn-sm"
+                },
+              ],
+              responsive: true
+            });
+          }
+        };
+
+        TableManageButtons = function() {
+          "use strict";
+          return {
+            init: function() {
+              handleDataTableButtons();
+            }
+          };
+        }();
+
+        $('#datatable').dataTable();
+
+        $('#datatable-keytable').DataTable({
+          keys: true
+        });
+
+        $('#datatable-responsive').DataTable();
+
+        $('#datatable-scroller').DataTable({
+          ajax: "js/datatables/json/scroller-demo.json",
+          deferRender: true,
+          scrollY: 380,
+          scrollCollapse: true,
+          scroller: true
+        });
+
+        $('#datatable-fixed-header').DataTable({
+          fixedHeader: true
+        });
+
+        var $datatable = $('#datatable-checkbox');
+
+        $datatable.dataTable({
+          'order': [[ 1, 'asc' ]],
+          'columnDefs': [
+            { orderable: false, targets: [0] }
+          ]
+        });
+        $datatable.on('draw.dt', function() {
+          $('input').iCheck({
+            checkboxClass: 'icheckbox_flat-green'
+          });
+        });
+
+        TableManageButtons.init();
+      });
+    </script>
+  
     <!-- /bootstrap-daterangepicker -->
 
-@endsection 
+@endsection    
