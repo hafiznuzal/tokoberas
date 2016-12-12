@@ -30,6 +30,7 @@ Route::resource('produsen','ProdusenController');
 Route::resource('konsumen','KonsumenController');
 Route::resource('jenis','JenisController');
 Route::resource('jenis_operasional','JenisOperasionalController');
+Route::resource('pembayaran','PembayaranController');
 
 /* Transaksi pembelian dan penjualan */
 Route::get('transaksi/pembelian','TransaksiController@getPembelian');

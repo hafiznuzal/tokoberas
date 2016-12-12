@@ -127,4 +127,11 @@ $('#daterange-btn').daterangepicker(
     TableManageButtons.init();
   });
 </script>
+
+<script src="{{ url('bower_components/AdminLTE/plugins/select2/select2.full.min.js')}}"></script>
+<script>
+  
+  $($(".select2").select2()).addClass("form-control");
+
+</script>
 @endsection
