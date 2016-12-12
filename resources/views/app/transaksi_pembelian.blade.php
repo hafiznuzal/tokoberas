@@ -2,22 +2,18 @@
 
 @include('plugins.daterangepicker')
 
-@section('css')
-<style type="text/css">
-.form-inline .btn {
-  margin-bottom: 0;
-}
-</style>
+@section('content-title')
+Transaksi Pembelian
 @endsection
 
 @section('content')
 <div class="row" ng-controller="pembelian">
   <div class="col-lg-8 col-md-10 col-sm-10 col-xs-12">
-    <div class="x_panel">
-      <div class="x_title">
-        <h4>Tambah barang dan operasional</h4>
+    <div class="box">
+      <div class="box-header">
+        <h4>Transaksi Pembelian</h4>
       </div>
-      <div class="x_content">
+      <div class="box-body">
         <div class="form-horizontal">
           <div class="form-group">
             <label class="col-sm-3 control-label">Jenis Barang</label>

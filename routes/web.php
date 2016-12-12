@@ -28,13 +28,11 @@ Route::get('transaksi_penjualan','PenjualanController@index');
 Route::resource('users','UsersController');
 Route::resource('produsen','ProdusenController');
 Route::resource('konsumen','KonsumenController');
-
+Route::resource('jenis','JenisController');
+Route::resource('jenis_operasional','JenisOperasionalController');
 
 /* Transaksi pembelian dan penjualan */
 Route::get('transaksi/pembelian','TransaksiController@getPembelian');
 Route::post('transaksi/pembelian','TransaksiController@postPembelian');
 Route::get('transaksi/penjualan','TransaksiController@getPenjualan');
 Route::post('transaksi/penjualan','TransaksiController@postPenjualan');
-
-Route::resource('jenis','JenisController');
-Route::resource('jenis_operasional','JenisOperasionalController');

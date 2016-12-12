@@ -1,21 +1,17 @@
 @extends('app')
 
-@section('css')
-<style type="text/css">
-  .form-inline .btn {
-    margin-bottom: 0;
-  }
-</style>
+@section('content-title')
+Jenis Barang
 @endsection
 
 @section('content')
 <div class="row">
   <div class="col-md-8">
-    <div class="x_panel">
-      <div class="x_title">
+    <div class="box">
+      <div class="box-header">
         <h4>Tambah Jenis Barang</h4>
       </div>
-      <div class="x_content">
+      <div class="box-body">
         <form method="post" class="form-horizontal" action="{{ url('jenis') }}">
           {{ csrf_field() }}
           <div class="form-group">
@@ -32,11 +28,11 @@
         </form>
       </div>
     </div>
-    <div class="x_panel">
-      <div class="x_title">
+    <div class="box">
+      <div class="box-header">
         <h4>List Jenis Barang</h4>
       </div>
-      <div class="x_content">
+      <div class="box-body">
         <table class="table">
           <thead>
             <tr>
