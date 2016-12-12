@@ -1,44 +1,34 @@
-<div class="left_col scroll-view">
-  <div class="navbar nav_title" style="border: 0;">
-    <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentellela Alela!</span></a>
-  </div>
-
-  <div class="clearfix"></div>
-
-  <!-- menu profile quick info -->
-  <div class="profile">
-    <div class="profile_pic">
-      <img src="images/img.jpg" alt="..." class="img-circle profile_img">
-    </div>
-    <div class="profile_info">
-      <span>Welcome,</span>
-      <h2>John Doe</h2>
-    </div>
-  </div>
-  <!-- /menu profile quick info -->
-
-  <br />
-
-  <!-- sidebar menu -->
-  <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-    <div class="menu_section">
-      <h3>General</h3>
-      <ul class="nav side-menu">
-        <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
-          <ul class="nav child_menu">
-            <li><a href="index.html">Dashboard</a></li>
-            <li><a href="index2.html">Dashboard2</a></li>
-            <li><a href="index3.html">Dashboard3</a></li>
-          </ul>
-        </li>
-        <li><a><i class="fa fa-clone"></i>Layouts <span class="fa fa-chevron-down"></span></a>
-          <ul class="nav child_menu">
-            <li><a href="fixed_sidebar.html">Fixed Sidebar</a></li>
-            <li><a href="fixed_footer.html">Fixed Footer</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </div>
-  <!-- /sidebar menu -->
-</div>
+<aside class="main-sidebar">
+  <section class="sidebar">
+    <ul class="sidebar-menu">
+      <li class="header">Menu</li>
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-dashboard"></i> <span>Transaksi</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="{{ url('transaksi/pembelian') }}"><i class="fa fa-circle-o"></i> Pembelian</a></li>
+          <li><a href="{{ url('transaksi/penjualan') }}"><i class="fa fa-circle-o"></i> Penjualan</a></li>
+        </ul>
+      </li>
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-dashboard"></i> <span>CRUD</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="{{ url('users') }}"><i class="fa fa-circle-o"></i> User</a></li>
+          <li><a href="{{ url('produsen') }}"><i class="fa fa-circle-o"></i> Produsen</a></li>
+          <li><a href="{{ url('konsumen') }}"><i class="fa fa-circle-o"></i> Konsumen</a></li>
+          <li><a href="{{ url('jenis') }}"><i class="fa fa-circle-o"></i> Jenis Barang</a></li>
+          <li><a href="{{ url('jenis_operasional') }}"><i class="fa fa-circle-o"></i> Jenis Operasional</a></li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+</aside>
