@@ -40,7 +40,11 @@ class KonsumenController extends Controller
         $konsumen = new Konsumen;
         $konsumen->nama = $request->input('nama');
         $konsumen->tanggallahir = $request->input('tanggallahir');
-        // $konsumen->
+        $konsumen->alamat = $request->input('alamat');
+        $konsumen->telepon = $request->input('telepon');
+        $konsumen->hp = $request->input('hp');
+        $konsumen->save();
+        return redirect()->back();
     }
 
     /**
@@ -63,6 +67,8 @@ class KonsumenController extends Controller
     public function edit($id)
     {
         //
+        $data['konsumen'] = Konsumen::find($id);
+        return view('app.editkonsumen', $data);
     }
 
     /**
@@ -75,6 +81,14 @@ class KonsumenController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $konsumen = Konsumen::find($id);
+        $konsumen->nama = $request->input('nama');
+        $konsumen->alamat = $request->input('alamat');
+        $konsumen->telepon = $request->input('telepon');
+        $konsumen->hp = $request->input('hp');
+        $konsumen->save();
+
+        return redirect('konsumen');
     }
 
     /**
@@ -86,5 +100,8 @@ class KonsumenController extends Controller
     public function destroy($id)
     {
         //
+        $konsumen = Konsumen::find(decrypt($id));
+        $konsumen->delete();
+        return redirect()->back();
     }
 }

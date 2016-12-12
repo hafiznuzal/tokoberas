@@ -291,5 +291,5 @@
     TableManageButtons.init();
   });
 </script>
-
+@endsection
 <!-- /bootstrap-daterangepicker -->

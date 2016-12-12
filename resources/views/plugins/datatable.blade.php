@@ -16,9 +16,34 @@
 <script src="{{ url('bower_components/gentelella/vendors/pdfmake/build/vfs_fonts.js')}}"></script>
 
 <script src="{{ url('bower_components/gentelella/vendors/moment/min/moment.min.js')}}"></script>
-<script src="{{ url('bower_components/gentelella/vendors/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
 
-<!-- Datatables -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+<script src="{{ url('bower_components/AdminLTE/plugins/daterangepicker/daterangepicker.js')}}"></script>
+<!-- bootstrap datepicker -->
+<script src="{{ url('bower_components/AdminLTE/plugins/datepicker/bootstrap-datepicker.js')}}"></script>
+<script>
+  $('#reservation').daterangepicker();
+</script>
+<script>
+$('#daterange-btn').daterangepicker(
+        {
+          ranges: {
+            'Today': [moment(), moment()],
+            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+            'This Month': [moment().startOf('month'), moment().endOf('month')],
+            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+          },
+          startDate: moment().subtract(29, 'days'),
+          endDate: moment()
+        },
+        function (start, end) {
+          $('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+        }
+    );
+</script> 
+
 <script>
   $(document).ready(function() {
     var handleDataTableButtons = function() {
@@ -47,7 +72,11 @@
               className: "btn-sm"
             },
           ],
-          responsive: true
+          responsive: {
+            details: {
+              type: "inline"
+            }
+          }
         });
       }
     };
