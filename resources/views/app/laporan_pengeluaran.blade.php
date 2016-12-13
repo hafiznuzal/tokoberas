@@ -96,21 +96,21 @@
     <!-- </div> -->
     <table id="datatable-buttons" class="table table-striped table-bordered">
       <thead>
-        <tr>
-          <th>No Nota</th>
-          <th>Nama Pemesan</th>
-          <th>Besar Pembayaran</th>
-          <th>Tanggal Pembayaran</th>                    
+        <tr>         
+          <th>Jenis Pengeluaran</th>
+          <th>Biaya</th>
+          <th>Tanggal Pengeluaran</th>
+          <th>Keterangan</th>                     
         </tr>
       </thead>
       <tbody>
-     
+     @foreach($pengeluaran as $keluar)
       <tr>
-          <td>No Nota</td>
-          <td>Nama Pemesan</td>
-          <td>Besar Pembayaran</td>
-          <td>Tanggal Pembayaran</td>                    
+          <td>{{$keluar->jenis_operasional_id}}</td>
+          <td>{{$keluar->biaya}}</td>
+          <td>{{$keluar->created_at}}</td>           
       </tr>
+     @endforeach
       </tbody>
     </table>
   </div>
