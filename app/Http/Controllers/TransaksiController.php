@@ -55,8 +55,13 @@ class TransaksiController extends Controller
             return array_dot($item->toArray());
         });
 
-        $data = compact('inventory', 'operasional', 'dotinvent');
+        $data = compact('operasional', 'dotinvent');
         // dd($data);
         return view('app.transaksi_penjualan', $data);
+    }
+
+    public function postPenjualan(Request $request)
+    {
+        dd($request->input());
     }
 }

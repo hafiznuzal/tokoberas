@@ -44,9 +44,7 @@
       <h1>
         @yield('content-title')
       </h1>
-      <ol class="breadcrumb">
-        @yield('content-breadcrumb')
-      </ol>
+      @yield('content-breadcrumb')
     </section>
     <section class="content">
       @yield('content')

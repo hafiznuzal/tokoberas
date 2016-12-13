@@ -22,9 +22,6 @@ Route::get('test_tabel','HomeController@test_tabel');
 Route::get('laporan_pembayaran','HomeController@laporan_pembayaran');
 Route::get('laporan_penjualan','HomeController@laporan_penjualan');
 
-
-Route::get('transaksi_penjualan','PenjualanController@index');
-
 Route::resource('users','UsersController');
 Route::resource('produsen','ProdusenController');
 Route::resource('konsumen','KonsumenController');
