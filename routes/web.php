@@ -28,6 +28,7 @@ Route::get('transaksi_penjualan','PenjualanController@index');
 Route::resource('users','UsersController');
 Route::resource('produsen','ProdusenController');
 Route::resource('konsumen','KonsumenController');
+Route::resource('pengeluaran','PengeluaranController');
 Route::resource('jenis','JenisController');
 Route::resource('jenis_operasional','JenisOperasionalController');
 Route::resource('pembayaran','PembayaranController');
