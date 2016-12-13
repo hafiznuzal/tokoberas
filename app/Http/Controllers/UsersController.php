@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class UsersController extends Controller
 {
@@ -14,7 +15,8 @@ class UsersController extends Controller
     public function index()
     {
         //
-        return view('app.addkaryawan');
+        $data['user'] = User::get();
+        return view('app.addkaryawan',$data);
     }
 
     /**
@@ -28,7 +30,7 @@ class UsersController extends Controller
         
     }
 
-    /**
+    /*
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -36,8 +38,25 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         //
+        // dd($request->input());
+        $users = new User;
+        $users->nama = $request->input('nama');
+        $users->tanggal_lahir = $request->input('tanggallahir');
+        $users->alamat = $request->input('alamat');
+        //$users->telepon = $request->input('telepon');
+        $users->hp = $request->input('hp');
+        $users->tempat_lahir = $request->input('tempatlahir');
+        $users->jabatan = $request->input('jabatan');
+        $users->username = $request->input('username');
+        $users->password = $request->input('password');
+
+        $users->save();
+
+        return redirect()->back();
+
     }
+
 
     /**
      * Display the specified resource.

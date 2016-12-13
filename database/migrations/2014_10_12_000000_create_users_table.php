@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('alamat');
             $table->string('hp');
             $table->date('tanggal_lahir');
+            $table->string('telepon');
             $table->string('tempat_lahir');
             $table->string('jabatan');
             $table->rememberToken();
