@@ -2,10 +2,6 @@
 
 @include('plugins.daterangepicker')
 
-@section('content-title')
-Transaksi Pembelian
-@endsection
-
 @section('content')
 <div class="row" ng-controller="pembelian">
   <div class="col-lg-8 col-md-10 col-sm-10 col-xs-12">
@@ -59,6 +55,7 @@ Transaksi Pembelian
         </div>
         <form id="form-pembelian" method="post" action="{{url('transaksi/pembelian')}}">
           {{ csrf_field() }}
+          @verbatim
           <table class="table">
             <thead>
               <tr>
@@ -72,29 +69,33 @@ Transaksi Pembelian
               </tr>
             </thead>
             <tbody>
+              <tr ng-if="rows.length <= 0">
+                <td colspan="7"><span class="text-muted">Tidak ada barang</span></td>
+              </tr>
               <tr ng-repeat="row in rows">
                 <td class="hidden">
-                  <input type="hidden" name="pembelian[@{{$index}}][jenis_id]" value="@{{row.jenis}}">
-                  <input type="hidden" name="pembelian[@{{$index}}][merek]" value="@{{row.merek}}">
-                  <input type="hidden" name="pembelian[@{{$index}}][jumlah]" value="@{{row.jumlah}}">
-                  <input type="hidden" name="pembelian[@{{$index}}][tanggal_kadaluarsa]" value="@{{row.tanggal_kadaluarsa}}">
-                  <input type="hidden" name="pembelian[@{{$index}}][harga]" value="@{{row.harga}}">
+                  <input name="pembelian[{{$index}}][jenis_id]" value="{{row.jenis}}">
+                  <input name="pembelian[{{$index}}][merek]" value="{{row.merek}}">
+                  <input name="pembelian[{{$index}}][jumlah]" value="{{row.jumlah}}">
+                  <input name="pembelian[{{$index}}][tanggal_kadaluarsa]" value="{{row.tanggal_kadaluarsa}}">
+                  <input name="pembelian[{{$index}}][harga]" value="{{row.harga}}">
                 </td>
-                <td class="text-center">@{{$index + 1}}</td>
-                <td>@{{row.jenis}}</td>
-                <td>@{{row.merek}}</td>
-                <td class="text-center">@{{row.jumlah}}</td>
-                <td>@{{row.tanggal_kadaluarsa}}</td>
-                <td class="text-right">@{{row.harga}}</td>
+                <td class="text-center">{{$index + 1}}</td>
+                <td>{{row.jenis}}</td>
+                <td>{{row.merek}}</td>
+                <td class="text-center">{{row.jumlah}}</td>
+                <td>{{row.tanggal_kadaluarsa}}</td>
+                <td class="text-right">{{row.harga}}</td>
                 <td class="text-center"><a class="text-danger" ng-click="hapus(row)"><i class="fa fa-close"></i></a></td>
               </tr>
             </tbody>
           </table>
           <div class="text-right">
-            <h4>Total = @{{total}}</h4>
-            <input type="hidden" name="total" value="@{{total}}">
+            <h4>Total = {{total}}</h4>
+            <input type="hidden" name="total" value="{{total}}">
             <button class="btn btn-success">Submit</button>
           </div>
+          @endverbatim
         </form>
       </div>
     </div>

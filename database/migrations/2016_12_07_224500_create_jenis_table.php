@@ -16,6 +16,7 @@ class CreateJenisTable extends Migration
         Schema::create('jenis', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nama');
+            $table->integer('latest_kurs_id')->unsigned();
             $table->timestamps();
         });
     }

@@ -16,7 +16,7 @@ class CreareKursBarangTable extends Migration
         Schema::create('kurs_barang', function (Blueprint $table) {
             $table->increments('id');
             $table->bigInteger('harga');
-            $table->date('tanggal');
+            $table->timestamp('tanggal');
             $table->integer('jenis_id')->unsigned();
             $table->timestamps();
         });

@@ -1,9 +1,5 @@
 @extends('app')
 
-@section('content-title')
-Jenis Barang
-@endsection
-
 @section('content')
 <div class="row">
   <div class="col-md-8">
@@ -18,6 +14,12 @@ Jenis Barang
             <label class="col-sm-3 control-label">Nama Barang</label>
             <div class="col-sm-8">
               <input type="text" class="form-control" name="nama" placeholder="">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-3 control-label">Harga Barang</label>
+            <div class="col-sm-8">
+              <input type="number" class="form-control" name="harga" placeholder="">
             </div>
           </div>
           <div class="form-group">
@@ -38,6 +40,7 @@ Jenis Barang
             <tr>
               <th class="text-center col-sm-2">No</th>
               <th>Nama</th>
+              <th class="text-right">Harga Jual</th>
               <th></th>
             </tr>
           </thead>
@@ -46,6 +49,7 @@ Jenis Barang
             <tr>
               <td class="text-center">{{$loop->iteration}}</td>
               <td>{{$barang->nama}}</td>
+              <td class="text-right"><a href="{{url("jenis/$barang->id")}}">{{$barang->latest_kurs->harga}}</a></td>
               <td class="text-center">
                 <a class="text-danger delete-resource" data-id="{{encrypt($barang->id)}}"><i class="fa fa-close"></i></a>
               </td>
