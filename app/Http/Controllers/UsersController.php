@@ -51,6 +51,7 @@ class UsersController extends Controller
         $users->username = $request->input('username');
         $users->password = $request->input('password');
 
+
         $users->save();
 
         return redirect()->back();
@@ -77,7 +78,8 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data['user'] = User::find($id);
+        return view('app.editkaryawan', $data);
     }
 
     /**
@@ -89,7 +91,19 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $users = User::find($id);
+        $users->nama = $request->input('nama');
+        $users->tanggal_lahir = $request->input('tanggallahir');
+        $users->alamat = $request->input('alamat');
+        //$users->telepon = $request->input('telepon');
+        $users->hp = $request->input('hp');
+        $users->tempat_lahir = $request->input('tempatlahir');
+        $users->jabatan = $request->input('jabatan');
+        $users->username = $request->input('username');
+        //$users->password = $request->input('password');
+        $users->save();
+
+        return redirect('users');
     }
 
     /**
