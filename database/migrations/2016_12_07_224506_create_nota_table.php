@@ -15,7 +15,7 @@ class CreateNotaTable extends Migration
     {
         Schema::create('nota', function (Blueprint $table) {
             $table->increments('id');
-            $table->dateTime('tanggal');
+            $table->timestamp('tanggal');
             $table->bigInteger('total_modal');
             $table->bigInteger('total_harga');
             $table->bigInteger('total_pembayaran');

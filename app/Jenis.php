@@ -12,4 +12,9 @@ class Jenis extends Model
     {
         return $this->hasMany('App\KursBarang');
     }
+
+    public function latest_kurs()
+    {
+        return $this->belongsTo('App\KursBarang', 'latest_kurs_id');
+    }
 }

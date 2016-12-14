@@ -1,9 +1,5 @@
 @extends('app')
 
-@section('content-title')
-Jenis Operasional
-@endsection
-
 @section('content')
 <div class="row">
   <div class="col-md-8">

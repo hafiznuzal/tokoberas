@@ -60,6 +60,7 @@ class PengeluaranController extends Controller
     public function edit($id)
     {
         //
+        
     }
 
     /**

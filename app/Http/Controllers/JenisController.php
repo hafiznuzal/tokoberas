@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Jenis;
+use App\KursBarang as Kurs;
 
 class JenisController extends Controller
 {
@@ -29,20 +30,31 @@ class JenisController extends Controller
     {
         $jenis = new Jenis;
         $jenis->nama = $request->input('nama');
+        $jenis->latest_kurs_id = 0;
+        $jenis->save();
+
+        $kurs = new Kurs;
+        $kurs->harga = $request->input('harga');
+        $kurs->tanggal = date('Y-m-d H:i:s');
+        $kurs->jenis_id = $jenis->id;
+        $kurs->save();
+
+        $jenis->latest_kurs_id = $kurs->id;
         $jenis->save();
 
         return redirect()->back();
     }
 
     /**
-     * Display the specified resource.
+     * Nampilin kursnya barang.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        //
+        $kurs = Jenis::find($id)->kurs;
+        dd($kurs);
     }
 
     /**
