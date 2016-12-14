@@ -14,7 +14,6 @@ class UsersController extends Controller
      */
     public function index()
     {
-        //
         $data['user'] = User::get();
         return view('app.addkaryawan',$data);
     }
@@ -26,8 +25,6 @@ class UsersController extends Controller
      */
     public function create()
     {
-      
-        
     }
 
     /*
@@ -38,25 +35,22 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-         //
         // dd($request->input());
-        $users = new User;
-        $users->nama = $request->input('nama');
-        $users->tanggal_lahir = $request->input('tanggallahir');
-        $users->alamat = $request->input('alamat');
-        //$users->telepon = $request->input('telepon');
-        $users->hp = $request->input('hp');
-        $users->tempat_lahir = $request->input('tempatlahir');
-        $users->jabatan = $request->input('jabatan');
-        $users->username = $request->input('username');
-        $users->password = $request->input('password');
+        $user = new User;
+        $user->nama = $request->input('nama');
+        $user->tanggal_lahir = $request->input('tanggallahir');
+        $user->alamat = $request->input('alamat');
+        //$user->telepon = $request->input('telepon');
+        $user->hp = $request->input('hp');
+        $user->tempat_lahir = $request->input('tempatlahir');
+        $user->jabatan = $request->input('jabatan');
+        $user->username = $request->input('username');
+        $user->password = bcrypt($request->input('password'));
 
-        $users->save();
+        $user->save();
 
         return redirect()->back();
-
     }
-
 
     /**
      * Display the specified resource.
