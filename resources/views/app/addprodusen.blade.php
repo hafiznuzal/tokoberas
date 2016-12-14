@@ -2,6 +2,11 @@
 
 @include('plugins.datatable')
 
+@section('css')
+<link href=" {{ url('bower_components\AdminLTE\plugins\datatables\extensions\Responsive\css\dataTables.responsive.css') }}" rel="stylesheet">
+<link href=" {{ url('bower_components\AdminLTE\plugins\datatables\jquery.dataTables.min.css') }}" rel="stylesheet">
+@endsection
+
 @section('content')
 <div class="row">
   <div class="col-md-12 col-sm-12 col-xs-12">
@@ -10,7 +15,7 @@
         <h2>Tambah Produsen</h2>       
       </div>
       <div class="box box-primary">
-        <div class=""></div>
+        <div class="box-header with-border">
         <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post" action="{{url('produsen')}}">
         {{csrf_field()}}
           <div class="form-group">
