@@ -55,8 +55,7 @@
                   <input name="inventory[{{$index}}][inventory_id]" value="{{row.id}}">
                   <input name="inventory[{{$index}}][inventory_jenis]" value="{{row.jenis_id}}">
                   <input name="inventory[{{$index}}][jumlah]" value="{{row.jumlah_terpilih}}">
-                  <input name="inventory[{{$index}}][harga]" value="{{row['jenis.latest_kurs.harga']}}">
-                  <input name="inventory[{{$index}}][harga_total]" value="{{row.harga_terpilih_total}}">
+                  <input name="inventory[{{$index}}][biaya]" value="{{row['jenis.latest_kurs.harga']}}">
                 </td>
                 <td class="text-center">{{$index + 1}}</td>
                 <td>{{row['jenis.nama']}} {{row.merek}}</td>
