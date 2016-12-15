@@ -19,9 +19,9 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('nama');
             $table->string('alamat');
-            $table->string('hp');
+            $table->string('hp')->nullable();
             $table->date('tanggal_lahir');
-            $table->string('telepon');
+            $table->string('telepon')->nullable();
             $table->string('tempat_lahir');
             $table->string('jabatan');
             $table->rememberToken();
