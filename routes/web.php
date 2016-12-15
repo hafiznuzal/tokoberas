@@ -12,6 +12,12 @@
 */
 
 Route::get('/','HomeController@index');
+Route::group(['middleware' => 'guest'], function () {
+    Route::get('login','AuthController@showLoginForm');
+    Route::post('login','AuthController@login');
+});
+
+Route::get('logout','AuthController@logout');
 
 Route::get('index','HomeController@index');
 Route::get('test','HomeController@test');
