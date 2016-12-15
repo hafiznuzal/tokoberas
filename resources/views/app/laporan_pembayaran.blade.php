@@ -87,7 +87,7 @@
 <div class="col-md-12 col-sm-12 col-xs-12">
   <div class="box">
     <div class="box-header box-body">
-      <h2>Laporan Pembayaran</h2>  
+      <h3>Laporan Pembayaran</h3>  
     </div>
     <div class="box box-primary">
     <div class="box-header">

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\RiwayatOperasional;
+use App\PengeluaranLainnya;
+use App\User;
+use App\JenisOperasional;
 
 class PengeluaranController extends Controller
 {
@@ -15,7 +17,9 @@ class PengeluaranController extends Controller
     public function index()
     {
         //
-        $data['pengeluaran'] = RiwayatOperasional::get();
+        $data['pengeluaran'] = PengeluaranLainnya::get();
+        $data['jenis'] = JenisOperasional::get();
+        $data['user'] = User::get();
         return view('app.laporan_pengeluaran', $data);
     }
 
@@ -38,6 +42,16 @@ class PengeluaranController extends Controller
     public function store(Request $request)
     {
         //
+        // dd($request->input());
+        $pengeluaran = new PengeluaranLainnya;
+        $pengeluaran->jenis_operasional_id = $request->input('jenis');
+        $pengeluaran->tanggal = $request->input('tanggal');
+        $pengeluaran->biaya = $request->input('biaya');
+        $pengeluaran->uraian = $request->input('uraian');
+        $pengeluaran->user_id= $request->input('user_id');
+
+        $pengeluaran->save();
+
     }
 
     /**
@@ -60,6 +74,11 @@ class PengeluaranController extends Controller
     public function edit($id)
     {
         //
+        $data['pengeluaran'] = PengeluaranLainnya::find($id);
+        $data['jenis'] = JenisOperasional::get();
+        $data['user'] = User::get();
+        return view('app.editpengeluaran', $data);
+
     }
 
     /**

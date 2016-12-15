@@ -5,31 +5,16 @@
 @section('content')
 <div class="row">
   <div class="col-md-12 col-sm-12 col-xs-12">
-    <div class="x_panel">
-      <div class="x_title">
-        <h2>Tambah Produsen<small>different form elements</small></h2>
-        <ul class="nav navbar-right panel_toolbox">
-          <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-          </li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Settings 1</a>
-              </li>
-              <li><a href="#">Settings 2</a>
-              </li>
-            </ul>
-          </li>
-          <li><a class="close-link"><i class="fa fa-close"></i></a>
-          </li>
-        </ul>
-        <div class="clearfix"></div>
+    <div class="box">
+      <div class="box-header box-body">
+        <h2>Edit Produsen</h2>
       </div>
-      <div class="x_content">
-        <br />
+      <div class="box box-primary">
+      <div class="box-header with-border">
+
         <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post" action="{{url("produsen/$produsen->id")}}">
-        {{ method_field('PUT') }}
-           {{csrf_field()}}
+          {{ method_field('PUT') }}
+          {{csrf_field()}}
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nama <span class="required">*</span>
             </label>
@@ -66,6 +51,7 @@
           </div>
 
         </form>
+        </div>
       </div>
     </div>
   </div>
