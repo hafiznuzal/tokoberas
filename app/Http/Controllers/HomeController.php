@@ -40,4 +40,8 @@ class HomeController extends Controller
     {
         return view('app.tabel_laporan_penjualan');
     }
+    public function edit_pembayaran()
+    {
+        return view('app.editpembayaran');
+    }
 }

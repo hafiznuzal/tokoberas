@@ -83,59 +83,12 @@
   </div>
 </div>
 
-<div class="row">
-<div class="col-md-12 col-sm-12 col-xs-12">
-  <div class="box">
-    <div class="box-header box-body">
-      <h3>Laporan Pembayaran</h3>  
-    </div>
-    <div class="box box-primary">
-    <div class="box-header">
-      <div class="form-group">
-        <label>Date range:</label>
-
-        <div class="input-group col-md-4">
-          <div class="input-group-addon">
-            <i class="fa fa-calendar"></i>
-          </div>
-          <input type="text" class="form-control pull-right" id="reservation">
-        </div>
-        <!-- /.input group -->
-      </div>
-    <!-- </div> -->
-    <table id="datatable-buttons" class="table table-striped table-bordered">
-      <thead>
-        <tr>
-          <th>No Nota</th>
-          <th>Nama Pemesan</th>
-          <th>Besar Pembayaran</th>
-          <th>Tanggal Pembayaran</th>
-          <th>Keterangan</th>                    
-        </tr>
-      </thead>
-      <tbody>
-      @foreach($pembayaran as $bayar)
-      <tr>
-          <td>No Nota</td>
-          <td>Nama Pemesan</td>
-          <td>Besar Pembayaran</td>
-          <td>Tanggal Pembayaran</td>  
-          <td><a class="btn btn-primary fa fa-edit" href="{{ url("bayar/$pembayaran->id/edit") }}"></a>
-                  <a class="btn btn-danger fa fa-trash delete-resource" data-id="{{encrypt($pembayaran->id)}}"></a> </td>                  
-      </tr>
-      @endforeach
-      </tbody>
-    </table>
-  </div>
-  </div>
-  </div>
-</div>
-</div>
-
 
 @endsection
 
 @section('js')
+
+
 
 
 @endsection    
