@@ -27,6 +27,8 @@
     <link href=" {{ url('bower_components/gentelella/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css') }}" rel="stylesheet">
     <!-- jVectorMap -->
     <link href=" {{ url('bower_components/gentelella/production/css/maps/jquery-jvectormap-2.0.3.css') }}" rel="stylesheet">
+    <!-- MY CSS -->
+    <link href=" {{ url('css/style.css') }}" rel="stylesheet">
     @yield('css')
 
   </head>
