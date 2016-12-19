@@ -1,7 +1,7 @@
 @extends('app')
 
 @include('plugins.datatable')
-
+@include('plugins.datepicker')
 @section('css')
 <link href=" {{ url('bower_components\AdminLTE\plugins\datatables\extensions\Responsive\css\dataTables.responsive.css') }}" rel="stylesheet">
 <link href=" {{ url('bower_components\AdminLTE\plugins\datatables\jquery.dataTables.min.css') }}" rel="stylesheet">
@@ -27,16 +27,16 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3" for="first-name">Tanggal lahir<span class="required">*</span>
-            </label>
-            <div class="col-md-6 col-sm-6">
-              <div class="input-group date">
-                <div class="input-group-addon">
-                  <i class="fa fa-calendar"></i>
+              <label class="col-sm-3 control-label">Tanggal Lahir</label>
+              <div class="col-sm-6">
+                 <div class="input-group">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                  <input type="text" class="form-control pull-right" id="tanggallahir">
                 </div>
-                <input type="date" class="form-control pull-right" name="tanggallahir">
+                  
               </div>
-            </div>
           </div>
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-3" for="last-name">tempat lahir<span class="required">*</span>
