@@ -36,7 +36,6 @@
               <th class="text-center col-sm-2">No</th>
               <th>Tanggal</th>
               <th class="text-right">Harga Jual</th>
-              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -45,9 +44,6 @@
               <td class="text-center">{{$loop->iteration}}</td>
               <td>{{$kur->tanggal}}</td>
               <td class="text-right">{{$kur->harga}}</td>
-              <td class="text-center">
-                <a class="text-danger delete-resource" data-id="{{encrypt($kur->id)}}"><i class="fa fa-close"></i></a>
-              </td>
             </tr>
             @empty
             <tr>
