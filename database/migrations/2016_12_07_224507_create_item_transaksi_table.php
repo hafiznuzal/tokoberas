@@ -20,7 +20,6 @@ class CreateItemTransaksiTable extends Migration
             $table->bigInteger('biaya');
             $table->integer('inventory_id')->unsigned();
             $table->integer('inventory_jenis')->unsigned();
-            $table->integer('inventory_modal')->unsigned();
             $table->timestamps();
         });
     }

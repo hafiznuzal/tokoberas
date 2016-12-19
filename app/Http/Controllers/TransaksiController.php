@@ -90,7 +90,6 @@ class TransaksiController extends Controller
             $item->biaya = $value->biaya;
             $item->inventory_id = $value->inventory_id;
             $item->inventory_jenis = $value->inventory_jenis;
-            $item->inventory_modal = 0; // ini ga penting
             $item->save();
         }
 
