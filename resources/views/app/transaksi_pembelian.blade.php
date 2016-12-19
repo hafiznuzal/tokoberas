@@ -44,7 +44,8 @@
             <div class="form-group">
               <label class="col-sm-3 control-label">Jenis Barang</label>
               <div class="col-sm-8">
-                <select class="form-control" ng-model="jenis">
+                <select class="" ng-model="jenis" id="jenis" placeholder="Pilih barang">
+                  <option value="">Pilih barang</option>
                   @foreach ($jenis as $barang)
                   <option value="{{ $barang->id }}">{{ $barang->nama }}</option>
                   @endforeach
@@ -117,7 +118,7 @@
                   <input name="pembelian[{{$index}}][harga]" value="{{row.harga}}">
                 </td>
                 <td class="text-center">{{$index + 1}}</td>
-                <td>{{row.jenis}}</td>
+                <td>{{jenisSelectize.options[row.jenis].text}}</td>
                 <td>{{row.merek}}</td>
                 <td class="text-center">{{row.jumlah}}</td>
                 <td class="text-center">{{row.jumlah_karung}}</td>
@@ -208,6 +209,7 @@
     })
 
     produsen = $("#produsen").selectize({})[0].selectize;
+    $scope.jenisSelectize = $("#jenis").selectize({})[0].selectize;
   });
 })();
 </script>
