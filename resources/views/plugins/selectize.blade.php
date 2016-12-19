@@ -5,6 +5,9 @@
     .form-inline .selectize-control {
       margin-bottom: -5px;
     }
+    .selectize-control {
+      height: 35px;
+    }
   </style>
 @endsection
 

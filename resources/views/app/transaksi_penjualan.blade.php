@@ -1,12 +1,42 @@
 @extends('app')
 
+@include('plugins.daterangepicker')
 @include('plugins.selectize')
 
 @section('content')
 <form method="post" action="{{url('transaksi/penjualan')}}">
   {{csrf_field()}}
+  <div class="row">
+    <div class="col-lg-6 col-sm-10 col-xs-12">
+      <div class="box box-primary">
+        <div class="box-header">
+          <h4>Detail Penjualan</h4>
+        </div>
+        <div class="box-body">
+          <div class="form-horizontal">
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Konsumen</label>
+              <div class="col-sm-8">
+                <select class="" id="konsumen" name="konsumen">
+                  @foreach ($konsumen as $kons)
+                  <option value="{{ $kons->id }}">{{ $kons->nama }}</option>
+                  @endforeach
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Tanggal</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" id="tanggal" placeholder="" value="{{date('Y-m-d')}}">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   @verbatim
-  <div class="box" ng-controller="penjualan">
+  <div class="box box-primary" ng-controller="penjualan">
     <div class="box-body">
       <div class="row">
         <div class="col-lg-6 col-md-10">
@@ -55,6 +85,7 @@
                   <input name="inventory[{{$index}}][inventory_id]" value="{{row.id}}">
                   <input name="inventory[{{$index}}][inventory_jenis]" value="{{row.jenis_id}}">
                   <input name="inventory[{{$index}}][jumlah]" value="{{row.jumlah_terpilih}}">
+                  <input name="inventory[{{$index}}][modal]" value="{{row.harga_beli * row.jumlah_terpilih}}">
                   <input name="inventory[{{$index}}][biaya]" value="{{row['jenis.latest_kurs.harga']}}">
                 </td>
                 <td class="text-center">{{$index + 1}}</td>
@@ -120,6 +151,7 @@
         <div class="text-right">
           <h4>Total = {{total}}</h4>
           <input type="hidden" name="total" value="{{total}}">
+          <input type="hidden" name="total_operasional" value="{{total_operasional}}">
           <button class="btn btn-success">Submit</button>
         </div>
       </div>
@@ -133,6 +165,7 @@
 <script>
 app.controller("penjualan", function($scope) {
   $scope.total = 0;
+  $scope.total_operasional = 0;
 
   /* All about inventory */
   var inventory = null;
@@ -174,7 +207,7 @@ app.controller("penjualan", function($scope) {
     selected.harga_terpilih = $scope.hargaoperasional;
     $scope.table_operasional.push(selected);
     selected_operasional.push(index);
-    $scope.total += selected.harga_terpilih;
+    $scope.total_operasional += selected.harga_terpilih;
   }
 
   /* Initialize Selectize */
@@ -210,6 +243,7 @@ app.controller("penjualan", function($scope) {
       create: false,
       options: {!!json_encode($operasional)!!},
     })[0].selectize;
+    konsumen = $("#konsumen").selectize({})[0].selectize;
 
     /* Selectize event listener */
     inventory.on("change", function(value) {
@@ -222,6 +256,14 @@ app.controller("penjualan", function($scope) {
         $scope.$apply();
       }
     })
+
+    $('#tanggal').daterangepicker({
+      format: 'YYYY-MM-DD',
+      singleDatePicker: true,
+      calender_style: "picker_2"
+    }, function(start, end, label) {
+      $scope.tanggal_kadaluarsa = start.format('YYYY-MM-DD');
+    });
   })
 });
 </script>

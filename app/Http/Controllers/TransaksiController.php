@@ -9,6 +9,7 @@ use App\Inventory;
 use App\ItemTransaksi;
 use App\Jenis;
 use App\JenisOperasional;
+use App\Konsumen;
 use App\Modal;
 use App\Nota;
 use App\Pembayaran;
@@ -56,8 +57,9 @@ class TransaksiController extends Controller
         $dotinvent = $inventory->map(function ($item) {
             return array_dot($item->toArray());
         });
+        $konsumen = Konsumen::get();
 
-        $data = compact('operasional', 'dotinvent');
+        $data = compact('operasional', 'dotinvent', 'konsumen');
         // dd($data);
         return view('app.transaksi_penjualan', $data);
     }
@@ -67,20 +69,21 @@ class TransaksiController extends Controller
         $inventory = $request->input('inventory');
         $operasional = $request->input('operasional');
         $total = $request->input('total');
+        $total_operasional = $request->input('total_operasional');
 
         if ($inventory == null) {
             return $redirect->back();
         }
 
         $nota = new Nota;
-        $nota->tanggal = date('Y-m-d H:i:s');
-        $nota->total_modal = 0;
+        $nota->tanggal = $request->input('tanggal');
+        $nota->total_modal = 0; // diisi di bawah
         $nota->total_harga = $total;
         $nota->total_pembayaran = 0;
-        $nota->keuntungan_bersih = 0;
-        $nota->konsumen_id = 0;
+        $nota->keuntungan_bersih = 0; // diisi di bawah
+        $nota->konsumen_id = $request->input('konsumen');
         $nota->status = 0;
-        $nota->user_id = 0;
+        $nota->user_id = Auth::user()->id;
         $nota->save();
 
         foreach ($inventory as $value) {
@@ -91,7 +94,11 @@ class TransaksiController extends Controller
             $item->inventory_id = $value->inventory_id;
             $item->inventory_jenis = $value->inventory_jenis;
             $item->save();
+
+            $nota->total_modal += $item->modal;
         }
+        $nota->keuntungan_bersih = $total - $nota->total_modal - $total_operasional;
+        $nota->save();
 
         foreach ((array) $operasional as $value) {
             $item = new RiwayatOperasional;

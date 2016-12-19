@@ -1,12 +1,14 @@
 @extends('app')
 
 @include('plugins.daterangepicker')
+@include('plugins.selectize')
 
 @section('content')
 <form id="form-pembelian" method="post" action="{{url('transaksi/pembelian')}}">
+  {{ csrf_field() }}
   <div class="row" ng-controller="pembelian">
-    <div class="col-lg-8 col-md-10 col-sm-10 col-xs-12">
-      <div class="box">
+    <div class="col-lg-6 col-sm-10 col-xs-12">
+      <div class="box box-primary">
         <div class="box-header">
           <h4>Detail Pembelian</h4>
         </div>
@@ -15,7 +17,7 @@
             <div class="form-group">
               <label class="col-sm-3 control-label">Produsen</label>
               <div class="col-sm-8">
-                <select class="form-control" name="produsen">
+                <select class="" id="produsen" name="produsen">
                   @foreach ($produsen as $prod)
                   <option value="{{ $prod->id }}">{{ $prod->nama }}</option>
                   @endforeach
@@ -31,7 +33,9 @@
           </div>
         </div>
       </div>
-      <div class="box">
+    </div>
+    <div class="col-lg-8 col-md-10 col-sm-10 col-xs-12">
+      <div class="box box-primary">
         <div class="box-header">
           <h4>Transaksi Pembelian</h4>
         </div>
@@ -85,7 +89,6 @@
               </div>
             </div>
           </div>
-          {{ csrf_field() }}
           @verbatim
           <table class="table">
             <thead>
@@ -203,6 +206,8 @@
         return false;
       }
     })
+
+    produsen = $("#produsen").selectize({})[0].selectize;
   });
 })();
 </script>
