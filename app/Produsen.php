@@ -7,4 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Produsen extends Model
 {
     protected $table = 'produsen';
+
+    protected $guarded = [];
 }

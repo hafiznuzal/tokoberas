@@ -16,6 +16,7 @@ class CreateProdusenTable extends Migration
         Schema::create('produsen', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nama');
+            $table->date('tanggallahir');
             $table->string('alamat');
             $table->string('telepon');
             $table->string('hp');
