@@ -3,57 +3,88 @@
 @include('plugins.daterangepicker')
 
 @section('content')
-<div class="row" ng-controller="pembelian">
-  <div class="col-lg-8 col-md-10 col-sm-10 col-xs-12">
-    <div class="box">
-      <div class="box-header">
-        <h4>Transaksi Pembelian</h4>
-      </div>
-      <div class="box-body">
-        <div class="form-horizontal">
-          <div class="form-group">
-            <label class="col-sm-3 control-label">Jenis Barang</label>
-            <div class="col-sm-8">
-              <select class="form-control" ng-model="jenis">
-                @foreach ($jenis as $barang)
-                <option value="{{ $barang->id }}">{{ $barang->nama }}</option>
-                @endforeach
-              </select>
+<form id="form-pembelian" method="post" action="{{url('transaksi/pembelian')}}">
+  <div class="row" ng-controller="pembelian">
+    <div class="col-lg-8 col-md-10 col-sm-10 col-xs-12">
+      <div class="box">
+        <div class="box-header">
+          <h4>Detail Pembelian</h4>
+        </div>
+        <div class="box-body">
+          <div class="form-horizontal">
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Produsen</label>
+              <div class="col-sm-8">
+                <select class="form-control" name="produsen">
+                  @foreach ($produsen as $prod)
+                  <option value="{{ $prod->id }}">{{ $prod->nama }}</option>
+                  @endforeach
+                </select>
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-3 control-label">Merk Barang</label>
-            <div class="col-sm-8">
-              <input type="text" class="form-control" ng-model="merek" placeholder="Top Brand">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-3 control-label">Jumlah Barang</label>
-            <div class="col-sm-8">
-              <input type="number" class="form-control" id="jumlah" ng-model="jumlah" placeholder="20">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-3 control-label">Tanggal Kadaluarsa</label>
-            <div class="col-sm-8">
-              <input type="text" class="form-control" id="tgl_kadaluarsa" ng-model="tanggal_kadaluarsa" placeholder="Tanggal kadaluarsa">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-3 control-label">Harga Total</label>
-            <div class="col-sm-8">
-              <input type="number" class="form-control" ng-model="harga" placeholder="200.000">
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-sm-8 col-sm-offset-3">
-              <button type="submit" class="btn btn-primary" ng-click="tambah_pembelian()">
-                Tambahkan
-              </button>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Tanggal</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" id="tanggal" placeholder="" value="{{date('Y-m-d')}}">
+              </div>
             </div>
           </div>
         </div>
-        <form id="form-pembelian" method="post" action="{{url('transaksi/pembelian')}}">
+      </div>
+      <div class="box">
+        <div class="box-header">
+          <h4>Transaksi Pembelian</h4>
+        </div>
+        <div class="box-body">
+          <div class="form-horizontal">
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Jenis Barang</label>
+              <div class="col-sm-8">
+                <select class="form-control" ng-model="jenis">
+                  @foreach ($jenis as $barang)
+                  <option value="{{ $barang->id }}">{{ $barang->nama }}</option>
+                  @endforeach
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Merk Barang</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" ng-model="merek" placeholder="Top Brand">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Jumlah Barang</label>
+              <div class="col-sm-8">
+                <input type="number" class="form-control" id="jumlah" ng-model="jumlah" placeholder="20">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Jumlah Karung</label>
+              <div class="col-sm-8">
+                <input type="number" class="form-control" id="jumlah_karung" ng-model="jumlah_karung" placeholder="1">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Tanggal Kadaluarsa</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" id="tgl_kadaluarsa" ng-model="tanggal_kadaluarsa" placeholder="Tanggal kadaluarsa">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Harga Total</label>
+              <div class="col-sm-8">
+                <input type="number" class="form-control" ng-model="harga" placeholder="200.000">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-8 col-sm-offset-3">
+                <button type="button" class="btn btn-primary" ng-click="tambah_pembelian()">
+                  Tambahkan
+                </button>
+              </div>
+            </div>
+          </div>
           {{ csrf_field() }}
           @verbatim
           <table class="table">
@@ -63,6 +94,7 @@
                 <th>Jenis</th>
                 <th>Merek</th>
                 <th class="text-center">Jumlah</th>
+                <th class="text-center">Karung</th>
                 <th>Kadaluarsa</th>
                 <th class="text-right">Harga Total</th>
                 <th></th>
@@ -77,6 +109,7 @@
                   <input name="pembelian[{{$index}}][jenis_id]" value="{{row.jenis}}">
                   <input name="pembelian[{{$index}}][merek]" value="{{row.merek}}">
                   <input name="pembelian[{{$index}}][jumlah]" value="{{row.jumlah}}">
+                  <input name="pembelian[{{$index}}][jumlah_karung]" value="{{row.jumlah_karung}}">
                   <input name="pembelian[{{$index}}][tanggal_kadaluarsa]" value="{{row.tanggal_kadaluarsa}}">
                   <input name="pembelian[{{$index}}][harga]" value="{{row.harga}}">
                 </td>
@@ -84,6 +117,7 @@
                 <td>{{row.jenis}}</td>
                 <td>{{row.merek}}</td>
                 <td class="text-center">{{row.jumlah}}</td>
+                <td class="text-center">{{row.jumlah_karung}}</td>
                 <td>{{row.tanggal_kadaluarsa}}</td>
                 <td class="text-right">{{row.harga}}</td>
                 <td class="text-center"><a class="text-danger" ng-click="hapus(row)"><i class="fa fa-close"></i></a></td>
@@ -96,11 +130,11 @@
             <button class="btn btn-success">Submit</button>
           </div>
           @endverbatim
-        </form>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</form>
 @endsection
 
 @section('js')
@@ -113,6 +147,7 @@
     reset = function() {
       $scope.merek = '';
       $scope.jumlah = 0;
+      $scope.jumlah_karung = 0;
       $scope.harga = 0;
       $scope.tanggal_kadaluarsa = '';
     }
@@ -123,6 +158,7 @@
         jenis: $scope.jenis,
         merek: $scope.merek,
         jumlah: $scope.jumlah,
+        jumlah_karung: $scope.jumlah_karung,
         harga: $scope.harga,
         tanggal_kadaluarsa: $scope.tanggal_kadaluarsa,
       };
@@ -149,8 +185,23 @@
       $scope.tanggal_kadaluarsa = start.format('YYYY-MM-DD');
     });
 
+    $('#tanggal').daterangepicker({
+      format: 'YYYY-MM-DD',
+      singleDatePicker: true,
+      calender_style: "picker_2"
+    }, function(start, end, label) {
+      $scope.tanggal_kadaluarsa = start.format('YYYY-MM-DD');
+    });
+
     $("#form-pembelian").submit(function() {
-      return $scope.rows.length > 0;
+      if ($("#tanggal").val() == "") {
+        alert("Mohon isi tanggal transaksi.");
+        return false;
+      }
+      if ($scope.rows.length > 0) {
+        alert("Mohon isi barang transaksi.");
+        return false;
+      }
     })
   });
 })();

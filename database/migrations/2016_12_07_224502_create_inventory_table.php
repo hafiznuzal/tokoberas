@@ -23,6 +23,7 @@ class CreateInventoryTable extends Migration
             $table->date('tanggal_kadaluarsa');
             $table->integer('jumlah');
             $table->integer('jumlah_aktual');
+            $table->integer('jumlah_karung');
             $table->timestamps();
         });
     }

@@ -12,6 +12,7 @@ use App\JenisOperasional;
 use App\Modal;
 use App\Nota;
 use App\Pembayaran;
+use App\Produsen;
 use App\RiwayatOperasional;
 
 class TransaksiController extends Controller
@@ -19,6 +20,7 @@ class TransaksiController extends Controller
     public function getPembelian()
     {
         $data['jenis'] = Jenis::get();
+        $data['produsen'] = Produsen::get();
 
         return view('app.transaksi_pembelian', $data);
     }
@@ -26,8 +28,8 @@ class TransaksiController extends Controller
     public function postPembelian(Request $request)
     {
         $modal = new Modal;
-        $modal->tanggal = date('Y-m-d');
-        $modal->produsen_id = 0;
+        $modal->tanggal = $request->input('tanggal');
+        $modal->produsen_id = $request->input('produsen');
         $modal->biaya = $request->input('total');
         $modal->save();
 
@@ -40,6 +42,7 @@ class TransaksiController extends Controller
             $inventory->harga_beli = $pembelian['harga'] / $pembelian['jumlah'];
             $inventory->jumlah = $pembelian['jumlah'];
             $inventory->jumlah_aktual = $pembelian['jumlah'];
+            $inventory->jumlah_karung = $pembelian['jumlah_karung'];
             $inventory->modal_id = $modal->id;
             $inventory->save();
         }
