@@ -53,8 +53,11 @@ class JenisController extends Controller
      */
     public function show($id)
     {
-        $kurs = Jenis::find($id)->kurs;
-        dd($kurs);
+        $jenis = Jenis::find($id);
+        $kurs = $jenis->kurs->sortByDesc('tanggal');
+
+        $data = compact('jenis', 'kurs');
+        return view('app.jenis_show', $data);
     }
 
     /**
@@ -77,7 +80,17 @@ class JenisController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $kurs = new Kurs;
+        $kurs->harga = $request->input('harga');
+        $kurs->tanggal = date('Y-m-d H:i:s');
+        $kurs->jenis_id = $id;
+        $kurs->save();
+
+        $jenis = Jenis::find($id);
+        $jenis->latest_kurs_id = $kurs->id;
+        $jenis->save();
+
+        return redirect()->back();
     }
 
     /**
