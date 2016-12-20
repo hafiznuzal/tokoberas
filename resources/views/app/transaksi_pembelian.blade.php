@@ -59,6 +59,12 @@
               </div>
             </div>
             <div class="form-group">
+              <label class="col-sm-3 control-label">Tanggal Kadaluarsa</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" id="tgl_kadaluarsa" ng-model="tanggal_kadaluarsa" placeholder="Tanggal kadaluarsa">
+              </div>
+            </div>
+            <div class="form-group">
               <label class="col-sm-3 control-label">Jumlah Barang</label>
               <div class="col-sm-8">
                 <input type="number" class="form-control" id="jumlah" ng-model="jumlah" placeholder="20">
@@ -68,12 +74,6 @@
               <label class="col-sm-3 control-label">Jumlah Karung</label>
               <div class="col-sm-8">
                 <input type="number" class="form-control" id="jumlah_karung" ng-model="jumlah_karung" placeholder="1">
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-sm-3 control-label">Tanggal Kadaluarsa</label>
-              <div class="col-sm-8">
-                <input type="text" class="form-control" id="tgl_kadaluarsa" ng-model="tanggal_kadaluarsa" placeholder="Tanggal kadaluarsa">
               </div>
             </div>
             <div class="form-group">
@@ -97,9 +97,9 @@
                 <th class="text-center">No</th>
                 <th>Jenis</th>
                 <th>Merek</th>
+                <th>Kadaluarsa</th>
                 <th class="text-center">Jumlah</th>
                 <th class="text-center">Karung</th>
-                <th>Kadaluarsa</th>
                 <th class="text-right">Harga Total</th>
                 <th></th>
               </tr>
@@ -120,9 +120,9 @@
                 <td class="text-center">{{$index + 1}}</td>
                 <td>{{jenisSelectize.options[row.jenis].text}}</td>
                 <td>{{row.merek}}</td>
+                <td>{{row.tanggal_kadaluarsa}}</td>
                 <td class="text-center">{{row.jumlah}}</td>
                 <td class="text-center">{{row.jumlah_karung}}</td>
-                <td>{{row.tanggal_kadaluarsa}}</td>
                 <td class="text-right">{{row.harga}}</td>
                 <td class="text-center"><a class="text-danger" ng-click="hapus(row)"><i class="fa fa-close"></i></a></td>
               </tr>
