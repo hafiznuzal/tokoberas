@@ -8,8 +8,13 @@ class Nota extends Model
 {
     protected $table = 'nota';
 
-    public function karyawan()
+    public function konsumen()
     {
-        return $this->belongsTo('App\Karyawan');
+        return $this->belongsTo('App\Konsumen');
+    }
+
+    public function pembayaran()
+    {
+        return $this->hasMany('App\Pembayaran');
     }
 }

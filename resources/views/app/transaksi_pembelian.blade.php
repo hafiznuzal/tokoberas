@@ -27,7 +27,7 @@
             <div class="form-group">
               <label class="col-sm-3 control-label">Tanggal</label>
               <div class="col-sm-8">
-                <input type="text" class="form-control" id="tanggal" placeholder="" value="{{date('Y-m-d')}}">
+                <input type="text" class="form-control" id="tanggal" name="tanggal" value="{{date('Y-m-d')}}">
               </div>
             </div>
           </div>
@@ -202,7 +202,7 @@
         alert("Mohon isi tanggal transaksi.");
         return false;
       }
-      if ($scope.rows.length > 0) {
+      if ($scope.rows.length <= 0) {
         alert("Mohon isi barang transaksi.");
         return false;
       }

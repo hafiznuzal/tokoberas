@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Auth;
 
 use App\Inventory;
 use App\ItemTransaksi;
@@ -87,26 +88,34 @@ class TransaksiController extends Controller
         $nota->save();
 
         foreach ($inventory as $value) {
+            $realitem = Inventory::find($value['inventory_id']);
+            if ($realitem->jumlah_aktual < $value['jumlah']) {
+                $nota->delete();
+                dd('jumlah kurang');
+            }
+            $realitem->jumlah_aktual -= $value['jumlah'];
+            $realitem->save();
+
             $item = new ItemTransaksi;
-            $item->jumlah = $value->jumlah;
+            $item->jumlah = $value['jumlah'];
             $item->nota_id = $nota->id;
-            $item->biaya = $value->biaya;
-            $item->inventory_id = $value->inventory_id;
-            $item->inventory_jenis = $value->inventory_jenis;
+            $item->biaya = $value['biaya'];
+            $item->inventory_id = $value['inventory_id'];
+            $item->inventory_jenis = $value['inventory_jenis'];
             $item->save();
 
-            $nota->total_modal += $item->modal;
+            $nota->total_modal += $item->jumlah * $realitem->harga_beli;
         }
         $nota->keuntungan_bersih = $total - $nota->total_modal - $total_operasional;
         $nota->save();
 
         foreach ((array) $operasional as $value) {
             $item = new RiwayatOperasional;
-            $item->biaya = $value->biaya;
-            $item->jenis_operasional_id = $value->jenis_operasional_id;
+            $item->biaya = $value['biaya'];
+            $item->jenis_operasional_id = $value['jenis_operasional_id'];
             $item->nota_id = $nota->id;
             $item->save();
         }
-        return $redirect->back();
+        return redirect()->back();
     }
 }
