@@ -19,23 +19,18 @@
     <div class="navbar-custom-menu">
       <ul class="nav navbar-nav">
         <!-- User Account: style can be found in dropdown.less -->
+        @if (Auth::check())
         <li class="dropdown user user-menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             {{-- <img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image"> --}}
             <span class="hidden-xs">
-              @if (Auth::check())
               {{Auth::user()->nama}}
-              @else
-              Belum Login
-              @endif
             </span>
           </a>
-          @if (Auth::check())
           <ul class="dropdown-menu">
             <!-- User image -->
             <li class="user-header">
               {{-- <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image"> --}}
-
               <p>
                 {{Auth::user()->nama}} - {{Auth::user()->jabatan}}
                 <small>Member since Nov. 2012</small>
@@ -66,8 +61,12 @@
               </div>
             </li>
           </ul>
-          @endif
         </li>
+        @else
+        <li>
+          <a href="{{url('login')}}">Login</a>
+        </li>
+        @endif
       </ul>
     </div>
   </nav>
