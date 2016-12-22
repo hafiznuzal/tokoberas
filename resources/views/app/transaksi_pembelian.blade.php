@@ -80,7 +80,7 @@
             <div class="form-group">
               <label class="col-sm-3 control-label">Harga Total</label>
               <div class="col-sm-8">
-                <input type="text" class="form-control input-numeric" ng-model="harga">
+                <input type="text" class="form-control input-accounting" ng-model="harga">
               </div>
             </div>
             <div class="form-group">

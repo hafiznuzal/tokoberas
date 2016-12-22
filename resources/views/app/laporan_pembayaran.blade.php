@@ -4,6 +4,7 @@
 @include('plugins.daterangepicker')
 @include('plugins.datepicker')
 @include('plugins.selectize')
+@include('plugins.accounting')
 
 @section('css')
 <link href=" {{ url('bower_components/AdminLTE/plugins/datatables/extensions/Responsive/css/dataTables.responsive.css') }}" rel="stylesheet">
@@ -46,7 +47,7 @@
               Jumlah Pembayaran <span class="required">*</span>
             </label>
             <div class="col-md-6">
-              <input type="text" name="biaya" required="required" class="form-control col-md-7">
+              <input type="text" name="biaya" required="required" class="form-control col-md-7 input-accounting">
             </div>
           </div>
           <div class="form-group">
@@ -107,7 +108,7 @@
               <td class="text-center">{{$bayar->nota_id}}</td>
               <td>{{$bayar->konsumen->nama}}</td>
               <td class="text-center">{{$bayar->tanggal}}</td>
-              <td class="text-right">{{$bayar->biaya}}</td>
+              <td class="text-right">{{number_format($bayar->biaya)}}</td>
               <td></td>
             </tr>
             @endforeach
@@ -138,9 +139,9 @@ $(function(){
               '<span><strong>Konsumen: </strong>' + escape(item['konsumen.nama']) + '</span>' +
             '</div>' +
             '<div class="col-sm-6">' +
-              '<span><strong>Harga Total: </strong>' + item.total_harga + '</span><br>' +
-              '<span><strong>Pembayaran: </strong>' + item.total_pembayaran + '</span><br>' +
-              '<span><strong>Kurang: </strong>' + (item.total_harga - item.total_pembayaran) + '</span>' +
+              '<span><strong>Harga Total: </strong>' + accounting(item.total_harga) + '</span><br>' +
+              '<span><strong>Pembayaran: </strong>' + accounting(item.total_pembayaran) + '</span><br>' +
+              '<span><strong>Kurang: </strong>' + accounting((item.total_harga - item.total_pembayaran)) + '</span>' +
             '</div>' +
           '</div>' +
         '</div>';

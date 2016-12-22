@@ -19,7 +19,7 @@ class Jenis extends Model
      *
      * @return App\Jenis
      */
-    public static function createAndKurs($nama, $harga)
+    public static function createAndKurs($nama, $harga, $tanggal = null)
     {
         $jenis = new Jenis;
         $jenis->nama = $nama;
@@ -28,7 +28,10 @@ class Jenis extends Model
 
         $kurs = new Kurs;
         $kurs->harga = $harga;
-        $kurs->tanggal = date('Y-m-d H:i:s');
+        if ($tanggal == null) {
+            $tanggal = date('Y-m-d H:i:s');
+        }
+        $kurs->tanggal = $tanggal;
         $kurs->jenis_id = $jenis->id;
         $kurs->save();
 

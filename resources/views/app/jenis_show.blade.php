@@ -1,5 +1,7 @@
 @extends('app')
 
+@include('plugins.accounting')
+
 @section('content')
 <div class="row">
   <div class="col-md-6">
@@ -14,7 +16,7 @@
           <div class="form-group">
             <label class="col-sm-3 control-label">Ubah Harga Barang</label>
             <div class="col-sm-8">
-              <input type="number" class="form-control" name="harga" placeholder="" value="{{$jenis->latest_kurs->harga}}">
+              <input type="text" class="form-control input-accounting" name="harga" placeholder="" value="{{number_format($jenis->latest_kurs->harga)}}">
             </div>
           </div>
           <div class="form-group">
@@ -43,7 +45,7 @@
             <tr>
               <td class="text-center">{{$loop->iteration}}</td>
               <td>{{$kur->tanggal}}</td>
-              <td class="text-right">{{$kur->harga}}</td>
+              <td class="text-right">{{number_format($kur->harga)}}</td>
             </tr>
             @empty
             <tr>

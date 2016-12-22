@@ -2,6 +2,7 @@
 
 @include('plugins.daterangepicker')
 @include('plugins.selectize')
+@include('plugins.accounting')
 
 @section('content')
 <form method="post" action="{{url('transaksi/penjualan')}}">
@@ -55,9 +56,9 @@
               </div>
             </div>
             <div class="form-group">
-              <label class="col-md-3 control-label">Harga</label>
+              <label class="col-md-3 control-label">Harga Satuan</label>
               <div class="col-md-9">
-                <input class="form-control" id="hargainventory" ng-model="hargainventory" disabled>
+                <input class="form-control input-accounting" id="hargainventory" ng-model="hargainventory" disabled>
               </div>
             </div>
             <div class="form-group">
@@ -91,7 +92,7 @@
                 <td class="text-center">{{$index + 1}}</td>
                 <td>{{row['jenis.nama']}} {{row.merek}}</td>
                 <td class="text-right">{{row.jumlah_terpilih}}</td>
-                <td class="text-right">{{row.harga_terpilih_total}}</td>
+                <td class="text-right">{{accounting(row.harga_terpilih_total)}}</td>
                 <td><i class="fa fa-close"></i></td>
               </tr>
             </tbody>
@@ -110,7 +111,7 @@
             <div class="form-group">
               <label class="col-md-3 control-label">Biaya</label>
               <div class="col-md-9">
-                <input type="number" class="form-control" ng-model="hargaoperasional" placeholder="Biaya operasional">
+                <input type="text" class="form-control input-accounting" ng-model="hargaoperasional" placeholder="Biaya operasional">
               </div>
             </div>
             <div class="form-group">
@@ -138,8 +139,8 @@
                   <input name="operasional[{{$index}}][biaya]" value="{{row.harga_terpilih}}">
                 </td>
                 <td class="text-center">{{$index + 1}}</td>
-                <td>{{row['jenis.nama']}} {{row.nama}}</td>
-                <td class="text-right">{{row.harga_terpilih}}</td>
+                <td>{{row.nama}}</td>
+                <td class="text-right">{{accounting(row.harga_terpilih)}}</td>
                 <td><i class="fa fa-close"></i></td>
               </tr>
             </tbody>
@@ -164,6 +165,7 @@
 @section('js')
 <script>
 app.controller("penjualan", function($scope) {
+  $scope.accounting = accounting
   $scope.total = 0;
   $scope.total_operasional = 0;
 
@@ -204,7 +206,7 @@ app.controller("penjualan", function($scope) {
     }
     var selected = operasional.options[index];
 
-    selected.harga_terpilih = $scope.hargaoperasional;
+    selected.harga_terpilih = unaccounting($scope.hargaoperasional);
     $scope.table_operasional.push(selected);
     selected_operasional.push(index);
     $scope.total_operasional += selected.harga_terpilih;
@@ -251,7 +253,7 @@ app.controller("penjualan", function($scope) {
         console.log(value);
         selected = inventory.options[value]
         console.log(selected);
-        $scope.hargainventory = selected['jenis.latest_kurs.harga'];
+        $scope.hargainventory = accounting(selected['jenis.latest_kurs.harga']);
         $scope.jumlahinventory = selected.jumlah_aktual;
         $scope.$apply();
       }

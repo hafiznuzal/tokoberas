@@ -28,19 +28,9 @@ class JenisController extends Controller
      */
     public function store(Request $request)
     {
-        $jenis = new Jenis;
-        $jenis->nama = $request->input('nama');
-        $jenis->latest_kurs_id = 0;
-        $jenis->save();
-
-        $kurs = new Kurs;
-        $kurs->harga = $request->input('harga');
-        $kurs->tanggal = date('Y-m-d H:i:s');
-        $kurs->jenis_id = $jenis->id;
-        $kurs->save();
-
-        $jenis->latest_kurs_id = $kurs->id;
-        $jenis->save();
+        $nama = $request->input('nama');
+        $harga = str_replace(',', '', $request->input('harga'));
+        $jenis = Jenis::createAndKurs($nama, $harga);
 
         return redirect()->back();
     }
@@ -81,7 +71,7 @@ class JenisController extends Controller
     public function update(Request $request, $id)
     {
         $kurs = new Kurs;
-        $kurs->harga = $request->input('harga');
+        $kurs->harga = str_replace(',', '', $request->input('harga'));
         $kurs->tanggal = date('Y-m-d H:i:s');
         $kurs->jenis_id = $id;
         $kurs->save();

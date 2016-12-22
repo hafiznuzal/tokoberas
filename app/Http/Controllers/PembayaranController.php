@@ -49,7 +49,7 @@ class PembayaranController extends Controller
         $pembayaran->nota_id = $request->input('nota_id');
         $nota = $pembayaran->nota;
         $pembayaran->nota_konsumen_id = $nota->konsumen_id; // ini ndang dihapus
-        $pembayaran->biaya = $request->input('biaya');
+        $pembayaran->biaya = str_replace(',', '', $request->input('biaya'));
         $pembayaran->tanggal = $request->input('tanggal');
         $pembayaran->user_id = $request->input('user_id');
 
