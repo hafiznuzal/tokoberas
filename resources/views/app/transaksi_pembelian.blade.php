@@ -124,13 +124,13 @@
                 <td>{{row.tanggal_kadaluarsa}}</td>
                 <td class="text-center">{{row.jumlah}}</td>
                 <td class="text-center">{{row.jumlah_karung}}</td>
-                <td class="text-right">{{numeral(row.harga).format('0,0')}}</td>
+                <td class="text-right">{{accounting(row.harga)}}</td>
                 <td class="text-center"><a class="text-danger" ng-click="hapus(row)"><i class="fa fa-close"></i></a></td>
               </tr>
             </tbody>
           </table>
           <div class="text-right">
-            <h4>Total = {{numeral(total).format('0,0')}}</h4>
+            <h4>Total = {{accounting(total)}}</h4>
             <input type="hidden" name="total" value="{{total}}">
             <button class="btn btn-success">Submit</button>
           </div>
@@ -146,7 +146,7 @@
 <script>
 (function(){
   app.controller("pembelian", function($scope) {
-    $scope.numeral = numeral;
+    $scope.accounting = accounting;
     $scope.total = 0;
     $scope.rows = [];
 
@@ -165,7 +165,7 @@
         merek: $scope.merek,
         jumlah: $scope.jumlah,
         jumlah_karung: $scope.jumlah_karung,
-        harga: numeral($scope.harga).value(),
+        harga: unaccounting($scope.harga),
         tanggal_kadaluarsa: $scope.tanggal_kadaluarsa,
       };
       if (row.jenis == undefined || !(row.jumlah > 0) || !(row.harga > 0) || row.tanggal_kadaluarsa == '') {

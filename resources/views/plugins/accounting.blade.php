@@ -7,6 +7,12 @@
     numeral: true,
     numeralThousandsGroupStyle: 'thousand'
   });
+  g.accounting = function(n) {
+    return numeral(n).format('0,0');
+  }
+  g.unaccounting = function (n) {
+    return numeral(n).value();
+  }
 })(window);
 </script>
 @endsection
