@@ -20,6 +20,8 @@
     "gentelella": "^1.3.0",
     "selectize": "^0.12.4",
     "angular": "^1.5.9",
-    "AdminLTE": "adminlte#^2.3.8"
+    "AdminLTE": "adminlte#^2.3.8",
+    "cleave.js": "^0.7.10",
+    "numeral": "^2.0.4"
   }
 }

@@ -1,7 +1,8 @@
 @extends('app')
 
-@include('plugins.daterangepicker')
+@include('plugins.datepicker')
 @include('plugins.selectize')
+@include('plugins.accounting')
 
 @section('content')
 <form id="form-pembelian" method="post" action="{{url('transaksi/pembelian')}}">
@@ -27,7 +28,7 @@
             <div class="form-group">
               <label class="col-sm-3 control-label">Tanggal</label>
               <div class="col-sm-8">
-                <input type="text" class="form-control" id="tanggal" name="tanggal" value="{{date('Y-m-d')}}">
+                <input type="text" class="form-control datepicker" id="tanggal" name="tanggal" value="{{date('Y-m-d')}}">
               </div>
             </div>
           </div>
@@ -61,7 +62,7 @@
             <div class="form-group">
               <label class="col-sm-3 control-label">Tanggal Kadaluarsa</label>
               <div class="col-sm-8">
-                <input type="text" class="form-control" id="tgl_kadaluarsa" ng-model="tanggal_kadaluarsa" placeholder="Tanggal kadaluarsa">
+                <input type="text" class="form-control datepicker" id="tgl_kadaluarsa" ng-model="tanggal_kadaluarsa" placeholder="Tanggal kadaluarsa">
               </div>
             </div>
             <div class="form-group">
@@ -79,7 +80,7 @@
             <div class="form-group">
               <label class="col-sm-3 control-label">Harga Total</label>
               <div class="col-sm-8">
-                <input type="number" class="form-control" ng-model="harga" placeholder="200.000">
+                <input type="text" class="form-control input-numeric" ng-model="harga">
               </div>
             </div>
             <div class="form-group">
@@ -123,13 +124,13 @@
                 <td>{{row.tanggal_kadaluarsa}}</td>
                 <td class="text-center">{{row.jumlah}}</td>
                 <td class="text-center">{{row.jumlah_karung}}</td>
-                <td class="text-right">{{row.harga}}</td>
+                <td class="text-right">{{numeral(row.harga).format('0,0')}}</td>
                 <td class="text-center"><a class="text-danger" ng-click="hapus(row)"><i class="fa fa-close"></i></a></td>
               </tr>
             </tbody>
           </table>
           <div class="text-right">
-            <h4>Total = {{total}}</h4>
+            <h4>Total = {{numeral(total).format('0,0')}}</h4>
             <input type="hidden" name="total" value="{{total}}">
             <button class="btn btn-success">Submit</button>
           </div>
@@ -145,6 +146,7 @@
 <script>
 (function(){
   app.controller("pembelian", function($scope) {
+    $scope.numeral = numeral;
     $scope.total = 0;
     $scope.rows = [];
 
@@ -163,11 +165,12 @@
         merek: $scope.merek,
         jumlah: $scope.jumlah,
         jumlah_karung: $scope.jumlah_karung,
-        harga: $scope.harga,
+        harga: numeral($scope.harga).value(),
         tanggal_kadaluarsa: $scope.tanggal_kadaluarsa,
       };
       if (row.jenis == undefined || !(row.jumlah > 0) || !(row.harga > 0) || row.tanggal_kadaluarsa == '') {
         alert("lengkapi isian pembelian.");
+        console.log(row)
         return;
       }
       $scope.total += row.harga;
@@ -180,22 +183,6 @@
       index = $scope.rows.indexOf(row);
       $scope.rows.splice(index, 1);
     }
-
-    $('#tgl_kadaluarsa').daterangepicker({
-      format: 'YYYY-MM-DD',
-      singleDatePicker: true,
-      calender_style: "picker_2"
-    }, function(start, end, label) {
-      $scope.tanggal_kadaluarsa = start.format('YYYY-MM-DD');
-    });
-
-    $('#tanggal').daterangepicker({
-      format: 'YYYY-MM-DD',
-      singleDatePicker: true,
-      calender_style: "picker_2"
-    }, function(start, end, label) {
-      $scope.tanggal_kadaluarsa = start.format('YYYY-MM-DD');
-    });
 
     $("#form-pembelian").submit(function() {
       if ($("#tanggal").val() == "") {
