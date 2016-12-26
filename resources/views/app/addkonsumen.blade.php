@@ -117,5 +117,22 @@
 
 @endsection
 @section('js')
-
+<script>
+$(function() {
+  $(".delete-resource").click(function() {
+    id = $(this).data('id');
+    $.ajax({
+      url: $('meta[name="base_url"]').attr('content') + '/konsumen/' + id,
+      method: 'POST',
+      data: {
+        '_method': 'DELETE'
+      },
+      success: function(result) {
+        // console.log(result)
+        window.location = window.location
+      }
+    })
+  })
+})
+</script>
 @endsection    

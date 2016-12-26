@@ -27,19 +27,19 @@
             </div>
           </div>
           <div class="form-group">
-              <label class="col-sm-3 control-label">Tanggal Lahir</label>
-              <div class="col-sm-6">
+             <label class="col-sm-3 control-label">Tanggal Lahir</label>
+             <div class="col-sm-6">
                  <div class="input-group">
                   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </div>
-                  <input type="text" class="form-control pull-right" id="tanggallahir">
+                  <input type="text" class="form-control pull-right datepicker" name="tanggallahir">
                 </div>
                   
-              </div>
+            </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3" for="last-name">tempat lahir<span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3" for="last-name">Tempat Lahir<span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
               <input type="text" id="last-name" name="tempatlahir" required="required" class="form-control col-md-7">
@@ -53,31 +53,38 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3" for="first-name">nomor handphone <span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3" for="first-name">Nomor Handphone <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
               <input type="text" id="first-name" name="hp" required="required" class="form-control col-md-7">
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3" for="first-name">jabatan<span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3" for="first-name">Jabatan<span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
               <input type="text" id="first-name" name="jabatan" required="required" class="form-control col-md-7">
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3" for="first-name">username <span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3" for="first-name">Username <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
               <input type="text" id="first-name" name="username" required="required" class="form-control col-md-7">
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3" for="first-name">password<span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3" for="first-name">Password<span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
               <input type="password" id="first-name" name="password" required="required" class="form-control col-md-7">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3" for="first-name">Confirm Password<span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6">
+              <input type="password" id="first-name" name="confirmpassword" required="required" class="form-control col-md-7">
             </div>
           </div>
           <div class="ln_solid"></div>
@@ -133,4 +140,27 @@
     </div>
   </div>
 </div>
+@endsection
+
+@section('js')
+
+<script>
+$(function() {
+  $(".delete-resource").click(function() {
+    id = $(this).data('id');
+    $.ajax({
+      url: $('meta[name="base_url"]').attr('content') + '/users/' + id,
+      method: 'POST',
+      data: {
+        '_method': 'DELETE'
+      },
+      success: function(result) {
+        // console.log(result)
+        window.location = window.location
+      }
+    })
+  })
+})
+</script>
+
 @endsection
