@@ -32,14 +32,14 @@
           <div class="form-group">
             <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">nomor telepon</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="telepon" value="{{$produsen->telepon}}">
+              <input id="middle-name" class="form-control col-md-7 col-xs-12" type="number" name="telepon" value="{{$produsen->telepon}}">
             </div>
           </div>
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">nomor handphone <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input type="text" id="first-name" name="hp" required="required" class="form-control col-md-7 col-xs-12" value="{{$produsen->hp}}">
+              <input type="number" id="first-name" name="hp" required="required" class="form-control col-md-7 col-xs-12" value="{{$produsen->hp}}">
             </div>
           </div>
           <div class="ln_solid"></div>

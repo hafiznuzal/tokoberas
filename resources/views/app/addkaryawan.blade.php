@@ -33,10 +33,10 @@
                   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </div>
-                  <input type="text" class="form-control pull-right datepicker" name="tanggallahir">
+                  <input type="text" class="form-control pull-right datepicker" name="tanggallahir" placeholder="1995-02-19">
                 </div>
                   
-            </div>
+              </div>
           </div>
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-3" for="last-name">Tempat Lahir<span class="required">*</span>
@@ -56,7 +56,7 @@
             <label class="control-label col-md-3 col-sm-3" for="first-name">Nomor Handphone <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
-              <input type="text" id="first-name" name="hp" required="required" class="form-control col-md-7">
+              <input type="number" id="first-name" name="hp" required="required" class="form-control col-md-7">
             </div>
           </div>
           <div class="form-group">

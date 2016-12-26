@@ -1,6 +1,8 @@
 @extends('app')
 
+
 @include('plugins.datatable')
+@include('plugins.datepicker')
 
 @section('css')
 <link href=" {{ url('bower_components/AdminLTE/plugins/daterangepicker/daterangepicker.css') }}" rel="stylesheet">
@@ -46,16 +48,17 @@
           </div>
           
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Tanggal Pengeluaran<span class="required">*</span>
-            </label>
-            <div class="col-md-6 col-sm-6 col-xs-12">
-              <div class="input-group date">
+             <label class="col-sm-3 control-label">Tanggal Pengeluaran <span class="required">*</span></label>
+             <div class="col-sm-6">
+                 <div class="input-group">
                   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </div>
-                  <input type="date" class="form-control pull-right" name="tanggal">
+                 <input type="text" class="form-control pull-right datepicker" name="tanggal" placeholder="2016-02-21">
+              
                 </div>
-            </div>
+                  
+              </div>
           </div>
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Jumlah Pengeluaran <span class="required">*</span>
