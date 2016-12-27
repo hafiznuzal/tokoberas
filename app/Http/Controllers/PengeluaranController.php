@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\PengeluaranLainnya;
+use App\PengeluaranLainnya as Pengeluaran;
 use App\User;
 use App\JenisOperasional;
 
@@ -14,11 +14,22 @@ class PengeluaranController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data['pengeluaran'] = PengeluaranLainnya::get();
-        $data['jenis'] = JenisOperasional::get();
-        $data['user'] = User::get();
+        $start = $request->input('start');
+        $end = $request->input('end');
+
+        if ($start == null && $end == null) {
+            $pengeluaran = Pengeluaran::get();
+        } else {
+            $pengeluaran = Pengeluaran::where('tanggal', '>', $start)
+                    ->where('tanggal', '<', $end)
+                    ->get();
+        }
+        $jenis = JenisOperasional::get();
+        $user = User::get();
+
+        $data = compact('pengeluaran','jenis','user');
         return view('app.laporan_pengeluaran', $data);
     }
 
@@ -41,7 +52,7 @@ class PengeluaranController extends Controller
     public function store(Request $request)
     {
         // dd($request->input());
-        $pengeluaran = new PengeluaranLainnya;
+        $pengeluaran = new Pengeluaran;
         $pengeluaran->jenis_operasional_id = $request->input('jenis');
         $pengeluaran->uraian = $request->input('uraian');
         $pengeluaran->tanggal = $request->input('tanggal');
@@ -71,7 +82,7 @@ class PengeluaranController extends Controller
      */
     public function edit($id)
     {
-        $pengeluaran = PengeluaranLainnya::find($id);
+        $pengeluaran = Pengeluaran::find($id);
         $pengeluaran->tanggal = date('Y-m-d', strtotime($pengeluaran->tanggal));
         $jenis = JenisOperasional::get();
         $user = User::get();
@@ -89,7 +100,7 @@ class PengeluaranController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $pengeluaran = PengeluaranLainnya::find($id);
+        $pengeluaran = Pengeluaran::find($id);
         $pengeluaran->jenis_operasional_id = $request->input('jenis');
         $pengeluaran->uraian = $request->input('uraian');
         $pengeluaran->tanggal = $request->input('tanggal');

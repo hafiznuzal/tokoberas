@@ -1,15 +1,10 @@
 @extends('app')
 
 @include('plugins.datatable')
+@include('plugins.daterangepicker')
 @include('plugins.datepicker')
 @include('plugins.accounting')
 @include('plugins.select2')
-
-@section('css')
-<link href=" {{ url('bower_components/AdminLTE/plugins/daterangepicker/daterangepicker.css') }}" rel="stylesheet">
-<link href=" {{ url('bower_components/AdminLTE/plugins/datatables/extensions/Responsive/css/dataTables.responsive.css') }}" rel="stylesheet">
-<link href=" {{ url('bower_components/AdminLTE/plugins/datatables/jquery.dataTables.min.css') }}" rel="stylesheet">
-@endsection
 
 @section('content')
 <div class="row">
@@ -86,16 +81,19 @@
       </div>
       <div class="box-body">
         <div class="form-group">
-          <label>Date range:</label>
-          <div class="input-group col-md-4">
+          <label class="">Date range:</label>
+          <div class="input-group col-md-4 ">
             <div class="input-group-addon">
               <i class="fa fa-calendar"></i>
             </div>
-            <input type="text" class="form-control pull-right" id="reservation">
+            <input type="text" class="form-control" id="daterange">
           </div>
-          <!-- /.input group -->
         </div>
-        <table id="datatable-buttons" class="table table-hover">
+        <form id="formrange">
+          <input type="hidden" id="rangestart" name="start">
+          <input type="hidden" id="rangeend" name="end">
+        </form>
+        <table id="datatable-buttons" class="table table-hover datatabel">
           <thead>
             <tr>
               <th class="text-center">No</th>
@@ -126,4 +124,18 @@
     </div>
   </div>
 </div>
+@endsection
+
+@section('js')
+<script>
+  $(function() {
+    $('#daterange').daterangepicker({
+      format: 'YYYY-MM-DD'
+    }, function(start, end) {
+      $('#rangestart').val(start.format('YYYY-MM-DD'));
+      $('#rangeend').val(end.format('YYYY-MM-DD'));
+      $("#formrange").submit()
+    });
+  })
+</script>
 @endsection
