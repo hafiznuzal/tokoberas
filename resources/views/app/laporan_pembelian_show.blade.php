@@ -2,7 +2,14 @@
 
 @section('content')
 <div class="row">
-  <div class="col-lg-6 col-sm-10">
+  <div class="col-lg-2 col-sm-4">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <a href="{{url('laporan_penjualan')}}" class="btn btn-primary btn-block">Kembali</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-10 col-sm-12">
     <div class="box box-primary">
       <div class="box-header">
         <h4>Detail Pembelian</h4>
@@ -20,8 +27,6 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="col-lg-10 col-sm-12">
     <div class="box box-primary">
       <div class="box-header">
         <h4>Detail Inventory</h4>
