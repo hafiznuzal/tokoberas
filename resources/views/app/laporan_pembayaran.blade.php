@@ -85,7 +85,7 @@
             <input type="text" class="form-control pull-right" id="reservation">
           </div>
         </div>
-        <table id="datatable-buttons" class="table table-striped table-bordered">
+        <table id="datatable-buttons" class="table datatabel">
           <thead>
             <tr>
               <th class="text-center">No</th>
@@ -109,7 +109,10 @@
               <td>{{$bayar->konsumen->nama}}</td>
               <td class="text-center">{{$bayar->tanggal}}</td>
               <td class="text-right">{{number_format($bayar->biaya)}}</td>
-              <td></td>
+              <td>
+                <a class="btn btn-primary fa fa-edit" href="{{ url("pengeluaran/$bayar->id/edit") }}"></a>
+                <a class="btn btn-danger fa fa-trash delete-resource" data-id="{{encrypt($bayar->id)}}"></a>
+              </td>
             </tr>
             @endforeach
           </tbody>

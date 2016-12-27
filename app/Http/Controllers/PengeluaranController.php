@@ -108,7 +108,7 @@ class PengeluaranController extends Controller
         $pengeluaran->user_id= $request->input('user_id');
         $pengeluaran->save();
 
-        return redirect()->back();
+        return redirect('pengeluaran');
     }
 
     /**

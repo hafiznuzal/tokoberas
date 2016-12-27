@@ -21,8 +21,9 @@
 <script src="{{ url('bower_components/gentelella/vendors/pdfmake/build/vfs_fonts.js')}}"></script>
 
 <script>
-  $(function () {
-    $('.datatabel').DataTable({
+$(function () {
+  $('.datatabel').each(function() {
+    $(this).DataTable({
       "paging": true,
       "lengthChange": false,
       "searching": true,
@@ -31,5 +32,6 @@
       "autoWidth": false
     });
   });
+});
 </script>
 @endsection

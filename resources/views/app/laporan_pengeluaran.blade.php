@@ -43,7 +43,7 @@
                 <div class="input-group-addon">
                   <i class="fa fa-calendar"></i>
                 </div>
-                <input type="text" class="form-control pull-right datepicker" name="tanggal" placeholder="2016-02-21">
+                <input type="text" class="form-control pull-right datepicker" name="tanggal" value="{{date('Y-m-d')}}">
               </div>
             </div>
           </div>
@@ -93,33 +93,35 @@
           <input type="hidden" id="rangestart" name="start">
           <input type="hidden" id="rangeend" name="end">
         </form>
-        <table id="datatable-buttons" class="table table-hover datatabel">
-          <thead>
-            <tr>
-              <th class="text-center">No</th>
-              <th>Tanggal Pengeluaran</th>
-              <th>Jenis Pengeluaran</th>
-              <th>Uraian</th>
-              <th class="text-right">Biaya</th>
-              <th>Keterangan</th>
-            </tr>
-          </thead>
-          <tbody>
-            @foreach($pengeluaran as $klr)
-            <tr>
-              <td class="text-center">{{$loop->iteration}}</td>
-              <td>{{date('Y-m-d', strtotime($klr->tanggal))}}</td>
-              <td>{{$klr->jenis_operasional->nama}}</td>
-              <td>{{$klr->uraian}}</td>
-              <td class="text-right">{{number_format($klr->biaya)}}</td>
-              <td>
-                <a class="btn btn-primary fa fa-edit" href="{{ url("pengeluaran/$klr->id/edit") }}"></a>
-                <a class="btn btn-danger fa fa-trash delete-resource" data-id="{{encrypt($klr->id)}}"></a>
-              </td>
-            </tr>
-            @endforeach
-          </tbody>
-        </table>
+        <div class="table-responsive">
+          <table id="datatable-buttons" class="table table-hover datatabel">
+            <thead>
+              <tr>
+                <th class="text-center">No</th>
+                <th>Tanggal Pengeluaran</th>
+                <th>Jenis Pengeluaran</th>
+                <th>Uraian</th>
+                <th class="text-right">Biaya</th>
+                <th>Keterangan</th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach($pengeluaran as $klr)
+              <tr>
+                <td class="text-center">{{$loop->iteration}}</td>
+                <td>{{date('Y-m-d', strtotime($klr->tanggal))}}</td>
+                <td>{{$klr->jenis_operasional->nama}}</td>
+                <td>{{$klr->uraian}}</td>
+                <td class="text-right">{{number_format($klr->biaya)}}</td>
+                <td>
+                  <a class="btn btn-primary fa fa-edit" href="{{ url("pengeluaran/$klr->id/edit") }}"></a>
+                  <a class="btn btn-danger fa fa-trash delete-resource" data-id="{{encrypt($klr->id)}}"></a>
+                </td>
+              </tr>
+              @endforeach
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>

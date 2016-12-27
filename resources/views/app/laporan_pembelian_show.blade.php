@@ -1,4 +1,5 @@
 @extends('app')
+
 @section('content')
 <div class="row">
   <div class="col-lg-6 col-sm-10">
@@ -26,7 +27,7 @@
         <h4>Detail Inventory</h4>
       </div>
       <div class="box-body">
-        <table class="table table-striped">
+        <table class="table table-hover">
           <thead>
             <tr>
               <th class="text-center">No</th>
@@ -59,7 +60,4 @@
     </div>
   </div>
 </div>
-@endsection
-
-@section('js')
 @endsection

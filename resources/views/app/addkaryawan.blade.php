@@ -2,10 +2,6 @@
 
 @include('plugins.datatable')
 @include('plugins.datepicker')
-@section('css')
-<link href=" {{ url('bower_components\AdminLTE\plugins\datatables\extensions\Responsive\css\dataTables.responsive.css') }}" rel="stylesheet">
-<link href=" {{ url('bower_components\AdminLTE\plugins\datatables\jquery.dataTables.min.css') }}" rel="stylesheet">
-@endsection
 
 @section('content')
 <div class="row">
@@ -105,35 +101,37 @@
             <h3>Karyawan</h3>
           </div>
           <div class="box-body">
-            <table id="datatable-buttons" class="table table-striped table-bordered">
-              <thead>
-                <tr>
-                  <th>Nama</th>
-                  <th>Tanggal Lahir</th>
-                  <th>Tempat Lahir</th>
-                  <th>Alamat</th>
-                  <th>No Handphone</th>
-                  <th>Jabatan</th>
-                  <th>Username</th>
-                  <th>Keterangan</th>
-                </tr>
-              </thead>
-              <tbody>
-                @foreach($user as $userdata)
-                <tr>
-                  <td>{{$userdata->nama}}</td>
-                  <td>{{$userdata->tanggal_lahir}}</td>
-                  <td>{{$userdata->tempat_lahir}}</td>
-                  <td>{{$userdata->alamat}}</td>
-                  <td>{{$userdata->hp}}</td>
-                  <td>{{$userdata->jabatan}}</td>
-                  <td>{{$userdata->username}}</td>
-                  <td><a class="btn btn-primary fa fa-edit" href="{{ url("users/$userdata->id/edit") }}"></a>
-                    <a class="btn btn-danger fa fa-trash delete-resource" data-id="{{encrypt($userdata->id)}}"></a> </td>
-                </tr>
-                @endforeach
-              </tbody>
-            </table>
+            <div class="table-responsive">
+              <table id="datatable-buttons" class="table table-hover datatabel">
+                <thead>
+                  <tr>
+                    <th>Nama</th>
+                    <th>Tanggal Lahir</th>
+                    <th>Tempat Lahir</th>
+                    <th>Alamat</th>
+                    <th>No Handphone</th>
+                    <th>Jabatan</th>
+                    <th>Username</th>
+                    <th>Keterangan</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @foreach($user as $userdata)
+                  <tr>
+                    <td>{{$userdata->nama}}</td>
+                    <td>{{$userdata->tanggal_lahir}}</td>
+                    <td>{{$userdata->tempat_lahir}}</td>
+                    <td>{{$userdata->alamat}}</td>
+                    <td>{{$userdata->hp}}</td>
+                    <td>{{$userdata->jabatan}}</td>
+                    <td>{{$userdata->username}}</td>
+                    <td><a class="btn btn-primary fa fa-edit" href="{{ url("users/$userdata->id/edit") }}"></a>
+                      <a class="btn btn-danger fa fa-trash delete-resource" data-id="{{encrypt($userdata->id)}}"></a> </td>
+                  </tr>
+                  @endforeach
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
@@ -162,5 +160,4 @@ $(function() {
   })
 })
 </script>
-
 @endsection

@@ -1,11 +1,14 @@
 @extends('app')
+
+@include('plugins.datatable')
+
 @section('content')
 <div class="box box-primary">
   <div class="box-header">
     <h4>Laporan Penjualan</h4>
   </div>
   <div class="box-body">
-    <table id="datatable-buttons" class="table table-striped">
+    <table id="datatable-buttons" class="table table-hover datatabel">
       <thead>
         <tr>
           <th class="text-center">No</th>

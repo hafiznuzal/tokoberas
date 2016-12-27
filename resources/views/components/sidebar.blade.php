@@ -12,6 +12,8 @@
         <ul class="treeview-menu">
           <li><a href="{{ url('transaksi/pembelian') }}"><i class="fa fa-circle-o"></i> Pembelian</a></li>
           <li><a href="{{ url('transaksi/penjualan') }}"><i class="fa fa-circle-o"></i> Penjualan</a></li>
+          <li><a href="{{ url('pengeluaran') }}"><i class="fa fa-circle-o"></i> Pengeluaran</a></li>
+          <li><a href="{{ url('pembayaran') }}"><i class="fa fa-circle-o"></i> Pembayaran</a></li>
         </ul>
       </li>
       <li class="treeview">
@@ -24,7 +26,6 @@
         <ul class="treeview-menu">
           <li><a href="{{ url('laporan_pembelian') }}"><i class="fa fa-circle-o"></i> Pembelian</a></li>
           <li><a href="{{ url('laporan_penjualan') }}"><i class="fa fa-circle-o"></i> Penjualan</a></li>
-          <li><a href="{{ url('pembayaran') }}"><i class="fa fa-circle-o"></i> Pembayaran</a></li>
         </ul>
       </li>
       <li class="treeview">
