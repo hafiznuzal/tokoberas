@@ -1,6 +1,6 @@
 @extends('app')
 
-@include('plugins.daterangepicker')
+@include('plugins.datepicker')
 @include('plugins.selectize')
 @include('plugins.accounting')
 
@@ -28,7 +28,7 @@
             <div class="form-group">
               <label class="col-sm-3 control-label">Tanggal</label>
               <div class="col-sm-8">
-                <input type="text" class="form-control" id="tanggal" placeholder="" value="{{date('Y-m-d')}}">
+                <input type="text" class="form-control datepicker" placeholder="" value="{{date('Y-m-d')}}">
               </div>
             </div>
           </div>
@@ -150,7 +150,7 @@
       <div class="col-lg-12">
         <hr>
         <div class="text-right">
-          <h4>Total = {{total}}</h4>
+          <h4>Total = {{accounting(total)}}</h4>
           <input type="hidden" name="total" value="{{total}}">
           <input type="hidden" name="total_operasional" value="{{total_operasional}}">
           <button class="btn btn-success">Submit</button>
@@ -210,6 +210,8 @@ app.controller("penjualan", function($scope) {
     $scope.table_operasional.push(selected);
     selected_operasional.push(index);
     $scope.total_operasional += selected.harga_terpilih;
+
+    $scope.hargaoperasional = 0;
   }
 
   /* Initialize Selectize */
@@ -258,14 +260,6 @@ app.controller("penjualan", function($scope) {
         $scope.$apply();
       }
     })
-
-    $('#tanggal').daterangepicker({
-      format: 'YYYY-MM-DD',
-      singleDatePicker: true,
-      calender_style: "picker_2"
-    }, function(start, end, label) {
-      $scope.tanggal_kadaluarsa = start.format('YYYY-MM-DD');
-    });
   })
 });
 </script>
