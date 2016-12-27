@@ -3,82 +3,72 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Auth;
+
+use App\Inventory;
+use App\ItemTransaksi;
+use App\Jenis;
+use App\JenisOperasional;
+use App\Konsumen;
+use App\Modal;
+use App\Nota;
+use App\Pembayaran;
+use App\Produsen;
+use App\RiwayatOperasional;
 
 class LaporanTransaksiController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * List transaksi pembelian.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function indexPembelian()
     {
-        //
+        $modal = Modal::get();
+
+        $data = compact('modal');
+        return view('app.laporan_pembelian_list', $data);
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Detail transaksi pembelian.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function showPembelian($id)
     {
-        //
+        $modal = Modal::find($id);
+
+        $data = compact('modal');
+        return view('app.laporan_pembelian_show', $data);
     }
 
     /**
-     * Store a newly created resource in storage.
+     * List transaksi penjualan.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function indexPenjualan()
     {
-        //
+        $nota = Nota::get();
+
+        $data = compact('nota');
+        return view('app.laporan_penjualan_list', $data);
     }
 
     /**
-     * Display the specified resource.
+     * Detail transaksi penjualan.
      *
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function showPenjualan($id)
     {
-        //
-    }
+        $nota = Nota::find($id);
+        $nota->tanggal = date('Y-m-d', strtotime($nota->tanggal));
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $data = compact('nota');
+        return view('app.laporan_penjualan_show', $data);
     }
 }
