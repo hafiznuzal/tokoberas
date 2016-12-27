@@ -1,6 +1,7 @@
 @extends('app')
 
 @include('plugins.datatable')
+@include('plugins.datepicker')
 
 @section('css')
 <link href=" {{ url('bower_components\AdminLTE\plugins\datatables\extensions\Responsive\css\dataTables.responsive.css') }}" rel="stylesheet">
@@ -31,16 +32,16 @@
           </div>
 
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Tanggal lahir<span class="required">*</span>
-            </label>
-            <div class="col-md-6 col-sm-6 col-xs-12">
-              <div class="input-group date">
+             <label class="col-sm-3 control-label">Tanggal Lahir</label>
+             <div class="col-sm-6">
+                 <div class="input-group">
                   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </div>
-                  <input type="date" class="form-control pull-right" name="tanggallahir">
+                  <input type="text" class="form-control pull-right datepicker" name="tanggallahir" placeholder="1995-02-19">
                 </div>
-            </div>
+                  
+              </div>
           </div>
 
           <div class="form-group">
@@ -53,14 +54,14 @@
           <div class="form-group">
             <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">nomor telepon</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="telepon">
+              <input id="middle-name" class="form-control col-md-7 col-xs-12" type="number" name="telepon">
             </div>
           </div>
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">nomor handphone <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input type="text" id="first-name" name="hp" required="required" class="form-control col-md-7 col-xs-12">
+              <input type="number" id="first-name" name="hp" required="required" class="form-control col-md-7 col-xs-12">
             </div>
           </div>
           <div class="ln_solid"></div>
@@ -117,5 +118,22 @@
 
 @endsection
 @section('js')
-
+<script>
+$(function() {
+  $(".delete-resource").click(function() {
+    id = $(this).data('id');
+    $.ajax({
+      url: $('meta[name="base_url"]').attr('content') + '/konsumen/' + id,
+      method: 'POST',
+      data: {
+        '_method': 'DELETE'
+      },
+      success: function(result) {
+        // console.log(result)
+        window.location = window.location
+      }
+    })
+  })
+})
+</script>
 @endsection    

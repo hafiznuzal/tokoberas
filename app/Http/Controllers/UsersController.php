@@ -108,5 +108,8 @@ class UsersController extends Controller
     public function destroy($id)
     {
         //
+        $user = User::find(decrypt($id));
+        $user->delete();
+        return redirect()->back();
     }
 }
