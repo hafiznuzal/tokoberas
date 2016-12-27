@@ -22,6 +22,8 @@
           </span>
         </a>
         <ul class="treeview-menu">
+          <li><a href="{{ url('laporan_pembelian') }}"><i class="fa fa-circle-o"></i> Pembelian</a></li>
+          <li><a href="{{ url('laporan_penjualan') }}"><i class="fa fa-circle-o"></i> Penjualan</a></li>
           <li><a href="{{ url('pembayaran') }}"><i class="fa fa-circle-o"></i> Pembayaran</a></li>
         </ul>
       </li>

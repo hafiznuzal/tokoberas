@@ -12,4 +12,9 @@ class Modal extends Model
     {
         return $this->hasMany('App\Inventory');
     }
+
+    public function produsen()
+    {
+        return $this->belongsTo('App\Produsen');
+    }
 }

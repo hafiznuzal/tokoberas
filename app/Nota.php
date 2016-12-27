@@ -17,4 +17,14 @@ class Nota extends Model
     {
         return $this->hasMany('App\Pembayaran');
     }
+
+    public function item_transaksi()
+    {
+        return $this->hasMany('App\ItemTransaksi');
+    }
+
+    public function operasional()
+    {
+        return $this->hasMany('App\RiwayatOperasional');
+    }
 }

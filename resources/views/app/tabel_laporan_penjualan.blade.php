@@ -395,9 +395,6 @@
               </div>
 @endsection
 
-@section('javascript')
-
-@endsection
 @section('js')
 <script src="{{ url('bower_components/gentelella/vendors/datatables.net/js/jquery.dataTables.min.js')}}"></script>
     <script src="{{ url('bower_components/gentelella/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
