@@ -14,14 +14,14 @@
           {{ csrf_field() }}
           {{ method_field('PUT') }}
           <div class="form-group">
-            <label class="col-sm-3 control-label">Ubah Harga Barang</label>
-            <div class="col-sm-8">
+            <label class="col-sm-4 control-label">Ubah Harga Barang</label>
+            <div class="col-sm-7">
               <input type="text" class="form-control input-accounting" name="harga" placeholder="" value="{{number_format($jenis->latest_kurs->harga)}}">
             </div>
           </div>
           <div class="form-group">
-            <div class="col-sm-8 col-sm-offset-3">
-              <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="col-sm-8 col-sm-offset-4">
+              <button type="submit" class="btn btn-success">Submit</button>
             </div>
           </div>
         </form>

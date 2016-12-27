@@ -38,35 +38,27 @@
     <form id="form-login">
       <div class="form-group has-feedback">
         <input type="text" id="username" class="form-control" placeholder="Username" required="required">
-        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+        <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
         <input type="password" id="password" class="form-control" placeholder="Password" required="required">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">
-        <!-- /.col -->
         <div class="col-xs-8">
         <a href="#" class="text-primary">Lupa Password ?</a><br>
         </div>
         <div class="col-xs-4">
           <button type="submit" class="btn btn-primary btn-block btn-flat">Masuk</button>
         </div>
-        <!-- /.col -->
       </div>
     </form>
-
   </div>
-
-  <!-- loading-state -->
   <div class="overlay dark hidden">
     <i class="fa fa-refresh fa-spin"></i>
   </div>
-
   </div>
-  <!-- /.box -->
 </div>
-<!-- /.login-box -->
 </body>
 
 <!-- jQuery -->
