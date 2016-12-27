@@ -22,8 +22,7 @@
 
 <script>
   $(function () {
-    $("#example1").DataTable();
-    $('#example2').DataTable({
+    $('.datatabel').DataTable({
       "paging": true,
       "lengthChange": false,
       "searching": false,
