@@ -12,4 +12,9 @@ class PengeluaranLainnya extends Model
     {
     	return $this->belongsTo('App\JenisOperasional');
     }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

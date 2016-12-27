@@ -16,7 +16,6 @@ class PengeluaranController extends Controller
      */
     public function index()
     {
-        //
         $data['pengeluaran'] = PengeluaranLainnya::get();
         $data['jenis'] = JenisOperasional::get();
         $data['user'] = User::get();
@@ -41,17 +40,16 @@ class PengeluaranController extends Controller
      */
     public function store(Request $request)
     {
-        //
         // dd($request->input());
         $pengeluaran = new PengeluaranLainnya;
         $pengeluaran->jenis_operasional_id = $request->input('jenis');
-        $pengeluaran->tanggal = $request->input('tanggal');
-        $pengeluaran->biaya = $request->input('biaya');
         $pengeluaran->uraian = $request->input('uraian');
+        $pengeluaran->tanggal = $request->input('tanggal');
+        $pengeluaran->biaya = str_replace(',', '', $request->input('biaya'));
         $pengeluaran->user_id= $request->input('user_id');
-
         $pengeluaran->save();
 
+        return redirect()->back();
     }
 
     /**
@@ -73,12 +71,13 @@ class PengeluaranController extends Controller
      */
     public function edit($id)
     {
-        //
-        $data['pengeluaran'] = PengeluaranLainnya::find($id);
-        $data['jenis'] = JenisOperasional::get();
-        $data['user'] = User::get();
-        return view('app.editpengeluaran', $data);
+        $pengeluaran = PengeluaranLainnya::find($id);
+        $pengeluaran->tanggal = date('Y-m-d', strtotime($pengeluaran->tanggal));
+        $jenis = JenisOperasional::get();
+        $user = User::get();
 
+        $data = compact('pengeluaran', 'jenis', 'user');
+        return view('app.editpengeluaran', $data);
     }
 
     /**
@@ -90,7 +89,15 @@ class PengeluaranController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pengeluaran = PengeluaranLainnya::find($id);
+        $pengeluaran->jenis_operasional_id = $request->input('jenis');
+        $pengeluaran->uraian = $request->input('uraian');
+        $pengeluaran->tanggal = $request->input('tanggal');
+        $pengeluaran->biaya = str_replace(',', '', $request->input('biaya'));
+        $pengeluaran->user_id= $request->input('user_id');
+        $pengeluaran->save();
+
+        return redirect()->back();
     }
 
     /**
