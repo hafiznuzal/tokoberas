@@ -14,9 +14,4 @@
 <script src="{{ url('bower_components/gentelella/vendors/jszip/dist/jszip.min.js')}}"></script>
 <script src="{{ url('bower_components/gentelella/vendors/pdfmake/build/pdfmake.min.js')}}"></script>
 <script src="{{ url('bower_components/gentelella/vendors/pdfmake/build/vfs_fonts.js')}}"></script>
-
-<script src="{{ url('bower_components/AdminLTE/plugins/select2/select2.full.min.js')}}"></script>
-<script>
-  $($(".select2").select2()).addClass("form-control");
-</script>
 @endsection

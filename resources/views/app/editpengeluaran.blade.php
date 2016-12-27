@@ -1,8 +1,9 @@
 @extends('app')
 
-@include('plugins.editdata')
+@include('plugins.datatable')
 @include('plugins.datepicker')
 @include('plugins.accounting')
+@include('plugins.select2')
 
 @section('content')
 <div class="row">
@@ -12,7 +13,6 @@
         <h4>Tambah Pengeluaran</h4>
       </div>
       <div class="box-body">
-
         <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post" action="{{url('pengeluaran/'.$pengeluaran->id)}}">
           {{csrf_field()}}
           {{ method_field('PUT') }}
@@ -20,10 +20,10 @@
             <label class="control-label col-md-3 col-sm-3" for="first-name">Jenis Pengeluaran<span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
-              <select class="form-control select2" style="width: 100%;" name="jenis" value="{{$pengeluaran->jenis_operasional->nama}}">
-                  @foreach ($jenis as $jns)
-                  <option value="{{$jns->id}}">{{$jns->nama}}</option>
-                  @endforeach
+              <select class="form-control select2" name="jenis" value="{{$pengeluaran->jenis_operasional->nama}}">
+                @foreach ($jenis as $jns)
+                <option value="{{$jns->id}}">{{$jns->nama}}</option>
+                @endforeach
               </select>
             </div>
           </div>
@@ -58,14 +58,13 @@
             <label class="control-label col-md-3 col-sm-3" for="first-name">Penanggung Jawab<span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
-              <select class="form-control select2" style="width: 100%;" name="user_id" value="{{$pengeluaran->user->nama}}">
-                  @foreach ($user as $users)
-                  <option value="{{$users->id}}">{{$users->nama}}</option>
-                  @endforeach
+              <select class="form-control select2" name="user_id" value="{{$pengeluaran->user->nama}}">
+                @foreach ($user as $users)
+                <option value="{{$users->id}}">{{$users->nama}}</option>
+                @endforeach
               </select>
             </div>
           </div>
-          <div class="ln_solid"></div>
           <div class="form-group">
             <div class="col-md-6 col-sm-6 col-md-offset-3">
               <a href="{{url('pengeluaran')}}" class="btn btn-default">Cancel</a>
@@ -77,7 +76,4 @@
     </div>
   </div>
 </div>
-@endsection
-
-@section('js')
 @endsection

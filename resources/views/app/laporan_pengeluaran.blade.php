@@ -1,19 +1,14 @@
 @extends('app')
 
-
 @include('plugins.datatable')
 @include('plugins.datepicker')
 @include('plugins.accounting')
+@include('plugins.select2')
 
 @section('css')
 <link href=" {{ url('bower_components/AdminLTE/plugins/daterangepicker/daterangepicker.css') }}" rel="stylesheet">
 <link href=" {{ url('bower_components/AdminLTE/plugins/datatables/extensions/Responsive/css/dataTables.responsive.css') }}" rel="stylesheet">
 <link href=" {{ url('bower_components/AdminLTE/plugins/datatables/jquery.dataTables.min.css') }}" rel="stylesheet">
-
-<link href=" {{ url('bower_components/AdminLTE/plugins/select2/select2.min.css') }}" rel="stylesheet">
-<style>
-  .select2-selection--single{background-color:#fff;border-radius: 0px !important; box-shadow: none !important; border-color: #d2d6de !important; height: 34px !important;}
-</style>
 @endsection
 
 @section('content')
@@ -31,7 +26,7 @@
             <label class="control-label col-md-3 col-sm-3" for="first-name">Jenis Pengeluaran <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
-              <select class="form-control select2" style="width: 100%;" name="jenis">
+              <select class="form-control select2" name="jenis">
                 @foreach ($jenis as $jns)
                 <option value="{{$jns->id}}">{{$jns->nama}}</option>
                 @endforeach
@@ -68,7 +63,7 @@
             <label class="control-label col-md-3 col-sm-3" for="first-name">Penanggung Jawab <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
-              <select class="form-control select2" style="width: 100%;" name="user_id">
+              <select class="form-control select2" name="user_id">
                 @foreach ($user as $users)
                 <option value="{{$users->id}}">{{$users->nama}}</option>
                 @endforeach
@@ -92,7 +87,6 @@
       <div class="box-body">
         <div class="form-group">
           <label>Date range:</label>
-
           <div class="input-group col-md-4">
             <div class="input-group-addon">
               <i class="fa fa-calendar"></i>
@@ -101,10 +95,10 @@
           </div>
           <!-- /.input group -->
         </div>
-
         <table id="datatable-buttons" class="table table-hover">
           <thead>
             <tr>
+              <th class="text-center">No</th>
               <th>Tanggal Pengeluaran</th>
               <th>Jenis Pengeluaran</th>
               <th>Uraian</th>
@@ -115,6 +109,7 @@
           <tbody>
             @foreach($pengeluaran as $klr)
             <tr>
+              <td class="text-center">{{$loop->iteration}}</td>
               <td>{{date('Y-m-d', strtotime($klr->tanggal))}}</td>
               <td>{{$klr->jenis_operasional->nama}}</td>
               <td>{{$klr->uraian}}</td>
@@ -131,7 +126,4 @@
     </div>
   </div>
 </div>
-@endsection
-
-@section('js')
 @endsection
