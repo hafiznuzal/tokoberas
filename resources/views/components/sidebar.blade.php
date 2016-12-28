@@ -40,6 +40,11 @@
           <li><a href="{{ url('grafik/modal_aktual') }}"><i class="fa fa-circle-o"></i> Modal Aktual</a></li>
           <li><a href="{{ url('grafik/fresh_money') }}"><i class="fa fa-circle-o"></i> Fresh Money</a></li>
           <li><a href="{{ url('grafik/penjualan_bulanan') }}"><i class="fa fa-circle-o"></i> Penjualan Bulanan</a></li>
+          <li><a href="{{ url('grafik/komposisi_penjualan') }}"><i class="fa fa-circle-o"></i> Komposisi Penjualan</a></li>
+          <li><a href="{{ url('grafik/komposisi_operasional') }}"><i class="fa fa-circle-o"></i> Komposisi Operasional</a></li>
+          <li><a href="{{ url('grafik/komposisi_pengeluaran') }}"><i class="fa fa-circle-o"></i> Komposisi Pengeluaran</a></li>
+          <li><a href="{{ url('grafik/pemasukan_pengeluaran') }}"><i class="fa fa-circle-o"></i> Pemasukan : Pengeluaran</a></li>
+          <li><a href="{{ url('grafik/modal_penjualan') }}"><i class="fa fa-circle-o"></i> Modal : Penjualan</a></li>
         </ul>
       </li>
       <li class="treeview">

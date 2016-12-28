@@ -17,4 +17,9 @@ class ItemTransaksi extends Model
     {
         return $this->belongsTo('App\Jenis', 'inventory_jenis');
     }
+
+    public function nota()
+    {
+        return $this->belongsTo('App\Nota');
+    }
 }

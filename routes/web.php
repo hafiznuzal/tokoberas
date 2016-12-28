@@ -51,3 +51,8 @@ Route::get('grafik/keuntungan_bersih','GrafikController@keuntunganBersih');
 Route::get('grafik/modal_aktual','GrafikController@modalAktual');
 Route::get('grafik/fresh_money','GrafikController@freshMoney');
 Route::get('grafik/penjualan_bulanan','GrafikController@penjualanBulanan');
+Route::get('grafik/komposisi_penjualan','GrafikController@komposisiPenjualan');
+Route::get('grafik/komposisi_operasional','GrafikController@komposisiOperasional');
+Route::get('grafik/komposisi_pengeluaran','GrafikController@komposisiPengeluaran');
+Route::get('grafik/pemasukan_pengeluaran','GrafikController@pemasukanPengeluaran');
+Route::get('grafik/modal_penjualan','GrafikController@modalPenjualan');

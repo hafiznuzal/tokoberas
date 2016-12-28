@@ -4,11 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Inventory;
+use App\Jenis;
+use App\JenisOperasional;
 use App\Nota;
+use App\Pembayaran;
+use App\PengeluaranLainnya;
+use App\RiwayatOperasional;
 
 class GrafikController extends Controller
 {
-    public function keuntunganBersih()
+    public function keuntunganBersih(Request $request)
     {
         $nota = Nota::get();
         $notal = $nota->map(function ($item) {
@@ -29,7 +34,7 @@ class GrafikController extends Controller
         return view('app.grafik.keuntungan_bersih', $data);
     }
 
-    public function modalAktual()
+    public function modalAktual(Request $request)
     {
         $nota = Nota::get();
         $notal = $nota->map(function ($item) {
@@ -52,7 +57,7 @@ class GrafikController extends Controller
         return view('app.grafik.modal_aktual', $data);
     }
 
-    public function freshMoney()
+    public function freshMoney(Request $request)
     {
         $inventory = Inventory::get();
         $invent = $inventory->map(function ($item) {
@@ -80,7 +85,7 @@ class GrafikController extends Controller
         return view('app.grafik.fresh_money', $data);
     }
 
-    public function penjualanBulanan()
+    public function penjualanBulanan(Request $request)
     {
         $nota = Nota::get();
         $notal = $nota->map(function ($item) {
@@ -99,6 +104,91 @@ class GrafikController extends Controller
         
         $data = compact('nota', 'total_harga', 'tanggal');
         return view('app.grafik.penjualan_bulanan', $data);
+    }
+
+    public function komposisiPenjualan(Request $request)
+    {
+        $nota = Nota::get();
+        $item = collect();
+        $nota->each(function ($not) use(&$item) {
+            $item = $item->merge($not->item_transaksi);
+        });
+        $byJenis = $item->groupBy('inventory_jenis')
+        ->transform(function ($item, $key) { // item transaksi
+            $jenis = Jenis::find($key);
+            $jumlah = $item->sum('jumlah');
+            return [
+                'jenis' => $jenis->nama,
+                'jumlah' => $jumlah
+            ];
+        })->values();
+        // dd($byJenis);
+
+        $jenis = $byJenis->pluck('jenis');
+        $jumlah = $byJenis->pluck('jumlah');
+
+        $data = compact('jenis', 'jumlah');
+        dd($data);
+        return view('app.grafik.komposisi_penjualan', $data);
+    }
+
+    public function komposisiOperasional(Request $request)
+    {
+        $operasional = RiwayatOperasional::get()
+        ->groupBy('jenis_operasional_id')
+        ->transform(function ($item, $key) {
+            $jenis = JenisOperasional::find($key);
+            $jumlah = $item->sum('biaya');
+            return [
+                'jenis' => $jenis->nama,
+                'jumlah' => $jumlah
+            ];
+        })->values();
+        // dd($operasional);
+
+        $jenis = $operasional->pluck('jenis');
+        $jumlah = $operasional->pluck('jumlah');
+
+        $data = compact('jenis', 'jumlah');
+        dd($data);
+        return view('app.grafik.komposisi_operasional', $data);
+    }
+
+    public function komposisiPengeluaran(Request $request)
+    {
+        $operasional = PengeluaranLainnya::get()
+        ->groupBy('jenis_operasional_id')
+        ->transform(function ($item, $key) {
+            $jenis = JenisOperasional::find($key);
+            $jumlah = $item->sum('biaya');
+            return [
+                'jenis' => $jenis->nama,
+                'jumlah' => $jumlah
+            ];
+        })->values();
+        // dd($operasional);
+
+        $jenis = $operasional->pluck('jenis');
+        $jumlah = $operasional->pluck('jumlah');
+
+        $data = compact('jenis', 'jumlah');
+        dd($data);
+        return view('app.grafik.komposisi_pengeluaran', $data);
+    }
+
+    public function pemasukanPengeluaran()
+    {
+        $pengeluaran = 0;
+        $pemasukan = 0;
+
+        $pengeluaran += RiwayatOperasional::get()->sum('biaya');
+        $pengeluaran += PengeluaranLainnya::get()->sum('biaya');
+        $pengeluaran += Inventory::get()->sum('harga_beli');
+
+        $pemasukan += Pembayaran::get()->sum('biaya');
+        $data = compact('pengeluaran', 'pemasukan');
+        dd($data);
+        return view('app.grafik.pemasukan_pengeluaran', $data);
     }
 
 }

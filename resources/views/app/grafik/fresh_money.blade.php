@@ -29,7 +29,7 @@ $(function() {
   sisa$ = sisa / total * 100;
   jual$ = jual / total * 100;
   var areaChartData = {
-    labels: ['Fresh money ' + Math.round(jual$) + '%', 'Sisa ' + Math.round(sisa$) + '%'],
+    labels: ['Fresh money ' + Math.round(jual$) + '%', 'Belum terjual ' + Math.round(sisa$) + '%'],
     datasets: [
       {
         data: [jual, sisa],
