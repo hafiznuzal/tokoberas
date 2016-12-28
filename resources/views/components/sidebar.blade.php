@@ -30,6 +30,20 @@
       </li>
       <li class="treeview">
         <a href="#">
+          <i class="fa fa-dashboard"></i> <span>Grafik</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="{{ url('grafik/keuntungan_bersih') }}"><i class="fa fa-circle-o"></i> Keuntungan Bersih</a></li>
+          <li><a href="{{ url('grafik/modal_aktual') }}"><i class="fa fa-circle-o"></i> Modal Aktual</a></li>
+          <li><a href="{{ url('grafik/fresh_money') }}"><i class="fa fa-circle-o"></i> Fresh Money</a></li>
+          <li><a href="{{ url('grafik/penjualan_bulanan') }}"><i class="fa fa-circle-o"></i> Penjualan Bulanan</a></li>
+        </ul>
+      </li>
+      <li class="treeview">
+        <a href="#">
           <i class="fa fa-dashboard"></i> <span>CRUD</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>

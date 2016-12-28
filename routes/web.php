@@ -45,3 +45,9 @@ Route::get('transaksi/pembelian','TransaksiController@getPembelian');
 Route::post('transaksi/pembelian','TransaksiController@postPembelian');
 Route::get('transaksi/penjualan','TransaksiController@getPenjualan');
 Route::post('transaksi/penjualan','TransaksiController@postPenjualan');
+
+/* Laporan grafik */
+Route::get('grafik/keuntungan_bersih','GrafikController@keuntunganBersih');
+Route::get('grafik/modal_aktual','GrafikController@modalAktual');
+Route::get('grafik/fresh_money','GrafikController@freshMoney');
+Route::get('grafik/penjualan_bulanan','GrafikController@penjualanBulanan');
