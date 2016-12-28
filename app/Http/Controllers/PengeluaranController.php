@@ -21,15 +21,16 @@ class PengeluaranController extends Controller
 
         if ($start == null && $end == null) {
             $pengeluaran = Pengeluaran::get();
+            $start = $end = date('Y-m-d');
         } else {
-            $pengeluaran = Pengeluaran::where('tanggal', '>', $start)
-                    ->where('tanggal', '<', $end)
+            $pengeluaran = Pengeluaran::where('tanggal', '>=', $start)
+                    ->where('tanggal', '<=', $end)
                     ->get();
         }
         $jenis = JenisOperasional::get();
         $user = User::get();
 
-        $data = compact('pengeluaran','jenis','user');
+        $data = compact('pengeluaran','jenis','user', 'start', 'end');
         return view('app.laporan_pengeluaran', $data);
     }
 

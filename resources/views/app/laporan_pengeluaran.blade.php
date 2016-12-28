@@ -14,7 +14,6 @@
         <h4>Tambah Pengeluaran</h4>
       </div>
       <div class="box-body">
-
         <form data-parsley-validate class="form-horizontal form-label-left" method="post" action="{{url('pengeluaran')}}">
           {{csrf_field()}}
           <div class="form-group">
@@ -132,7 +131,12 @@
 <script>
   $(function() {
     $('#daterange').daterangepicker({
-      format: 'YYYY-MM-DD'
+      format: 'YYYY-MM-DD',
+      locale: {
+        format: 'YYYY-MM-DD'
+      },
+      startDate: '{{$start}}',
+      endDate: '{{$end}}'
     }, function(start, end) {
       $('#rangestart').val(start.format('YYYY-MM-DD'));
       $('#rangeend').val(end.format('YYYY-MM-DD'));
