@@ -4,7 +4,7 @@
       <li class="header">Menu</li>
       <li class="treeview">
         <a href="#">
-          <i class="fa fa-dashboard"></i> <span>Transaksi</span>
+          <i class="fa fa-shopping-cart"></i> <span>Transaksi</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
@@ -18,7 +18,7 @@
       </li>
       <li class="treeview">
         <a href="#">
-          <i class="fa fa-dashboard"></i> <span>Laporan</span>
+          <i class="fa fa-list-ol"></i> <span>Laporan</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
@@ -30,7 +30,7 @@
       </li>
       <li class="treeview">
         <a href="#">
-          <i class="fa fa-dashboard"></i> <span>Grafik</span>
+          <i class="fa fa-pie-chart"></i> <span>Grafik</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
@@ -44,7 +44,7 @@
       </li>
       <li class="treeview">
         <a href="#">
-          <i class="fa fa-dashboard"></i> <span>CRUD</span>
+          <i class="fa fa-database"></i> <span>CRUD</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
