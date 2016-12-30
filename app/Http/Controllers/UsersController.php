@@ -14,8 +14,9 @@ class UsersController extends Controller
      */
     public function index()
     {
+        // dd(session());
         $data['user'] = User::get();
-        return view('app.addkaryawan',$data);
+        return view('app.addkaryawan', $data);
     }
 
     /**
@@ -49,7 +50,7 @@ class UsersController extends Controller
 
         $user->save();
 
-        return redirect()->back();
+        return redirect()->back()->with('tambah_success', true);
     }
 
     /**
@@ -107,9 +108,9 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
         $user = User::find(decrypt($id));
-        $user->delete();
-        return redirect()->back();
+        // $user->delete();
+
+        echo 'success'
     }
 }

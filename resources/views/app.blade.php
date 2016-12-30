@@ -27,6 +27,9 @@
     <link href=" {{ url('bower_components/gentelella/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css') }}" rel="stylesheet">
     <!-- jVectorMap -->
     <link href=" {{ url('bower_components/gentelella/production/css/maps/jquery-jvectormap-2.0.3.css') }}" rel="stylesheet">
+    <!-- sweetalert -->
+    <link href=" {{ url('bower_components/sweetalert/dist/sweetalert.css') }}" rel="stylesheet">
+
     <!-- MY CSS -->
     <link href=" {{ url('css/style.css') }}" rel="stylesheet">
     @yield('css')
@@ -72,12 +75,13 @@
 <script src="{{ url('bower_components/gentelella/vendors/nprogress/nprogress.js')}}"></script>
 <!-- iCheck -->
 <script src="{{ url('bower_components/gentelella/vendors/iCheck/icheck.min.js')}}"></script>
-
 <!-- AdminLTE -->
 <script src="{{ url('bower_components/AdminLTE/dist/js/app.min.js')}}"></script>
-
+<!-- sweetalert -->
+<script src="{{ url('bower_components/sweetalert/dist/sweetalert.min.js')}}"></script>
 <!-- Angular -->
 <script src="{{ url('bower_components/angular/angular.min.js')}}"></script>
+
 <script src="{{ url('js/app.js')}}"></script>
 
 @yield('js')
