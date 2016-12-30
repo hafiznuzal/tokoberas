@@ -57,6 +57,10 @@ class GrafikController extends Controller
         return view('app.grafik.modal_aktual', $data);
     }
 
+    /**
+     * Nampilin pie chart buat seberapa persen pengeluaran yang sudah balik
+     * modal.
+     */
     public function freshMoney(Request $request)
     {
         $inventory = Inventory::get();
@@ -106,6 +110,10 @@ class GrafikController extends Controller
         return view('app.grafik.penjualan_bulanan', $data);
     }
 
+    /**
+     * Nampilin bar chart buat komposisi penjualan barang per kilo dalam
+     * range waktu.
+     */
     public function komposisiPenjualan(Request $request)
     {
         $nota = Nota::get();
@@ -122,16 +130,19 @@ class GrafikController extends Controller
                 'jumlah' => $jumlah
             ];
         })->values();
-        // dd($byJenis);
 
         $jenis = $byJenis->pluck('jenis');
         $jumlah = $byJenis->pluck('jumlah');
 
         $data = compact('jenis', 'jumlah');
-        dd($data);
+        // dd($data);
         return view('app.grafik.komposisi_penjualan', $data);
     }
 
+    /**
+     * Nampilin bar chart buat komposisi biaya operasional transaksi
+     * dalam range waktu.
+     */
     public function komposisiOperasional(Request $request)
     {
         $operasional = RiwayatOperasional::get()
@@ -150,10 +161,14 @@ class GrafikController extends Controller
         $jumlah = $operasional->pluck('jumlah');
 
         $data = compact('jenis', 'jumlah');
-        dd($data);
+        // dd($data);
         return view('app.grafik.komposisi_operasional', $data);
     }
 
+    /**
+     * Nampilin bar chart buat komposisi biaya pengeluaran lainnya
+     * dalam range waktu.
+     */
     public function komposisiPengeluaran(Request $request)
     {
         $operasional = PengeluaranLainnya::get()
@@ -172,10 +187,14 @@ class GrafikController extends Controller
         $jumlah = $operasional->pluck('jumlah');
 
         $data = compact('jenis', 'jumlah');
-        dd($data);
+        // dd($data);
         return view('app.grafik.komposisi_pengeluaran', $data);
     }
 
+    /**
+     * Nampilin pie chart buat melihat perbandingan pemasukan dan 
+     * pengeluaran.
+     */
     public function pemasukanPengeluaran()
     {
         $pengeluaran = 0;
@@ -187,7 +206,7 @@ class GrafikController extends Controller
 
         $pemasukan += Pembayaran::get()->sum('biaya');
         $data = compact('pengeluaran', 'pemasukan');
-        dd($data);
+        // dd($data);
         return view('app.grafik.pemasukan_pengeluaran', $data);
     }
 

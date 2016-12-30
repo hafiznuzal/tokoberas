@@ -5,7 +5,7 @@
 @section('content')
 <div class="box box-primary">
   <div class="box-header">
-    <h4>Grafik posisi fresh money</h4>
+    <h4>Grafik perbandingan pemasukan dengan pengeluaran</h4>
   </div>
   <div class="box-body">
     <canvas id="freshMoneyChart" width="400" height="170"></canvas>
@@ -18,16 +18,16 @@
 $(function() {
   var ctx = document.getElementById("freshMoneyChart");
 
-  sisa = {!! $sisa !!};
-  jual = {!! $jual !!};
-  total = sisa + jual;
-  sisa$ = sisa / total * 100;
-  jual$ = jual / total * 100;
+  pengeluaran = {!! $pengeluaran !!};
+  pemasukan = {!! $pemasukan !!};
+  total = pengeluaran + pemasukan;
+  pengeluaran$ = pengeluaran / total * 100;
+  pemasukan$ = pemasukan / total * 100;
   var areaChartData = {
-    labels: ['Fresh money ' + Math.round(jual$) + '%', 'Belum terjual ' + Math.round(sisa$) + '%'],
+    labels: ['Pengeluaran ' + Math.round(pemasukan$) + '%', 'Pemasukan ' + Math.round(pengeluaran$) + '%'],
     datasets: [
       {
-        data: [jual, sisa],
+        data: [pemasukan, pengeluaran],
         backgroundColor: ["#FFCE56", "#36A2EB"]
       }
     ]
