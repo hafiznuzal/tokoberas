@@ -7,7 +7,7 @@
   <div class="col-md-8">
     <div class="box box-primary">
       <div class="box-header">
-        <h3>Tambah Jenis Operasional</h3>
+        <h4>Tambah Jenis Operasional</h4>
       </div>
       <div class="box-body">
         <form method="post" class="form-horizontal" action="{{ url('jenis_operasional') }}">
@@ -28,7 +28,7 @@
     </div>
     <div class="box box-primary">
       <div class="box-header">
-        <h3>List Jenis Operasional</h3>
+        <h4>List Jenis Operasional</h4>
       </div>
       <div class="box-body">
         <table class="table table-hover datatabel">

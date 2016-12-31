@@ -8,7 +8,7 @@
   <div class="col-md-12 col-sm-12">
     <div class="box box-primary">
       <div class="box-header with-border">
-        <h3>Edit Data Karyawan</h3>
+        <h4>Edit Data Karyawan</h4>
       </div>
       <div class="box-body">
 

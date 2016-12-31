@@ -8,7 +8,7 @@
   <div class="col-md-12 col-sm-12">
     <div class="box box-primary">
       <div class="box-header with-border">
-        <h3>Tambah Konsumen</h3>
+        <h4>Tambah Konsumen</h4>
       </div>
       <div class="box-body">
         <form data-parsley-validate class="form-horizontal form-label-left" method="post" action="{{url('konsumen')}}">
@@ -59,7 +59,7 @@
     </div>
     <div class="box box-primary">
       <div class="box-header with-border">
-        <h3>Data Konsumen</h3>
+        <h4>Data Konsumen</h4>
       </div>
       <div class="box-body">
         <table id="datatable-buttons" class="table table-striped table-bordered">

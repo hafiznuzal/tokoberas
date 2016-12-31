@@ -8,7 +8,7 @@
   <div class="col-md-12 col-sm-12">
     <div class="box box-primary">
       <div class="box-header with-border">
-        <h3>Tambah Karyawan</h3>
+        <h4>Tambah Karyawan</h4>
       </div>
       <div class="box-body">
         <br />
@@ -95,7 +95,7 @@
       <div class="col-md-12 col-sm-12">
         <div class="box box-primary">
           <div class="box-header with-border">
-            <h3>Karyawan</h3>
+            <h4>Karyawan</h4>
           </div>
           <div class="box-body">
             <div class="table-responsive">
