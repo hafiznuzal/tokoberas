@@ -141,7 +141,6 @@
 @endsection
 
 @section('js')
-
 <script>
 $(function() {
   $(".delete-resource").click(function() {

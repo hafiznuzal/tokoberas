@@ -13,25 +13,25 @@
     <title>Toko Beras @yield('title')</title>
 
     <!-- Bootstrap -->
-    <link href=" {{ url('bower_components/gentelella/vendors/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url('bower_components/gentelella/vendors/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href=" {{ url('bower_components/gentelella/vendors/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ url('bower_components/gentelella/vendors/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
     <!-- AdminLTE -->
-    <link href=" {{ url('bower_components/AdminLTE/dist/css/AdminLTE.min.css') }}" rel="stylesheet">
-    <link href=" {{ url('bower_components/AdminLTE/dist/css/skins/_all-skins.min.css') }}" rel="stylesheet">
+    <link href="{{ url('bower_components/AdminLTE/dist/css/AdminLTE.min.css') }}" rel="stylesheet">
+    <link href="{{ url('bower_components/AdminLTE/dist/css/skins/_all-skins.min.css') }}" rel="stylesheet">
     <!-- NProgress -->
-    <link href=" {{ url('bower_components/gentelella/vendors/nprogress/nprogress.css') }}" rel="stylesheet">
+    <link href="{{ url('bower_components/gentelella/vendors/nprogress/nprogress.css') }}" rel="stylesheet">
     <!-- iCheck -->
-    <link href=" {{ url('bower_components/gentelella/vendors/iCheck/skins/flat/green.css') }}" rel="stylesheet">
+    <link href="{{ url('bower_components/gentelella/vendors/iCheck/skins/flat/green.css') }}" rel="stylesheet">
     <!-- bootstrap-progressbar -->
-    <link href=" {{ url('bower_components/gentelella/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css') }}" rel="stylesheet">
+    <link href="{{ url('bower_components/gentelella/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css') }}" rel="stylesheet">
     <!-- jVectorMap -->
-    <link href=" {{ url('bower_components/gentelella/production/css/maps/jquery-jvectormap-2.0.3.css') }}" rel="stylesheet">
+    <link href="{{ url('bower_components/gentelella/production/css/maps/jquery-jvectormap-2.0.3.css') }}" rel="stylesheet">
     <!-- sweetalert -->
-    <link href=" {{ url('bower_components/sweetalert/dist/sweetalert.css') }}" rel="stylesheet">
+    <link href="{{ url('bower_components/sweetalert/dist/sweetalert.css') }}" rel="stylesheet">
 
     <!-- MY CSS -->
-    <link href=" {{ url('css/style.css') }}" rel="stylesheet">
+    <link href="{{ url('css/style.css') }}" rel="stylesheet">
     @yield('css')
 
   </head>

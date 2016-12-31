@@ -1,6 +1,5 @@
 @extends('app')
 
-@include('plugins.editdata')
 @include('plugins.datepicker')
 
 @section('content')
