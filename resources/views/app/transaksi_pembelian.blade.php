@@ -199,5 +199,8 @@
     $scope.jenisSelectize = $("#jenis").selectize({})[0].selectize;
   });
 })();
+@if (session('tambah_success'))
+  swal("Success", "Transaksi berhasil dilakukan", "success");
+@endif
 </script>
 @endsection

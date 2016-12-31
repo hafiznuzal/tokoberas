@@ -31,7 +31,7 @@ class PengeluaranController extends Controller
         $user = User::get();
 
         $data = compact('pengeluaran','jenis','user', 'start', 'end');
-        return view('app.laporan_pengeluaran', $data);
+        return view('app.pengeluaran_index', $data);
     }
 
     /**
@@ -61,7 +61,7 @@ class PengeluaranController extends Controller
         $pengeluaran->user_id= $request->input('user_id');
         $pengeluaran->save();
 
-        return redirect()->back();
+        return redirect()->back()->with('tambah_success', true);
     }
 
     /**
@@ -89,7 +89,7 @@ class PengeluaranController extends Controller
         $user = User::get();
 
         $data = compact('pengeluaran', 'jenis', 'user');
-        return view('app.editpengeluaran', $data);
+        return view('app.pengeluaran_edit', $data);
     }
 
     /**
@@ -109,7 +109,7 @@ class PengeluaranController extends Controller
         $pengeluaran->user_id= $request->input('user_id');
         $pengeluaran->save();
 
-        return redirect('pengeluaran');
+        return redirect('pengeluaran')->with('edit_success', true);
     }
 
     /**
@@ -120,6 +120,9 @@ class PengeluaranController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $pengeluaran = Pengeluaran::find(decrypt($id));
+        $pengeluaran->delete();
+
+        echo 'success';
     }
 }

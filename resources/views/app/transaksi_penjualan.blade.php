@@ -262,5 +262,8 @@ app.controller("penjualan", function($scope) {
     })
   })
 });
+@if (session('tambah_success'))
+  swal("Success", "Transaksi berhasil dilakukan", "success");
+@endif
 </script>
 @endsection

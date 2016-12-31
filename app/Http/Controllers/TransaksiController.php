@@ -48,7 +48,7 @@ class TransaksiController extends Controller
             $inventory->modal_id = $modal->id;
             $inventory->save();
         }
-        return redirect()->back();
+        return redirect()->back()->with('tambah_success', true);
     }
 
     public function getPenjualan()
@@ -116,6 +116,6 @@ class TransaksiController extends Controller
             $item->nota_id = $nota->id;
             $item->save();
         }
-        return redirect()->back();
+        return redirect()->back()->with('tambah_success', true);
     }
 }

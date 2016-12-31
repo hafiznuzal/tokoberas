@@ -10,7 +10,7 @@
   <div class="col-md-12 col-sm-12">
     <div class="box box-primary">
       <div class="box-header with-border">
-        <h4>Tambah Pengeluaran</h4>
+        <h4>Ubah Pengeluaran</h4>
       </div>
       <div class="box-body">
         <form data-parsley-validate class="form-horizontal form-label-left" method="post" action="{{url('pengeluaran/'.$pengeluaran->id)}}">

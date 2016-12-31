@@ -32,7 +32,7 @@ class JenisOperasionalController extends Controller
         $jenis->nama = $request->input('nama');
         $jenis->save();
 
-        return redirect()->back();
+        return redirect()->back()->with('tambah_success', true);
     }
 
     /**

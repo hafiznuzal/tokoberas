@@ -24,7 +24,7 @@ class PembayaranController extends Controller
             return array_dot($item->toArray());
         });
         // dd($data);
-        return view('app.laporan_pembayaran', $data);
+        return view('app.laporan_pembayaran_index', $data);
     }
 
     /**
@@ -61,7 +61,7 @@ class PembayaranController extends Controller
         $nota->save();
         $pembayaran->save();
 
-        return redirect()->back();
+        return redirect()->back()->with('tambah_success', true);
     }
 
     /**

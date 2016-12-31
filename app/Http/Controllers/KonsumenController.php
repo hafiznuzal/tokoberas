@@ -36,7 +36,6 @@ class KonsumenController extends Controller
      */
     public function store(Request $request)
     {
-        //
         $konsumen = new Konsumen;
         $konsumen->nama = $request->input('nama');
         $konsumen->tanggal_lahir = $request->input('tanggal_lahir');
@@ -67,7 +66,6 @@ class KonsumenController extends Controller
      */
     public function edit($id)
     {
-        //
         $data['konsumen'] = Konsumen::find($id);
         return view('app.konsumen_edit', $data);
     }
@@ -100,7 +98,6 @@ class KonsumenController extends Controller
      */
     public function destroy($id)
     {
-        //
         $konsumen = Konsumen::find(decrypt($id));
         $konsumen->delete();
 

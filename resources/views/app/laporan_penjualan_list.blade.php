@@ -14,7 +14,7 @@
           <th class="text-center">No</th>
           <th class="text-center">No Nota</th>
           <th>Nama Pemesan</th>
-          <th>Jumlah Pemesanan</th>
+          <th>Jumlah Jenis Item</th>
           <th>Tanggal Pemesanan</th>
           <th class="text-right">Total Biaya</th>
           <th>Keterangan</th>
@@ -30,7 +30,7 @@
           <td>{{$jual->tanggal}}</td>
           <td class="text-right">{{number_format($jual->total_harga)}}</td>
           <td>
-            <a href="{{url('laporan_penjualan/'.$jual->id)}}" class="btn btn-default btn-sm">Detail</a>
+            <a href="{{url('laporan_penjualan/'.$jual->id)}}" class="btn btn-primary btn-sm">Detail</a>
           </td>
         </tr>
         @endforeach

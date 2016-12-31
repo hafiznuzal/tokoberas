@@ -1,11 +1,19 @@
 @extends('app')
 
 @include('plugins.accounting')
+@include('plugins.datatable')
 
 @section('content')
 <div class="row">
-  <div class="col-md-6">
-    <div class="box">
+  <div class="col-lg-2 col-sm-4">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <a href="{{url('jenis')}}" class="btn btn-primary btn-block">Kembali</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6 col-sm-6">
+    <div class="box box-primary">
       <div class="box-header">
         <h4>{{$jenis->nama}}</h4>
       </div>
@@ -27,12 +35,12 @@
         </form>
       </div>
     </div>
-    <div class="box">
+    <div class="box box-primary">
       <div class="box-header">
         <h4>History Harga Jual Barang</h4>
       </div>
       <div class="box-body">
-        <table class="table">
+        <table class="table table-hover datatabel">
           <thead>
             <tr>
               <th class="text-center col-sm-2">No</th>
@@ -62,7 +70,8 @@
 
 @section('js')
 <script>
-$(function() {
-})
+@if (session('edit_success'))
+  swal("Success", "Data berhasil diubah", "success");
+@endif
 </script>
 @endsection

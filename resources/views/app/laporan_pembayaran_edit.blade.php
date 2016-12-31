@@ -1,22 +1,12 @@
+{{-- Belum pernah dipake, harusnya ga boleh --}}
 @extends('app')
 
 @include('plugins.datatable')
 
-@section('css')
-<link href=" {{ url('bower_components/AdminLTE/plugins/daterangepicker/daterangepicker.css') }}" rel="stylesheet">
-<link href=" {{ url('bower_components/AdminLTE/plugins/datatables/extensions/Responsive/css/dataTables.responsive.css') }}" rel="stylesheet">
-<link href=" {{ url('bower_components/AdminLTE/plugins/datatables/jquery.dataTables.min.css') }}" rel="stylesheet">
-
-<link href=" {{ url('bower_components\AdminLTE\plugins\select2\select2.min.css') }}" rel="stylesheet">
-<style>
-.select2-selection--single{background-color:#fff;border-radius: 0px !important; box-shadow: none !important; border-color: #d2d6de !important; height: 34px !important;}
-</style>
-@endsection
-
 @section('content')
 <div class="row">
   <div class="col-md-12 col-sm-12">
-    <div class="box">
+    <div class="box box-primary">
       <div class="box-header box-body">
         <h3>Tambah Pembayaran</h3>  
       </div>
@@ -69,7 +59,6 @@
                 </select>
             </div>
           </div>
-          <div class="ln_solid"></div>
           <div class="form-group">
             <div class="col-md-6 col-sm-6 col-md-offset-3">
               <button type="submit" class="btn btn-primary">Cancel</button>

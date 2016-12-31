@@ -14,7 +14,7 @@
           <th class="text-center">No</th>
           <th class="text-center">No Nota</th>
           <th>Nama Produsen</th>
-          <th>Jumlah Pemesanan</th>
+          <th>Jumlah Jenis Item</th>
           <th>Tanggal Pemesanan</th>
           <th>Keterangan</th>
         </tr>
@@ -28,7 +28,7 @@
           <td>{{$beli->inventory->count()}}</td>
           <td>{{$beli->tanggal}}</td>
           <td>
-            <a href="{{url('laporan_pembelian/'.$beli->id)}}" class="btn btn-default btn-sm">Detail</a>
+            <a href="{{url('laporan_pembelian/'.$beli->id)}}" class="btn btn-primary btn-sm">Detail</a>
           </td>
         </tr>
         @endforeach

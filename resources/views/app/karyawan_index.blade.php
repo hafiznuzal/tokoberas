@@ -82,7 +82,6 @@
               <input type="password" name="confirmpassword" required="required" class="form-control col-md-7">
             </div>
           </div>
-          <div class="ln_solid"></div>
           <div class="form-group">
             <div class="col-md-6 col-sm-6 col-sm-offset-3">
               <button type="submit" class="btn btn-success">Submit</button>
@@ -190,7 +189,7 @@ $(function() {
   swal("Success", "Data berhasil ditambah", "success");
 @endif
 @if (session('edit_success'))
-  swal("Success", "Data berhasil diedit", "success");
+  swal("Success", "Data berhasil diubah", "success");
 @endif
 </script>
 @endsection

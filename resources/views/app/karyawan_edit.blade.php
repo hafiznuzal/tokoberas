@@ -69,7 +69,6 @@
               <input type="text" name="username" required="required" class="form-control col-md-7" value="{{$user->username}}">
             </div>
           </div>
-          <div class="ln_solid"></div>
           <div class="form-group">
             <div class="col-md-6 col-sm-6 col-md-offset-3">
               <a href="{{url('users')}}" class="btn btn-default">Cancel</a>

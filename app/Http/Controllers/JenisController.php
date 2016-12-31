@@ -32,7 +32,7 @@ class JenisController extends Controller
         $harga = str_replace(',', '', $request->input('harga'));
         $jenis = Jenis::createAndKurs($nama, $harga);
 
-        return redirect()->back();
+        return redirect()->back()->with('tambah_success', true);
     }
 
     /**
@@ -80,7 +80,7 @@ class JenisController extends Controller
         $jenis->latest_kurs_id = $kurs->id;
         $jenis->save();
 
-        return redirect()->back();
+        return redirect()->back()->with('edit_success', true);
     }
 
     /**

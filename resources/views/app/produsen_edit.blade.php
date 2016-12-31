@@ -6,7 +6,7 @@
 @section('content')
 <div class="row">
   <div class="col-md-12 col-sm-12">
-    <div class="box">
+    <div class="box box-primary">
       <div class="box-header box-body">
         <h3>Edit Produsen</h3>
       </div>
@@ -43,19 +43,18 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3">nomor telepon</label>
+            <label class="control-label col-md-3 col-sm-3">Nomor telepon</label>
             <div class="col-md-6 col-sm-6">
               <input class="form-control col-md-7" type="number" name="telepon" value="{{$produsen->telepon}}">
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3">nomor handphone <span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3">Nomor handphone <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
               <input type="number" name="hp" required="required" class="form-control col-md-7" value="{{$produsen->hp}}">
             </div>
           </div>
-          <div class="ln_solid"></div>
           <div class="form-group">
             <div class="col-md-6 col-sm-6 col-md-offset-3">
               <a href="{{url('produsen')}}" class="btn btn-default">Cancel</a>
