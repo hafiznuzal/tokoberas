@@ -37,5 +37,6 @@
   maintainAspectRatio: true;
   //Boolean - whether to make the chart responsive to window resizing
   Chart.defaults.global.responsive = true;
+  // Chart.defaults.global.spanGaps = false;
 </script>
 @endsection

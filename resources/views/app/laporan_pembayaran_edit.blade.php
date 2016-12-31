@@ -19,16 +19,13 @@
             <label class="control-label col-md-3 col-sm-3">Nota<span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
-              <select class="form-control select2" style="width: 100%;">  
+              <select class="form-control select2">
                   @foreach ($nota as $not)
                   <option value="{{$not->id}}">{{$not->id}}</option>
                   @endforeach   
               </select>
             </div>
           </div>
-
-
-
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-3">Tanggal Pembayaran<span class="required">*</span>
             </label>
@@ -52,10 +49,10 @@
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-3">Penerima Pembayaran</label>
             <div class="col-md-6 col-sm-6">
-              <select class="form-control select2" style="width: 100%;">
+              <select class="form-control select2">
               @foreach ($user as $users)
                   <option value="{{$users->id}}">{{$users->nama}}</option>
-              @endforeach                      
+              @endforeach
                 </select>
             </div>
           </div>
@@ -71,13 +68,4 @@
     </div>
   </div>
 </div>
-
-
 @endsection
-
-@section('js')
-
-
-
-
-@endsection    

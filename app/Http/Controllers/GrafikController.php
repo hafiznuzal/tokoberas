@@ -13,9 +13,21 @@ use App\RiwayatOperasional;
 
 class GrafikController extends Controller
 {
+    private function filterDateRange($model, $start, $end, $tanggal = 'tanggal')
+    {
+        if ($start && $end) {
+            return $model->where($tanggal, '>=', $start)->where($tanggal, '<=', $end);
+        } else {
+            return $model;
+        }
+    }
+
     public function keuntunganBersih(Request $request)
     {
-        $nota = Nota::get();
+        $start = $request->input('start');
+        $end = $request->input('end');
+
+        $nota = $this->filterDateRange(Nota::select('*'), $start, $end)->get();
         $notal = $nota->map(function ($item) {
             $item->tanggal = date('j M Y', strtotime($item->tanggal));
             return $item;
@@ -30,13 +42,22 @@ class GrafikController extends Controller
         $keuntungan_bersih = $notal->pluck('keuntungan_bersih');
         $tanggal = $notal->keys();
 
-        $data = compact('keuntungan_bersih', 'tanggal');
+        if (!$start) {
+            $start = date('Y-m-d');
+        }
+        if (!$end) {
+            $end = date('Y-m-d');
+        }
+        $data = compact('keuntungan_bersih', 'tanggal', 'start', 'end');
         return view('app.grafik.keuntungan_bersih', $data);
     }
 
     public function modalAktual(Request $request)
     {
-        $nota = Nota::get();
+        $start = $request->input('start');
+        $end = $request->input('end');
+
+        $nota = $this->filterDateRange(Nota::select('*'), $start, $end)->get();
         $notal = $nota->map(function ($item) {
             $item->tanggal = date('j M Y', strtotime($item->tanggal));
             return $item;
@@ -53,7 +74,13 @@ class GrafikController extends Controller
         $modal_aktual = $notal->pluck('modal_aktual');
         $tanggal = $notal->keys();
 
-        $data = compact('modal_bersih', 'modal_aktual', 'tanggal');
+        if (!$start) {
+            $start = date('Y-m-d');
+        }
+        if (!$end) {
+            $end = date('Y-m-d');
+        }
+        $data = compact('modal_bersih', 'modal_aktual', 'tanggal', 'start', 'end');
         return view('app.grafik.modal_aktual', $data);
     }
 
@@ -63,7 +90,10 @@ class GrafikController extends Controller
      */
     public function freshMoney(Request $request)
     {
-        $inventory = Inventory::get();
+        $start = $request->input('start');
+        $end = $request->input('end');
+
+        $inventory = $this->filterDateRange(Inventory::select('*'), $start, $end)->get();
         $invent = $inventory->map(function ($item) {
             $item->tanggal = date('j M Y', strtotime($item->tanggal_masuk));
             return $item;
@@ -84,14 +114,23 @@ class GrafikController extends Controller
         $jual = $invent->sum('jual');
         $tanggal = $invent->keys();
 
-        $data = compact('sisa', 'jual', 'tanggal');
+        if (!$start) {
+            $start = date('Y-m-d');
+        }
+        if (!$end) {
+            $end = date('Y-m-d');
+        }
+        $data = compact('sisa', 'jual', 'tanggal', 'start', 'end');
         // dd($data);
         return view('app.grafik.fresh_money', $data);
     }
 
     public function penjualanBulanan(Request $request)
     {
-        $nota = Nota::get();
+        $start = $request->input('start');
+        $end = $request->input('end');
+
+        $nota = $this->filterDateRange(Nota::select('*'), $start, $end)->get();
         $notal = $nota->map(function ($item) {
             $item->tanggal = date('j M Y', strtotime($item->tanggal));
             return $item;
@@ -105,8 +144,14 @@ class GrafikController extends Controller
 
         $total_harga = $notal->pluck('total_harga');
         $tanggal = $notal->keys();
-        
-        $data = compact('nota', 'total_harga', 'tanggal');
+
+        if (!$start) {
+            $start = date('Y-m-d');
+        }
+        if (!$end) {
+            $end = date('Y-m-d');
+        }
+        $data = compact('nota', 'total_harga', 'tanggal', 'start', 'end');
         return view('app.grafik.penjualan_bulanan', $data);
     }
 
@@ -116,7 +161,10 @@ class GrafikController extends Controller
      */
     public function komposisiPenjualan(Request $request)
     {
-        $nota = Nota::get();
+        $start = $request->input('start');
+        $end = $request->input('end');
+
+        $nota = $this->filterDateRange(Nota::select('*'), $start, $end)->get();
         $item = collect();
         $nota->each(function ($not) use(&$item) {
             $item = $item->merge($not->item_transaksi);
@@ -134,7 +182,13 @@ class GrafikController extends Controller
         $jenis = $byJenis->pluck('jenis');
         $jumlah = $byJenis->pluck('jumlah');
 
-        $data = compact('jenis', 'jumlah');
+        if (!$start) {
+            $start = date('Y-m-d');
+        }
+        if (!$end) {
+            $end = date('Y-m-d');
+        }
+        $data = compact('jenis', 'jumlah', 'start', 'end');
         // dd($data);
         return view('app.grafik.komposisi_penjualan', $data);
     }
@@ -145,7 +199,10 @@ class GrafikController extends Controller
      */
     public function komposisiOperasional(Request $request)
     {
-        $operasional = RiwayatOperasional::get()
+        $start = $request->input('start');
+        $end = $request->input('end');
+
+        $operasional = $this->filterDateRange(RiwayatOperasional::select('*'), $start, $end)->get()
         ->groupBy('jenis_operasional_id')
         ->transform(function ($item, $key) {
             $jenis = JenisOperasional::find($key);
@@ -160,7 +217,13 @@ class GrafikController extends Controller
         $jenis = $operasional->pluck('jenis');
         $jumlah = $operasional->pluck('jumlah');
 
-        $data = compact('jenis', 'jumlah');
+        if (!$start) {
+            $start = date('Y-m-d');
+        }
+        if (!$end) {
+            $end = date('Y-m-d');
+        }
+        $data = compact('jenis', 'jumlah', 'start', 'end');
         // dd($data);
         return view('app.grafik.komposisi_operasional', $data);
     }
@@ -171,7 +234,10 @@ class GrafikController extends Controller
      */
     public function komposisiPengeluaran(Request $request)
     {
-        $operasional = PengeluaranLainnya::get()
+        $start = $request->input('start');
+        $end = $request->input('end');
+
+        $operasional = $this->filterDateRange(PengeluaranLainnya::select('*'), $start, $end)->get()
         ->groupBy('jenis_operasional_id')
         ->transform(function ($item, $key) {
             $jenis = JenisOperasional::find($key);
@@ -186,7 +252,13 @@ class GrafikController extends Controller
         $jenis = $operasional->pluck('jenis');
         $jumlah = $operasional->pluck('jumlah');
 
-        $data = compact('jenis', 'jumlah');
+        if (!$start) {
+            $start = date('Y-m-d');
+        }
+        if (!$end) {
+            $end = date('Y-m-d');
+        }
+        $data = compact('jenis', 'jumlah', 'start', 'end');
         // dd($data);
         return view('app.grafik.komposisi_pengeluaran', $data);
     }
@@ -195,17 +267,27 @@ class GrafikController extends Controller
      * Nampilin pie chart buat melihat perbandingan pemasukan dan 
      * pengeluaran.
      */
-    public function pemasukanPengeluaran()
+    public function pemasukanPengeluaran(Request $request)
     {
+        $start = $request->input('start');
+        $end = $request->input('end');
+
         $pengeluaran = 0;
         $pemasukan = 0;
 
-        $pengeluaran += RiwayatOperasional::get()->sum('biaya');
-        $pengeluaran += PengeluaranLainnya::get()->sum('biaya');
-        $pengeluaran += Inventory::get()->sum('harga_beli');
+        $pengeluaran += $this->filterDateRange(RiwayatOperasional::select('*'), $start, $end)->get()->sum('biaya');
+        $pengeluaran += $this->filterDateRange(PengeluaranLainnya::select('*'), $start, $end)->get()->sum('biaya');
+        $pengeluaran += $this->filterDateRange(Inventory::select('*'), $start, $end)->get()->sum('harga_beli');
 
-        $pemasukan += Pembayaran::get()->sum('biaya');
-        $data = compact('pengeluaran', 'pemasukan');
+        $pemasukan += $this->filterDateRange(Pembayaran::select('*'), $start, $end)->get()->sum('biaya');
+
+        if (!$start) {
+            $start = date('Y-m-d');
+        }
+        if (!$end) {
+            $end = date('Y-m-d');
+        }
+        $data = compact('pengeluaran', 'pemasukan', 'start', 'end');
         // dd($data);
         return view('app.grafik.pemasukan_pengeluaran', $data);
     }
