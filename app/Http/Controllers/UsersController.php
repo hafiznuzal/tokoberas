@@ -16,7 +16,7 @@ class UsersController extends Controller
     {
         // dd(session());
         $data['user'] = User::get();
-        return view('app.addkaryawan', $data);
+        return view('app.karyawan_index', $data);
     }
 
     /**
@@ -73,7 +73,7 @@ class UsersController extends Controller
     public function edit($id)
     {
         $data['user'] = User::find($id);
-        return view('app.editkaryawan', $data);
+        return view('app.karyawan_edit', $data);
     }
 
     /**
