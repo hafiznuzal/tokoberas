@@ -17,7 +17,7 @@
         <form data-parsley-validate class="form-horizontal form-label-left" method="post" action="{{url('pengeluaran')}}">
           {{csrf_field()}}
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3" for="first-name">Jenis Pengeluaran <span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3">Jenis Pengeluaran <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
               <select class="form-control select2" name="jenis">
@@ -28,7 +28,7 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3" for="last-name">Uraian <span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3">Uraian <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
               <input type="text" name="uraian" required="required" class="form-control col-md-7">
@@ -47,14 +47,14 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3" for="last-name">Jumlah Pengeluaran <span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3">Jumlah Pengeluaran <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
               <input type="text" name="biaya" required="required" class="form-control col-md-7 input-accounting">
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3" for="first-name">Penanggung Jawab <span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3">Penanggung Jawab <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
               <select class="form-control select2" name="user_id">

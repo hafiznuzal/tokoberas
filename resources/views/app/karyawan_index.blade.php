@@ -13,13 +13,13 @@
       <div class="box-body">
         <br />
 
-        <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post" action="{{url('users')}}">
+        <form data-parsley-validate class="form-horizontal form-label-left" method="post" action="{{url('users')}}">
           {{csrf_field()}}
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3" for="first-name">Nama<span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3">Nama<span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
-              <input type="text" id="first-name" name="nama" required="required" class="form-control col-md-7">
+              <input type="text" name="nama" required="required" class="form-control col-md-7">
             </div>
           </div>
           <div class="form-group">
@@ -34,52 +34,52 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3" for="last-name">Tempat Lahir<span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3">Tempat Lahir<span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
-              <input type="text" id="last-name" name="tempatlahir" required="required" class="form-control col-md-7">
+              <input type="text" name="tempatlahir" required="required" class="form-control col-md-7">
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3" for="last-name">Alamat <span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3">Alamat <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
-              <input type="text" id="last-name" name="alamat" required="required" class="form-control col-md-7">
+              <input type="text" name="alamat" required="required" class="form-control col-md-7">
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3" for="first-name">Nomor Handphone <span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3">Nomor Handphone <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
-              <input type="number" id="first-name" name="hp" required="required" class="form-control col-md-7">
+              <input type="number" name="hp" required="required" class="form-control col-md-7">
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3" for="first-name">Jabatan<span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3">Jabatan<span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
-              <input type="text" id="first-name" name="jabatan" required="required" class="form-control col-md-7">
+              <input type="text" name="jabatan" required="required" class="form-control col-md-7">
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3" for="first-name">Username <span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3">Username <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
-              <input type="text" id="first-name" name="username" required="required" class="form-control col-md-7">
+              <input type="text" name="username" required="required" class="form-control col-md-7">
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3" for="first-name">Password<span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3">Password<span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
-              <input type="password" id="first-name" name="password" required="required" class="form-control col-md-7">
+              <input type="password" name="password" required="required" class="form-control col-md-7">
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3" for="first-name">Confirm Password<span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3">Confirm Password<span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
-              <input type="password" id="first-name" name="confirmpassword" required="required" class="form-control col-md-7">
+              <input type="password" name="confirmpassword" required="required" class="form-control col-md-7">
             </div>
           </div>
           <div class="ln_solid"></div>

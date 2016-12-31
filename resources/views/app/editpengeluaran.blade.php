@@ -13,11 +13,11 @@
         <h4>Tambah Pengeluaran</h4>
       </div>
       <div class="box-body">
-        <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post" action="{{url('pengeluaran/'.$pengeluaran->id)}}">
+        <form data-parsley-validate class="form-horizontal form-label-left" method="post" action="{{url('pengeluaran/'.$pengeluaran->id)}}">
           {{csrf_field()}}
           {{ method_field('PUT') }}
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3" for="first-name">Jenis Pengeluaran<span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3">Jenis Pengeluaran<span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
               <select class="form-control select2" name="jenis" value="{{$pengeluaran->jenis_operasional->nama}}">
@@ -28,15 +28,15 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3" for="last-name">Uraian <span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3">Uraian <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
-              <input type="text" id="last-name" name="uraian" required="required" class="form-control col-md-7" value="{{$pengeluaran->uraian}}">
+              <input type="text" name="uraian" required="required" class="form-control col-md-7" value="{{$pengeluaran->uraian}}">
             </div>
           </div>
 
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3" for="first-name">Tanggal Pengeluaran<span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3">Tanggal Pengeluaran<span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
               <div class="input-group date">
@@ -48,14 +48,14 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3" for="last-name">Jumlah Pengeluaran <span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3">Jumlah Pengeluaran <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
-              <input type="text" id="last-name" name="biaya" required class="form-control col-md-7 input-accounting" value="{{$pengeluaran->biaya}}">
+              <input type="text" name="biaya" required class="form-control col-md-7 input-accounting" value="{{$pengeluaran->biaya}}">
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3" for="first-name">Penanggung Jawab<span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3">Penanggung Jawab<span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
               <select class="form-control select2" name="user_id" value="{{$pengeluaran->user->nama}}">

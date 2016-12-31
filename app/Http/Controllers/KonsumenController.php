@@ -15,7 +15,7 @@ class KonsumenController extends Controller
     public function index()
     {
         $data['konsumen'] = Konsumen::get();
-        return view('app.addkonsumen', $data);
+        return view('app.konsumen_index', $data);
     }
 
     /**
@@ -44,7 +44,8 @@ class KonsumenController extends Controller
         $konsumen->telepon = $request->input('telepon');
         $konsumen->hp = $request->input('hp');
         $konsumen->save();
-        return redirect()->back();
+
+        return redirect()->back()->with('tambah_success', true);
     }
 
     /**
@@ -68,7 +69,7 @@ class KonsumenController extends Controller
     {
         //
         $data['konsumen'] = Konsumen::find($id);
-        return view('app.editkonsumen', $data);
+        return view('app.konsumen_edit', $data);
     }
 
     /**
@@ -88,7 +89,7 @@ class KonsumenController extends Controller
         $konsumen->hp = $request->input('hp');
         $konsumen->save();
 
-        return redirect('konsumen');
+        return redirect('konsumen')->with('edit_success', true);;
     }
 
     /**
@@ -102,6 +103,7 @@ class KonsumenController extends Controller
         //
         $konsumen = Konsumen::find(decrypt($id));
         $konsumen->delete();
-        return redirect()->back();
+
+        echo 'success';
     }
 }

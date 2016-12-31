@@ -18,7 +18,7 @@
         <h4>Tambah Pembayaran</h4>
       </div>
       <div class="box-body">
-        <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post" action="{{url('pembayaran')}}">
+        <form data-parsley-validate class="form-horizontal form-label-left" method="post" action="{{url('pembayaran')}}">
           {{csrf_field()}}
           <div class="form-group">
             <label class="control-label col-md-3">
@@ -51,7 +51,7 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="middle-name" class="control-label col-md-3">Penerima Pembayaran</label>
+            <label class="control-label col-md-3">Penerima Pembayaran</label>
             <div class="col-md-6">
               <select class="form-control" name="user_id">
                 @foreach ($user as $users)

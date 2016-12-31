@@ -8,7 +8,7 @@
 <form method="post" action="{{url('transaksi/penjualan')}}">
   {{csrf_field()}}
   <div class="row">
-    <div class="col-lg-6 col-sm-10 col-xs-12">
+    <div class="col-lg-6 col-sm-10">
       <div class="box box-primary">
         <div class="box-header">
           <h4>Detail Penjualan</h4>

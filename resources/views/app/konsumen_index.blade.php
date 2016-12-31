@@ -8,20 +8,20 @@
   <div class="col-md-12 col-sm-12">
     <div class="box box-primary">
       <div class="box-header with-border">
-        <h3>Tambah Produsen</h3>
+        <h3>Tambah Konsumen</h3>
       </div>
       <div class="box-body">
-        <form data-parsley-validate class="form-horizontal form-label-left" method="post" action="{{url('produsen')}}">
+        <form data-parsley-validate class="form-horizontal form-label-left" method="post" action="{{url('konsumen')}}">
           {{csrf_field()}}
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3">Nama <span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3">Nama<span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
               <input type="text" name="nama" required="required" class="form-control col-md-7">
             </div>
           </div>
           <div class="form-group">
-            <label class="col-sm-3 control-label">Tanggal Lahir<span class="required">*</span></label>
+            <label class="col-sm-3 control-label">Tanggal Lahir <span class="required">*</span></label>
             <div class="col-sm-6">
               <div class="input-group">
                 <div class="input-group-addon">
@@ -32,8 +32,7 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3">Alamat <span class="required">*</span>
-            </label>
+            <label class="control-label col-md-3 col-sm-3">Alamat <span class="required">*</span></label>
             <div class="col-md-6 col-sm-6">
               <input type="text" name="alamat" required="required" class="form-control col-md-7">
             </div>
@@ -45,8 +44,7 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3">Nomor handphone <span class="required">*</span>
-            </label>
+            <label class="control-label col-md-3 col-sm-3">Nomor handphone <span class="required">*</span></label>
             <div class="col-md-6 col-sm-6">
               <input type="number" name="hp" required="required" class="form-control col-md-7">
             </div>
@@ -61,41 +59,37 @@
       </div>
     </div>
     <div class="box box-primary">
-      <div class="box-header">
-        <h3>Produsen</h3>
+      <div class="box-header with-border">
+        <h3>Data Konsumen</h3>
       </div>
       <div class="box-body">
-        <div class="table-responsive">
-          <table id="datatable-buttons" class="table table-hover datatabel">
-            <thead>
-              <tr>
-                <th class="text-center">No</th>
-                <th>Nama</th>
-                <th>Tanggal lahir</th>
-                <th>Alamat</th>
-                <th>No Telepon</th>
-                <th>No Handphone</th>
-                <th>Aksi</th>
-              </tr>
-            </thead>
-            <tbody>
-              @foreach($produsen as $prod)
-              <tr>
-                <td class="text-center">{{$loop->iteration}}</td>
-                <td>{{$prod->nama}}</td>
-                <td>{{$prod->tanggal_lahir}}</td>
-                <td>{{$prod->alamat}}</td>
-                <td>{{$prod->telepon}}</td>
-                <td>{{$prod->hp}}</td>
-                <td>
-                  <a class="btn btn-primary fa fa-edit" href="{{ url("produsen/$prod->id/edit") }}"></a>
-                  <a class="btn btn-danger fa fa-trash delete-resource" data-id="{{encrypt($prod->id)}}"></a>
-                </td>
-              </tr>
-              @endforeach
-            </tbody>
-          </table>
-        </div>
+        <table id="datatable-buttons" class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Nama</th>
+              <th>Alamat</th>
+              <th>No Telepon</th>
+              <th>No Handphone</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach($konsumen as $kons)
+            <tr>
+              <td>{{$loop->iteration}}</td>
+              <td>{{$kons->nama}}</td>
+              <td>{{$kons->alamat}}</td>
+              <td>{{$kons->telepon}}</td>
+              <td>{{$kons->hp}}</td>
+              <td>
+                <a class="btn btn-primary fa fa-edit" href="{{ url("konsumen/$kons->id/edit") }}"></a>
+                <a class="btn btn-danger fa fa-trash delete-resource" data-id="{{encrypt($kons->id)}}"></a>
+              </td>
+            </tr>
+            @endforeach
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
@@ -122,7 +116,7 @@ $(function() {
     function(isConfirm){
       if (isConfirm) {
         $.ajax({
-          url: $('meta[name="base_url"]').attr('content') + '/produsen/' + id,
+          url: $('meta[name="base_url"]').attr('content') + '/konsumen/' + id,
           method: 'POST',
           data: {
             '_method': 'DELETE'
@@ -134,7 +128,6 @@ $(function() {
               text: "Data berhasil dihapus.",
               type: "success"
             },
-            function() {
               window.location = window.location
             });
           },

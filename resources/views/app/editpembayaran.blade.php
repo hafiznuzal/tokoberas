@@ -15,7 +15,7 @@
 
 @section('content')
 <div class="row">
-  <div class="col-md-12 col-sm-12 col-xs-12">
+  <div class="col-md-12 col-sm-12">
     <div class="box">
       <div class="box-header box-body">
         <h3>Tambah Pembayaran</h3>  
@@ -23,12 +23,12 @@
       <div class="box box-primary">
       <div class="box-header with-border">
        
-        <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post" action="{{url('konsumen')}}">
+        <form data-parsley-validate class="form-horizontal form-label-left" method="post" action="{{url('konsumen')}}">
           {{csrf_field()}}
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nota<span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3">Nota<span class="required">*</span>
             </label>
-            <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="col-md-6 col-sm-6">
               <select class="form-control select2" style="width: 100%;">  
                   @foreach ($nota as $not)
                   <option value="{{$not->id}}">{{$not->id}}</option>
@@ -40,9 +40,9 @@
 
 
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Tanggal Pembayaran<span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3">Tanggal Pembayaran<span class="required">*</span>
             </label>
-            <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="col-md-6 col-sm-6">
               <div class="input-group date">
                   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
@@ -53,15 +53,15 @@
           </div>
 
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Jumlah Pembayaran <span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3">Jumlah Pembayaran <span class="required">*</span>
             </label>
-            <div class="col-md-6 col-sm-6 col-xs-12">
-              <input type="text" id="last-name" name="biaya" required="required" class="form-control col-md-7 col-xs-12">
+            <div class="col-md-6 col-sm-6">
+              <input type="text" name="biaya" required="required" class="form-control col-md-7">
             </div>
           </div>
           <div class="form-group">
-            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Penerima Pembayaran</label>
-            <div class="col-md-6 col-sm-6 col-xs-12">
+            <label class="control-label col-md-3 col-sm-3">Penerima Pembayaran</label>
+            <div class="col-md-6 col-sm-6">
               <select class="form-control select2" style="width: 100%;">
               @foreach ($user as $users)
                   <option value="{{$users->id}}">{{$users->nama}}</option>
@@ -71,7 +71,7 @@
           </div>
           <div class="ln_solid"></div>
           <div class="form-group">
-            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+            <div class="col-md-6 col-sm-6 col-md-offset-3">
               <button type="submit" class="btn btn-primary">Cancel</button>
               <button type="submit" class="btn btn-success">Submit</button>
             </div>

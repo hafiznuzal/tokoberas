@@ -12,14 +12,14 @@
       </div>
       <div class="box-body">
 
-        <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post" action="{{url("users/$user->id")}}">
+        <form data-parsley-validate class="form-horizontal form-label-left" method="post" action="{{url("users/$user->id")}}">
           {{ method_field('PUT') }}
           {{csrf_field()}}
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-3">Nama<span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
-              <input type="text" id="first-name" name="nama" required="required" class="form-control col-md-7" value="{{$user->nama}}">
+              <input type="text" name="nama" required="required" class="form-control col-md-7" value="{{$user->nama}}">
             </div>
           </div>
           <div class="form-group">
@@ -35,38 +35,38 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3" for="last-name">Tempat lahir<span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3">Tempat lahir<span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
-              <input type="text" id="last-name" name="tempatlahir" required="required" class="form-control col-md-7" value="{{$user->tempat_lahir}}">
+              <input type="text" name="tempatlahir" required="required" class="form-control col-md-7" value="{{$user->tempat_lahir}}">
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3" for="last-name">Alamat <span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3">Alamat <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
-              <input type="text" id="last-name" name="alamat" required="required" class="form-control col-md-7" value="{{$user->alamat}}">
+              <input type="text" name="alamat" required="required" class="form-control col-md-7" value="{{$user->alamat}}">
             </div>
           </div>
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-3">Nomor handphone <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
-              <input type="number" id="first-name" name="hp" required="required" class="form-control col-md-7" value="{{$user->hp}}">
+              <input type="number" name="hp" required="required" class="form-control col-md-7" value="{{$user->hp}}">
             </div>
           </div>
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-3">Jabatan<span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
-              <input type="text" id="first-name" name="jabatan" required="required" class="form-control col-md-7" value="{{$user->jabatan}}">
+              <input type="text" name="jabatan" required="required" class="form-control col-md-7" value="{{$user->jabatan}}">
             </div>
           </div>
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-3">Username <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
-              <input type="text" id="first-name" name="username" required="required" class="form-control col-md-7" value="{{$user->username}}">
+              <input type="text" name="username" required="required" class="form-control col-md-7" value="{{$user->username}}">
             </div>
           </div>
           <div class="ln_solid"></div>
