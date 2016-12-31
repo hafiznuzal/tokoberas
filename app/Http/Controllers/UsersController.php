@@ -97,7 +97,7 @@ class UsersController extends Controller
         //$user->password = $request->input('password');
         $user->save();
 
-        return redirect('users');
+        return redirect('users')->with('edit_success', true);
     }
 
     /**
@@ -109,8 +109,8 @@ class UsersController extends Controller
     public function destroy($id)
     {
         $user = User::find(decrypt($id));
-        // $user->delete();
+        $user->delete();
 
-        echo 'success'
+        echo 'success';
     }
 }

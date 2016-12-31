@@ -154,7 +154,7 @@ $(function() {
       confirmButtonColor: "#DD6B55",
       confirmButtonText: "Hapus",
       cancelButtonText: "Batal",
-      closeOnConfirm: true,
+      closeOnConfirm: false,
       closeOnCancel: true
     },
     function(isConfirm){
@@ -166,13 +166,20 @@ $(function() {
             '_method': 'DELETE'
           },
           success: function(result) {
-            // console.log(result)
-            window.location = window.location
+            console.log('result: ', result)
+            swal({
+              title:"Deleted!",
+              text: "Data berhasil dihapus.",
+              type: "success"
+            },
+            function() {
+              window.location = window.location
+            });
+          },
+          error: function(result) {
+            swal("Gagal!", "Data gagal dihapus.", "error");
           }
         });
-      }
-      else {
-        swal("Cancelled", "Data batal dihapus", "error");
       }
       return isConfirm
     });
@@ -181,8 +188,8 @@ $(function() {
 @if (session('tambah_success'))
   swal("Success", "Data berhasil ditambah", "success");
 @endif
-@if (session('hapus_success'))
-  swal("Deleted!", "Data berhasil dihapus.", "success");
+@if (session('edit_success'))
+  swal("Success", "Data berhasil diedit", "success");
 @endif
 </script>
 @endsection
