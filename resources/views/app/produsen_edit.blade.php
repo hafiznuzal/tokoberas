@@ -8,7 +8,7 @@
   <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="box">
       <div class="box-header box-body">
-        <h2>Edit Produsen</h2>
+        <h3>Edit Produsen</h3>
       </div>
       <div class="box box-primary">
       <div class="box-header with-border">
@@ -58,7 +58,7 @@
           <div class="ln_solid"></div>
           <div class="form-group">
             <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-              <button type="submit" class="btn btn-primary">Cancel</button>
+              <a href="{{url('produsen')}}" class="btn btn-default">Cancel</a>
               <button type="submit" class="btn btn-success">Submit</button>
             </div>
           </div>

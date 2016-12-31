@@ -8,7 +8,7 @@
   <div class="col-md-12 col-sm-12">
     <div class="box box-primary">
       <div class="box-header with-border">
-        <h4>Tambah Produsen</h4>
+        <h3>Tambah Produsen</h3>
       </div>
       <div class="box-body">
         <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post" action="{{url('produsen')}}">
@@ -62,7 +62,7 @@
     </div>
     <div class="box box-primary">
       <div class="box-header">
-        <h4>Produsen</h4>
+        <h3>Produsen</h3>
       </div>
       <div class="box-body">
         <div class="table-responsive">
@@ -71,6 +71,7 @@
               <tr>
                 <th class="text-center">No</th>
                 <th>Nama</th>
+                <th>Tanggal lahir</th>
                 <th>Alamat</th>
                 <th>No Telepon</th>
                 <th>No Handphone</th>
@@ -82,6 +83,7 @@
               <tr>
                 <td class="text-center">{{$loop->iteration}}</td>
                 <td>{{$prod->nama}}</td>
+                <td>{{$prod->tanggal_lahir}}</td>
                 <td>{{$prod->alamat}}</td>
                 <td>{{$prod->telepon}}</td>
                 <td>{{$prod->hp}}</td>

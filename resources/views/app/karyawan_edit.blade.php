@@ -72,7 +72,7 @@
           <div class="ln_solid"></div>
           <div class="form-group">
             <div class="col-md-6 col-sm-6 col-md-offset-3">
-              <button type="submit" class="btn btn-default">Cancel</button>
+              <a href="{{url('users')}}" class="btn btn-default">Cancel</a>
               <button type="submit" class="btn btn-success">Submit</button>
             </div>
           </div>
