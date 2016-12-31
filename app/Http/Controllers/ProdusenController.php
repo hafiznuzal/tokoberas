@@ -16,7 +16,7 @@ class ProdusenController extends Controller
     {
         //
         $data['produsen'] = Produsen::get();
-        return view('app.addprodusen', $data);
+        return view('app.produsen_index', $data);
     }
 
     /**
@@ -41,12 +41,13 @@ class ProdusenController extends Controller
         // dd($request->input());
         $produsen = new Produsen;
         $produsen->nama = $request->input('nama');
+        $produsen->tanggal_lahir = $request->input('tanggal_lahir');
         $produsen->alamat = $request->input('alamat');
         $produsen->telepon = $request->input('telepon');
         $produsen->hp = $request->input('hp');
         $produsen->save();
 
-        return redirect()->back();
+        return redirect()->back()->with('tambah_success', true);
     }
 
     /**
@@ -68,9 +69,8 @@ class ProdusenController extends Controller
      */
     public function edit($id)
     {
-        //
         $data['produsen'] = Produsen::find($id);
-        return view('app.editprodusen', $data);
+        return view('app.produsen_edit', $data);
     }
 
     /**
@@ -81,16 +81,17 @@ class ProdusenController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {        
+    {
         // dd($request->input());
         $produsen = Produsen::find($id);
         $produsen->nama = $request->input('nama');
+        $produsen->tanggal_lahir = $request->input('tanggal_lahir');
         $produsen->alamat = $request->input('alamat');
         $produsen->telepon = $request->input('telepon');
         $produsen->hp = $request->input('hp');
         $produsen->save();
 
-        return redirect('produsen');
+        return redirect('produsen')->with('edit_success', true);
     }
 
     /**
@@ -101,9 +102,9 @@ class ProdusenController extends Controller
      */
     public function destroy($id)
     {
-        //
         $produsen = Produsen::find(decrypt($id));
         $produsen->delete();
-        return redirect()->back();
+
+        echo 'success';
     }
 }

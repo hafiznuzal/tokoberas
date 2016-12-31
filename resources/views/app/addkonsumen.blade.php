@@ -3,14 +3,6 @@
 @include('plugins.datatable')
 @include('plugins.datepicker')
 
-@section('css')
-<link href=" {{ url('bower_components\AdminLTE\plugins\datatables\extensions\Responsive\css\dataTables.responsive.css') }}" rel="stylesheet">
-<link href=" {{ url('bower_components\AdminLTE\plugins\datatables\jquery.dataTables.min.css') }}" rel="stylesheet">
-
-
-@endsection
-
-
 @section('content')
 <div class="row">
   <div class="col-md-12 col-sm-12 col-xs-12">
@@ -38,7 +30,7 @@
                   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </div>
-                  <input type="text" class="form-control pull-right datepicker" name="tanggallahir" placeholder="1995-02-19">
+                  <input type="text" class="form-control pull-right datepicker" name="tanggal_lahir" placeholder="1995-02-19">
                 </div>
                   
               </div>

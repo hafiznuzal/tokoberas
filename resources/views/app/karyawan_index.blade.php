@@ -23,15 +23,15 @@
             </div>
           </div>
           <div class="form-group">
-             <label class="col-sm-3 control-label">Tanggal Lahir<span class="required">*</span></label>
-             <div class="col-sm-6">
-                <div class="input-group">
-                  <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                  </div>
-                  <input type="text" class="form-control pull-right datepicker" name="tanggallahir" placeholder="YYYY-MM-DD">
+            <label class="col-sm-3 control-label">Tanggal Lahir<span class="required">*</span></label>
+            <div class="col-sm-6">
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="fa fa-calendar"></i>
                 </div>
+                <input type="text" class="form-control pull-right datepicker" name="tanggal_lahir" placeholder="YYYY-MM-DD">
               </div>
+            </div>
           </div>
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-3" for="last-name">Tempat Lahir<span class="required">*</span>
@@ -126,7 +126,8 @@
                     <td>{{$userdata->jabatan}}</td>
                     <td>{{$userdata->username}}</td>
                     <td><a class="btn btn-primary fa fa-edit" href="{{ url("users/$userdata->id/edit") }}"></a>
-                      <a class="btn btn-danger fa fa-trash delete-resource" data-id="{{encrypt($userdata->id)}}"></a> </td>
+                      <a class="btn btn-danger fa fa-trash delete-resource" data-id="{{encrypt($userdata->id)}}"></a>
+                    </td>
                   </tr>
                   @endforeach
                 </tbody>

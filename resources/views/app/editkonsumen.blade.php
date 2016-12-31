@@ -31,7 +31,7 @@
                   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </div>
-                 <input type="text" class="form-control pull-right datepicker" name="tanggallahir" value="{{$konsumen->tanggallahir}}">
+                 <input type="text" class="form-control pull-right datepicker" name="tanggal_lahir" value="{{$konsumen->tanggal_lahir}}">
               
                 </div>
                   

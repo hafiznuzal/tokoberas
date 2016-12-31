@@ -1,6 +1,7 @@
 @extends('app')
 
 @include('plugins.datatable')
+@include('plugins.datepicker')
 
 @section('content')
 <div class="row">
@@ -20,6 +21,17 @@
             </div>
           </div>
           <div class="form-group">
+            <label class="col-sm-3 control-label">Tanggal Lahir<span class="required">*</span></label>
+            <div class="col-sm-6">
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="fa fa-calendar"></i>
+                </div>
+                <input type="text" class="form-control pull-right datepicker" name="tanggal_lahir" placeholder="YYYY-MM-DD">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
             <label class="control-label col-md-3 col-sm-3" for="last-name">Alamat <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
@@ -27,13 +39,13 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="middle-name" class="control-label col-md-3 col-sm-3">nomor telepon</label>
+            <label for="middle-name" class="control-label col-md-3 col-sm-3">Nomor telepon</label>
             <div class="col-md-6 col-sm-6">
               <input id="middle-name" class="form-control col-md-7" type="number" name="telepon">
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3" for="first-name">nomor handphone <span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3" for="first-name">Nomor handphone <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
               <input type="number" id="first-name" name="hp" required="required" class="form-control col-md-7">
@@ -42,7 +54,6 @@
           <div class="ln_solid"></div>
           <div class="form-group">
             <div class="col-md-6 col-sm-6 col-md-offset-3">
-              <button type="submit" class="btn btn-primary">Cancel</button>
               <button type="submit" class="btn btn-success">Submit</button>
             </div>
           </div>
@@ -58,6 +69,7 @@
           <table id="datatable-buttons" class="table table-hover datatabel">
             <thead>
               <tr>
+                <th class="text-center">No</th>
                 <th>Nama</th>
                 <th>Alamat</th>
                 <th>No Telepon</th>
@@ -68,6 +80,7 @@
             <tbody>
               @foreach($produsen as $prod)
               <tr>
+                <td class="text-center">{{$loop->iteration}}</td>
                 <td>{{$prod->nama}}</td>
                 <td>{{$prod->alamat}}</td>
                 <td>{{$prod->telepon}}</td>
@@ -92,18 +105,52 @@
 $(function() {
   $(".delete-resource").click(function() {
     id = $(this).data('id');
-    $.ajax({
-      url: $('meta[name="base_url"]').attr('content') + '/produsen/' + id,
-      method: 'POST',
-      data: {
-        '_method': 'DELETE'
-      },
-      success: function(result) {
-        // console.log(result)
-        window.location = window.location
+
+    swal({
+      title: "Apakah anda yakin akan menghapus?",
+      text: "Anda tidak dapat mengembalikan data yang terhapus!",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#DD6B55",
+      confirmButtonText: "Hapus",
+      cancelButtonText: "Batal",
+      closeOnConfirm: false,
+      closeOnCancel: true
+    },
+    function(isConfirm){
+      if (isConfirm) {
+        $.ajax({
+          url: $('meta[name="base_url"]').attr('content') + '/produsen/' + id,
+          method: 'POST',
+          data: {
+            '_method': 'DELETE'
+          },
+          success: function(result) {
+            console.log('result: ', result)
+            swal({
+              title:"Deleted!",
+              text: "Data berhasil dihapus.",
+              type: "success"
+            },
+            function() {
+              window.location = window.location
+            });
+          },
+          error: function(result) {
+            swal("Gagal!", "Data gagal dihapus.", "error");
+          }
+        });
       }
-    })
+      return isConfirm
+    });
   })
 })
+
+@if (session('tambah_success'))
+  swal("Success", "Data berhasil ditambah", "success");
+@endif
+@if (session('edit_success'))
+  swal("Success", "Data berhasil diedit", "success");
+@endif
 </script>
-@endsection    
+@endsection

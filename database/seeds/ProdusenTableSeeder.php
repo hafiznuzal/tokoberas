@@ -14,14 +14,14 @@ class ProdusenTableSeeder extends Seeder
     {
         Produsen::create([
             'nama'          => 'Andre',
-            'tanggallahir'  => '1993-07-29',
+            'tanggal_lahir'  => '1993-07-29',
             'alamat'        => 'Jl Blimbing',
             'telepon'       => '08182312371',
             'hp'            => '0818238127272',
         ]);
         Produsen::create([
             'nama'          => 'Vinska',
-            'tanggallahir'  => '1993-08-29',
+            'tanggal_lahir'  => '1993-08-29',
             'alamat'        => 'Jl Amerika',
             'telepon'       => '08182312371',
             'hp'            => '0818238127272',

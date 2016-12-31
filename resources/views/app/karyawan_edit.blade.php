@@ -8,7 +8,7 @@
   <div class="col-md-12 col-sm-12">
     <div class="box box-primary">
       <div class="box-header with-border">
-        <h3>Edit Data Karyawan</h3>  
+        <h3>Edit Data Karyawan</h3>
       </div>
       <div class="box-body">
 
@@ -30,12 +30,12 @@
                 <div class="input-group-addon">
                   <i class="fa fa-calendar"></i>
                 </div>
-                <input type="text" class="form-control pull-right datepicker" name="tanggallahir" value="{{$user->tanggal_lahir}}">
+                <input type="text" class="form-control pull-right datepicker" name="tanggal_lahir" value="{{$user->tanggal_lahir}}">
               </div>
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3" for="last-name">tempat lahir<span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3" for="last-name">Tempat lahir<span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
               <input type="text" id="last-name" name="tempatlahir" required="required" class="form-control col-md-7" value="{{$user->tempat_lahir}}">
@@ -53,21 +53,21 @@
             </label>
             <div class="col-md-6 col-sm-6">
               <input type="number" id="first-name" name="hp" required="required" class="form-control col-md-7" value="{{$user->hp}}">
-            </div> 
+            </div>
           </div>
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-3">Jabatan<span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
               <input type="text" id="first-name" name="jabatan" required="required" class="form-control col-md-7" value="{{$user->jabatan}}">
-            </div> 
-          </div> 
+            </div>
+          </div>
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-3">Username <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
               <input type="text" id="first-name" name="username" required="required" class="form-control col-md-7" value="{{$user->username}}">
-            </div>  
+            </div>
           </div>
           <div class="ln_solid"></div>
           <div class="form-group">
@@ -77,7 +77,7 @@
             </div>
           </div>
         </form>
-      </div>  
+      </div>
     </div>
   </div>
 </div>

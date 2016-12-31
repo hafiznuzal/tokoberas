@@ -39,7 +39,7 @@ class KonsumenController extends Controller
         //
         $konsumen = new Konsumen;
         $konsumen->nama = $request->input('nama');
-        $konsumen->tanggallahir = $request->input('tanggallahir');
+        $konsumen->tanggal_lahir = $request->input('tanggal_lahir');
         $konsumen->alamat = $request->input('alamat');
         $konsumen->telepon = $request->input('telepon');
         $konsumen->hp = $request->input('hp');

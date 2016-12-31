@@ -39,7 +39,7 @@ class UsersController extends Controller
         // dd($request->input());
         $user = new User;
         $user->nama = $request->input('nama');
-        $user->tanggal_lahir = $request->input('tanggallahir');
+        $user->tanggal_lahir = $request->input('tanggal_lahir');
         $user->alamat = $request->input('alamat');
         //$user->telepon = $request->input('telepon');
         $user->hp = $request->input('hp');
@@ -87,14 +87,13 @@ class UsersController extends Controller
     {
         $user = User::find($id);
         $user->nama = $request->input('nama');
-        $user->tanggal_lahir = $request->input('tanggallahir');
+        $user->tanggal_lahir = $request->input('tanggal_lahir');
         $user->alamat = $request->input('alamat');
         //$user->telepon = $request->input('telepon');
         $user->hp = $request->input('hp');
         $user->tempat_lahir = $request->input('tempatlahir');
         $user->jabatan = $request->input('jabatan');
         $user->username = $request->input('username');
-        //$user->password = $request->input('password');
         $user->save();
 
         return redirect('users')->with('edit_success', true);

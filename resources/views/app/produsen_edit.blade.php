@@ -1,6 +1,7 @@
 @extends('app')
 
 @include('plugins.editdata')
+@include('plugins.datepicker')
 
 @section('content')
 <div class="row">
@@ -20,6 +21,18 @@
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <input type="text" id="first-name" name="nama" required="required" class="form-control col-md-7 col-xs-12" value="{{$produsen->nama}}">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3">Tanggal lahir<span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6">
+              <div class="input-group date">
+                <div class="input-group-addon">
+                  <i class="fa fa-calendar"></i>
+                </div>
+                <input type="text" class="form-control pull-right datepicker" name="tanggal_lahir" value="{{$produsen->tanggal_lahir}}">
+              </div>
             </div>
           </div>
           <div class="form-group">
@@ -49,7 +62,6 @@
               <button type="submit" class="btn btn-success">Submit</button>
             </div>
           </div>
-
         </form>
         </div>
       </div>
@@ -57,7 +69,3 @@
   </div>
 </div>
 @endsection
-
-@section('js')
-
-@endsection    
