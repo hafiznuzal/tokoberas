@@ -28,16 +28,17 @@ class GrafikController extends Controller
         $end = $request->input('end');
 
         $nota = $this->filterDateRange(Nota::select('*'), $start, $end)->get();
-        $notal = $nota->map(function ($item) {
-            $item->tanggal = date('j M Y', strtotime($item->tanggal));
-            return $item;
-        })
-        ->groupBy('tanggal')
-        ->transform(function ($item) {
-            return [
-                'keuntungan_bersih' => $item->sum('keuntungan_bersih'),
-            ];
-        });
+        $notal = $nota
+            ->map(function ($item) {
+                $item->tanggal = date('j M Y', strtotime($item->tanggal));
+                return $item;
+            })
+            ->groupBy('tanggal')
+            ->transform(function ($item) {
+                return [
+                    'keuntungan_bersih' => $item->sum('keuntungan_bersih'),
+                ];
+            });
 
         $keuntungan_bersih = $notal->pluck('keuntungan_bersih');
         $tanggal = $notal->keys();
@@ -58,17 +59,18 @@ class GrafikController extends Controller
         $end = $request->input('end');
 
         $nota = $this->filterDateRange(Nota::select('*'), $start, $end)->get();
-        $notal = $nota->map(function ($item) {
-            $item->tanggal = date('j M Y', strtotime($item->tanggal));
-            return $item;
-        })
-        ->groupBy('tanggal')
-        ->transform(function ($item) {
-            return [
-                'modal_bersih' => $item->sum('total_modal'),
-                'modal_aktual' => $item->sum('total_pembayaran'),
-            ];
-        });
+        $notal = $nota
+            ->map(function ($item) {
+                $item->tanggal = date('j M Y', strtotime($item->tanggal));
+                return $item;
+            })
+            ->groupBy('tanggal')
+            ->transform(function ($item) {
+                return [
+                    'modal_bersih' => $item->sum('total_modal'),
+                    'modal_aktual' => $item->sum('total_pembayaran'),
+                ];
+            });
 
         $modal_bersih = $notal->pluck('modal_bersih');
         $modal_aktual = $notal->pluck('modal_aktual');
@@ -94,22 +96,23 @@ class GrafikController extends Controller
         $end = $request->input('end');
 
         $inventory = $this->filterDateRange(Inventory::select('*'), $start, $end)->get();
-        $invent = $inventory->map(function ($item) {
-            $item->tanggal = date('j M Y', strtotime($item->tanggal_masuk));
-            return $item;
-        })
-        ->groupBy('tanggal')
-        ->transform(function ($item) {
-            $item->transform(function ($inv) {
-                $sisa = $inv->jumlah_aktual * $inv->harga_beli;
-                $jual = ($inv->jumlah - $inv->jumlah_aktual) * $inv->harga_beli;
-                return compact('sisa', 'jual');
+        $invent = $inventory
+            ->map(function ($item) {
+                $item->tanggal = date('j M Y', strtotime($item->tanggal_masuk));
+                return $item;
+            })
+            ->groupBy('tanggal')
+            ->transform(function ($item) {
+                $item->transform(function ($inv) {
+                    $sisa = $inv->jumlah_aktual * $inv->harga_beli;
+                    $jual = ($inv->jumlah - $inv->jumlah_aktual) * $inv->harga_beli;
+                    return compact('sisa', 'jual');
+                });
+                return [
+                    'sisa' => $item->sum('sisa'),
+                    'jual' => $item->sum('jual'),
+                ];
             });
-            return [
-                'sisa' => $item->sum('sisa'),
-                'jual' => $item->sum('jual'),
-            ];
-        });
         $sisa = $invent->sum('sisa');
         $jual = $invent->sum('jual');
         $tanggal = $invent->keys();
@@ -131,16 +134,17 @@ class GrafikController extends Controller
         $end = $request->input('end');
 
         $nota = $this->filterDateRange(Nota::select('*'), $start, $end)->get();
-        $notal = $nota->map(function ($item) {
-            $item->tanggal = date('j M Y', strtotime($item->tanggal));
-            return $item;
-        })
-        ->groupBy('tanggal')
-        ->transform(function ($item) {
-            return [
-                'total_harga' => $item->sum('total_harga'),
-            ];
-        });
+        $notal = $nota
+            ->map(function ($item) {
+                $item->tanggal = date('j M Y', strtotime($item->tanggal));
+                return $item;
+            })
+            ->groupBy('tanggal')
+            ->transform(function ($item) {
+                return [
+                    'total_harga' => $item->sum('total_harga'),
+                ];
+            });
 
         $total_harga = $notal->pluck('total_harga');
         $tanggal = $notal->keys();
@@ -170,14 +174,14 @@ class GrafikController extends Controller
             $item = $item->merge($not->item_transaksi);
         });
         $byJenis = $item->groupBy('inventory_jenis')
-        ->transform(function ($item, $key) { // item transaksi
-            $jenis = Jenis::find($key);
-            $jumlah = $item->sum('jumlah');
-            return [
-                'jenis' => $jenis->nama,
-                'jumlah' => $jumlah
-            ];
-        })->values();
+            ->transform(function ($item, $key) { // item transaksi
+                $jenis = Jenis::find($key);
+                $jumlah = $item->sum('jumlah');
+                return [
+                    'jenis' => $jenis->nama,
+                    'jumlah' => $jumlah
+                ];
+            })->values();
 
         $jenis = $byJenis->pluck('jenis');
         $jumlah = $byJenis->pluck('jumlah');
@@ -203,15 +207,15 @@ class GrafikController extends Controller
         $end = $request->input('end');
 
         $operasional = $this->filterDateRange(RiwayatOperasional::select('*'), $start, $end)->get()
-        ->groupBy('jenis_operasional_id')
-        ->transform(function ($item, $key) {
-            $jenis = JenisOperasional::find($key);
-            $jumlah = $item->sum('biaya');
-            return [
-                'jenis' => $jenis->nama,
-                'jumlah' => $jumlah
-            ];
-        })->values();
+            ->groupBy('jenis_operasional_id')
+            ->transform(function ($item, $key) {
+                $jenis = JenisOperasional::find($key);
+                $jumlah = $item->sum('biaya');
+                return [
+                    'jenis' => $jenis->nama,
+                    'jumlah' => $jumlah
+                ];
+            })->values();
         // dd($operasional);
 
         $jenis = $operasional->pluck('jenis');
@@ -238,15 +242,15 @@ class GrafikController extends Controller
         $end = $request->input('end');
 
         $operasional = $this->filterDateRange(PengeluaranLainnya::select('*'), $start, $end)->get()
-        ->groupBy('jenis_operasional_id')
-        ->transform(function ($item, $key) {
-            $jenis = JenisOperasional::find($key);
-            $jumlah = $item->sum('biaya');
-            return [
-                'jenis' => $jenis->nama,
-                'jumlah' => $jumlah
-            ];
-        })->values();
+            ->groupBy('jenis_operasional_id')
+            ->transform(function ($item, $key) {
+                $jenis = JenisOperasional::find($key);
+                $jumlah = $item->sum('biaya');
+                return [
+                    'jenis' => $jenis->nama,
+                    'jumlah' => $jumlah
+                ];
+            })->values();
         // dd($operasional);
 
         $jenis = $operasional->pluck('jenis');
