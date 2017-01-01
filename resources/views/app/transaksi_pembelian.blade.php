@@ -170,6 +170,7 @@
     reset();
 
     $scope.tambah_pembelian = function() {
+      $scope.apply();
       row = {
         jenis: $scope.jenis,
         merek: $scope.merek,
