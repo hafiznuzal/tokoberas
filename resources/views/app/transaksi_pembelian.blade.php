@@ -50,7 +50,7 @@
             <div class="form-group">
               <label class="col-sm-3 control-label">Jenis Barang</label>
               <div class="col-sm-8">
-                <select class="" ng-model="jenis" id="jenis" placeholder="Pilih barang">
+                <select ng-model="jenis" id="jenis" placeholder="Pilih barang">
                   <option value="">Pilih barang</option>
                   @foreach ($jenis as $barang)
                   <option value="{{ $barang->id }}">{{ $barang->nama }}</option>
