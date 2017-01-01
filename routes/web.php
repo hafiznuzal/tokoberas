@@ -20,11 +20,6 @@ Route::group(['middleware' => 'guest'], function () {
 Route::get('logout','AuthController@logout');
 
 Route::get('index','HomeController@index');
-Route::get('test','HomeController@test');
-Route::get('test_tabel','HomeController@test_tabel');
-Route::get('addprodusen','HomeController@addprodusen');
-Route::get('addkonsumen','HomeController@addkonsumen');
-Route::get('addkaryawan','HomeController@addkaryawan');
 
 Route::get('laporan_pembayaran','HomeController@laporan_pembayaran');
 Route::get('laporan_penjualan','LaporanTransaksiController@indexPenjualan');
