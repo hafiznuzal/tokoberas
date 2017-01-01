@@ -18,7 +18,7 @@
             <div class="form-group">
               <label class="col-sm-3 control-label">Produsen</label>
               <div class="col-sm-8">
-                <select class="" id="produsen" name="produsen">
+                <select id="produsen" name="produsen">
                   @foreach ($produsen as $prod)
                   <option value="{{ $prod->id }}">{{ $prod->nama }}</option>
                   @endforeach
