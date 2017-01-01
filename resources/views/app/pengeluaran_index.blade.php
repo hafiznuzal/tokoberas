@@ -173,7 +173,7 @@ $(function() {
               type: "success"
             },
             function() {
-              // window.location = window.location
+              window.location = window.location
             });
           },
           error: function(result) {

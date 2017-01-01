@@ -245,7 +245,11 @@ app.controller("penjualan", function($scope) {
       labelField: 'jenis.nama',
       searchField: ['jenis.nama', 'merek'],
       create: false,
+      @if (count($dotinvent) > 0)
       options: {!!json_encode($dotinvent)!!},
+      @else
+      options: null,
+      @endif
       render: {
         option: function(item, escape) {
           return '<div>' +
