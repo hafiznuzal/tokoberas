@@ -21,6 +21,7 @@ class CreateKonsumenTable extends Migration
             $table->string('telepon');
             $table->string('hp');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

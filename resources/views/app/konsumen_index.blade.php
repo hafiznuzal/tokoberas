@@ -62,7 +62,7 @@
         <h4>Data Konsumen</h4>
       </div>
       <div class="box-body">
-        <table id="datatable-buttons" class="table table-striped table-bordered">
+        <table id="datatable-buttons" class="table table-striped table-bordered datatabel">
           <thead>
             <tr>
               <th>No</th>

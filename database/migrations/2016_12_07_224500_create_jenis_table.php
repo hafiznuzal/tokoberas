@@ -18,6 +18,7 @@ class CreateJenisTable extends Migration
             $table->string('nama');
             $table->integer('latest_kurs_id')->unsigned();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
