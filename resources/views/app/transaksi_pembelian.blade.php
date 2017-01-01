@@ -102,7 +102,8 @@
             </div>
           </div>
           @verbatim
-          <table class="table">
+          <div class="table-responsive">
+          <table class="table table-hover">
             <thead>
               <tr>
                 <th class="text-center">No</th>
@@ -139,6 +140,7 @@
               </tr>
             </tbody>
           </table>
+          </div>
           <div class="text-right">
             <h4>Total = {{accounting(total)}}</h4>
             <input type="hidden" name="total" value="{{total}}">

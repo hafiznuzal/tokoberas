@@ -72,7 +72,8 @@
               </div>
             </div>
           </div>
-          <table class="table">
+          <div class="table-responsive">
+          <table class="table table-hover">
             <thead>
               <tr>
                 <th class="text-center">No</th>
@@ -102,6 +103,7 @@
               </tr>
             </tbody>
           </table>
+          </div>
           <hr class="hidden-lg">
         </div>
         <div class="col-lg-6 col-md-10">
@@ -126,7 +128,8 @@
               </div>
             </div>
           </div>
-          <table class="table">
+          <div class="table-responsive">
+          <table class="table table-hover">
             <thead>
               <tr>
                 <th class="text-center">No</th>
@@ -151,6 +154,7 @@
               </tr>
             </tbody>
           </table>
+          </div>
         </div>
       </div>
       <div class="col-lg-12">
