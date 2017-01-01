@@ -28,7 +28,12 @@
             <div class="form-group">
               <label class="col-sm-3 control-label">Tanggal</label>
               <div class="col-sm-8">
-                <input type="text" class="form-control datepicker" placeholder="" value="{{date('Y-m-d')}}">
+                <div class="input-group date">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                  <input type="text" class="form-control datepicker" placeholder="" value="{{date('Y-m-d')}}">
+                </div>
               </div>
             </div>
           </div>
@@ -93,7 +98,7 @@
                 <td>{{row['jenis.nama']}} {{row.merek}}</td>
                 <td class="text-right">{{row.jumlah_terpilih}}</td>
                 <td class="text-right">{{accounting(row.harga_terpilih_total)}}</td>
-                <td><i class="fa fa-close"></i></td>
+                <td class="text-center"><a class="text-danger" ng-click="hapusBarang(row)"><i class="fa fa-close"></i></a></td>
               </tr>
             </tbody>
           </table>
@@ -141,7 +146,7 @@
                 <td class="text-center">{{$index + 1}}</td>
                 <td>{{row.nama}}</td>
                 <td class="text-right">{{accounting(row.harga_terpilih)}}</td>
-                <td><i class="fa fa-close"></i></td>
+                <td class="text-center"><a class="text-danger" ng-click="hapusOperasional(row)"><i class="fa fa-close"></i></a></td>
               </tr>
             </tbody>
           </table>
@@ -175,21 +180,28 @@ app.controller("penjualan", function($scope) {
   var selected_inventory = [];
   $scope.tambahinventory = function() {
     if (inventory.items.length == 0) {
-      return alert('Barang harus dipilih');
+      return swal('Error', 'Barang harus dipilih', 'warning');
     }
     var index = inventory.items[0];
     if (selected_inventory.indexOf(index) >= 0) {
-      return alert('Barang yang sudah dipilih tidak dapat dipilih lagi')
+      return swal('Error', 'Barang yang sudah dipilih tidak dapat dipilih lagi', 'warning');
     }
     var selected = inventory.options[index];
     if (!($scope.jumlahinventory > 0 && $scope.jumlahinventory <= selected.jumlah_aktual)) {
-      return alert('Jumlah harus sesuai dengan stok yang ada');
+      return swal('Error', 'Jumlah harus sesuai dengan stok yang ada', 'warning');
     }
     selected.jumlah_terpilih = $scope.jumlahinventory;
     selected.harga_terpilih_total = selected['jenis.latest_kurs.harga'] * $scope.jumlahinventory;
     $scope.table_inventory.push(selected);
     selected_inventory.push(index);
     $scope.total += selected.harga_terpilih_total;
+  }
+  $scope.hapusBarang = function(row) {
+    $scope.total -= row.harga_terpilih_total;
+    index = $scope.table_inventory.indexOf(row);
+    $scope.table_inventory.splice(index, 1);
+    index = selected_inventory.indexOf(index);
+    selected_inventory.splice(index, 1);
   }
 
   /* All about operasional */
@@ -198,11 +210,11 @@ app.controller("penjualan", function($scope) {
   var selected_operasional = [];
   $scope.tambahoperasional = function() {
     if (operasional.items.length == 0) {
-      return alert('Jenis operasional harus dipilih');
+      return swal('Error', 'Jenis operasional harus dipilih', 'warning');
     }
     var index = operasional.items[0];
     if (selected_operasional.indexOf(index) >= 0) {
-      return alert('Jenis operasional yang sudah dipilih tidak dapat dipilih lagi')
+      return swal('Error', 'Jenis operasional yang sudah dipilih tidak dapat dipilih lagi', 'warning');
     }
     var selected = operasional.options[index];
 
@@ -212,6 +224,13 @@ app.controller("penjualan", function($scope) {
     $scope.total_operasional += selected.harga_terpilih;
 
     $scope.hargaoperasional = 0;
+  }
+  $scope.hapusOperasional = function(row) {
+    $scope.total_operasional -= row.harga_terpilih;
+    index = $scope.table_operasional.indexOf(row);
+    $scope.table_operasional.splice(index, 1);
+    index = selected_operasional.indexOf(index);
+    selected_operasional.splice(index, 1);
   }
 
   /* Initialize Selectize */
@@ -252,9 +271,9 @@ app.controller("penjualan", function($scope) {
     /* Selectize event listener */
     inventory.on("change", function(value) {
       if (value != "") {
-        console.log(value);
+        // console.log(value);
         selected = inventory.options[value]
-        console.log(selected);
+        // console.log(selected);
         $scope.hargainventory = accounting(selected['jenis.latest_kurs.harga']);
         $scope.jumlahinventory = selected.jumlah_aktual;
         $scope.$apply();

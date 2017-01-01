@@ -28,7 +28,12 @@
             <div class="form-group">
               <label class="col-sm-3 control-label">Tanggal</label>
               <div class="col-sm-8">
-                <input type="text" class="form-control datepicker" id="tanggal" name="tanggal" value="{{date('Y-m-d')}}">
+                <div class="input-group date">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                  <input type="text" class="form-control datepicker" id="tanggal" name="tanggal" value="{{date('Y-m-d')}}" placeholder="YYYY-MM-DD">
+                </div>
               </div>
             </div>
           </div>
@@ -62,7 +67,12 @@
             <div class="form-group">
               <label class="col-sm-3 control-label">Tanggal Kadaluarsa</label>
               <div class="col-sm-8">
-                <input type="text" class="form-control datepicker" id="tgl_kadaluarsa" ng-model="tanggal_kadaluarsa" placeholder="Tanggal kadaluarsa">
+                <div class="input-group date">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                  <input type="text" class="form-control datepicker" id="tgl_kadaluarsa" ng-model="tanggal_kadaluarsa" placeholder="YYYY-MM-DD">
+                </div>
               </div>
             </div>
             <div class="form-group">
@@ -169,7 +179,7 @@
         tanggal_kadaluarsa: $scope.tanggal_kadaluarsa,
       };
       if (row.jenis == undefined || !(row.jumlah > 0) || !(row.harga > 0) || row.tanggal_kadaluarsa == '') {
-        alert("lengkapi isian pembelian.");
+        swal("Error", "lengkapi isian pembelian.", "warning");
         console.log(row)
         return;
       }
@@ -186,11 +196,11 @@
 
     $("#form-pembelian").submit(function() {
       if ($("#tanggal").val() == "") {
-        alert("Mohon isi tanggal transaksi.");
+        swal("Error", "Mohon isi tanggal transaksi.", "warning");
         return false;
       }
       if ($scope.rows.length <= 0) {
-        alert("Mohon isi barang transaksi.");
+        swal("Error", "Mohon isi barang transaksi.", "warning");
         return false;
       }
     })
