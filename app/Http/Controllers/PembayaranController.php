@@ -15,14 +15,26 @@ class PembayaranController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data['pembayaran'] = Pembayaran::get();
-        $data['nota'] = Nota::with('konsumen')->get();
-        $data['user'] = User::get();
-        $data['dotnota'] = $data['nota']->map(function ($item) {
+        $start = $request->input('start');
+        $end = $request->input('end');
+
+        if ($start == null && $end == null) {
+            $pembayaran = Pembayaran::get();
+            $start = $end = date('Y-m-d');
+        } else {
+            $pembayaran = Pembayaran::where('tanggal', '>=', $start)
+                    ->where('tanggal', '<=', $end)
+                    ->get();
+        }
+
+        $nota = Nota::with('konsumen')->get();
+        $user = User::get();
+        $dotnota = $nota->map(function ($item) {
             return array_dot($item->toArray());
         });
+        $data = compact('pembayaran', 'nota', 'user', 'dotnota', 'start', 'end');
         // dd($data);
         return view('app.laporan_pembayaran_index', $data);
     }

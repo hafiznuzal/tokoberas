@@ -1,9 +1,9 @@
 @extends('app')
 
-@include('plugins.datatable')
-@include('plugins.daterangepicker')
-@include('plugins.datepicker')
 @include('plugins.accounting')
+@include('plugins.datatable')
+@include('plugins.datepicker')
+@include('plugins.daterangepicker')
 @include('plugins.select2')
 
 @section('content')
