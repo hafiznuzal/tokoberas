@@ -170,9 +170,8 @@
     reset();
 
     $scope.tambah_pembelian = function() {
-      $scope.apply();
       row = {
-        jenis: $scope.jenis,
+        jenis: $("#jenis").val(),
         merek: $scope.merek,
         jumlah: $scope.jumlah,
         jumlah_karung: $scope.jumlah_karung,

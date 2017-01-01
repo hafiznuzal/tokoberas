@@ -10,10 +10,9 @@
   <div class="row">
     <div class="col-lg-6 col-sm-10">
       <div class="box box-primary">
-        <div class="box-header">
-          <h4>Detail Penjualan</h4>
-        </div>
         <div class="box-body">
+          <h4>Detail Penjualan</h4>
+          <hr>
           <div class="form-horizontal">
             <div class="form-group">
               <label class="col-sm-3 control-label">Konsumen</label>
@@ -47,6 +46,7 @@
       <div class="row">
         <div class="col-lg-6 col-md-10">
           <h4>Tambah barang</h4>
+          <hr>
           <div class="form-horizontal">
             <div class="form-group">
               <label class="col-md-3 control-label">Inventory</label>
@@ -106,6 +106,7 @@
         </div>
         <div class="col-lg-6 col-md-10">
           <h4>Tambah operasional</h4>
+          <hr>
           <div class="form-horizontal">
             <div class="form-group">
               <label class="col-md-3 control-label">Operasional</label>
