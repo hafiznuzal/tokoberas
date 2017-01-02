@@ -13,6 +13,18 @@ use App\RiwayatOperasional;
 
 class GrafikController extends Controller
 {
+    /**
+     * Ini fungsi buat ngefilter data sebelum di "get". filternya pake range
+     * jadi ada parameter $start dan $end. Kalau filternya kosong, brarti ga
+     * perlu difilter
+     *
+     * @param QueryBuilder
+     * @param String date start
+     * @param String date end
+     * @param String date field on model
+     *
+     * @return QueryBuilder
+     */
     private function filterDateRange($model, $start, $end, $tanggal = 'tanggal')
     {
         if ($start && $end) {
@@ -128,6 +140,9 @@ class GrafikController extends Controller
         return view('app.grafik.fresh_money', $data);
     }
 
+    /**
+     * Nampilin line chart jumlah rupiah penjualan tiap tanggal.
+     */
     public function penjualanBulanan(Request $request)
     {
         $start = $request->input('start');
@@ -294,6 +309,47 @@ class GrafikController extends Controller
         $data = compact('pengeluaran', 'pemasukan', 'start', 'end');
         // dd($data);
         return view('app.grafik.pemasukan_pengeluaran', $data);
+    }
+
+    /**
+     * Nampilin double bar chart buat bandingin jumlah barang yang dibeli
+     * dan yang sudah terjual.
+     */
+    public function modalPenjualan(Request $request)
+    {
+        $start = $request->input('start');
+        $end = $request->input('end');
+
+        $nota = $this->filterDateRange(Nota::select('*'), $start, $end)->get();
+        $item = collect();
+        $nota->each(function ($not) use(&$item) {
+            $item = $item->merge($not->item_transaksi);
+        });
+        $byJenis = $item->groupBy('inventory_jenis')
+            ->transform(function ($item, $key) { // item transaksi
+                $jenis = Jenis::find($key);
+                $jumlah = $item->sum('jumlah');
+                $jumlah_modal = $jenis->inventory->sum('jumlah');
+                return [
+                    'jenis' => $jenis->nama,
+                    'jumlah' => $jumlah,
+                    'jumlah_modal' => $jumlah_modal,
+                ];
+            })->values();
+
+        $jenis = $byJenis->pluck('jenis');
+        $jumlah = $byJenis->pluck('jumlah');
+        $jumlah_modal = $byJenis->pluck('jumlah_modal');
+
+        if (!$start) {
+            $start = date('Y-m-d');
+        }
+        if (!$end) {
+            $end = date('Y-m-d');
+        }
+        $data = compact('jenis', 'jumlah', 'jumlah_modal', 'start', 'end');
+        // dd($data);
+        return view('app.grafik.modal_penjualan', $data);
     }
 
 }

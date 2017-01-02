@@ -53,4 +53,9 @@ class Jenis extends Model
     {
         return $this->belongsTo('App\KursBarang', 'latest_kurs_id');
     }
+
+    public function inventory()
+    {
+        return $this->hasMany('App\Inventory');
+    }
 }
