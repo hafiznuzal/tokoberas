@@ -31,6 +31,7 @@
         <h4>List Jenis Operasional</h4>
       </div>
       <div class="box-body">
+        <div class="table-responsive">
         <table class="table table-hover datatabel">
           <thead>
             <tr>
@@ -55,6 +56,7 @@
             @endforelse
           </tbody>
         </table>
+        </div>
       </div>
     </div>
   </div>

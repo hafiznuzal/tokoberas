@@ -57,7 +57,11 @@
             <label class="control-label col-md-3 col-sm-3">Jabatan<span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
-              <input type="text" name="jabatan" required="required" class="form-control col-md-7" value="{{$user->jabatan}}">
+              <select name="jabatan" required="required" class="form-control col-md-7" value="{{$user->jabatan}}">
+                @foreach (['admin', 'petugas', 'keuangan'] as $jabatan)
+                <option value="{{$jabatan}}" {{$user->jabatan == $jabatan ? ' selected' : ''}}>{{$jabatan}}</option>
+                @endforeach
+              </select>
             </div>
           </div>
           <div class="form-group">

@@ -8,6 +8,7 @@
     <h4>Laporan Penjualan</h4>
   </div>
   <div class="box-body">
+    <div class="table-responsive">
     <table id="datatable-buttons" class="table table-hover datatabel">
       <thead>
         <tr>
@@ -36,6 +37,7 @@
         @endforeach
       </tbody>
     </table>
+    </div>
   </div>
 </div>
 @endsection

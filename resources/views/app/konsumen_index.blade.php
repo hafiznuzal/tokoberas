@@ -62,6 +62,7 @@
         <h4>Data Konsumen</h4>
       </div>
       <div class="box-body">
+        <div class="table-responsive">
         <table id="datatable-buttons" class="table table-striped table-bordered datatabel">
           <thead>
             <tr>
@@ -89,6 +90,7 @@
             @endforeach
           </tbody>
         </table>
+        <div class="table-responsive">
       </div>
     </div>
   </div>

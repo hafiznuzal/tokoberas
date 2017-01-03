@@ -40,28 +40,30 @@
         <h4>History Harga Jual Barang</h4>
       </div>
       <div class="box-body">
-        <table class="table table-hover datatabel">
-          <thead>
-            <tr>
-              <th class="text-center col-sm-2">No</th>
-              <th>Tanggal</th>
-              <th class="text-right">Harga Jual</th>
-            </tr>
-          </thead>
-          <tbody>
-            @forelse ($kurs as $kur)
-            <tr>
-              <td class="text-center">{{$loop->iteration}}</td>
-              <td>{{$kur->tanggal}}</td>
-              <td class="text-right">{{number_format($kur->harga)}}</td>
-            </tr>
-            @empty
-            <tr>
-              <td colspan="3">Tidak ada data</td>
-            </tr>
-            @endforelse
-          </tbody>
-        </table>
+        <div class="table-responsive">
+          <table class="table table-hover datatabel">
+            <thead>
+              <tr>
+                <th class="text-center col-sm-2">No</th>
+                <th>Tanggal</th>
+                <th class="text-right">Harga Jual</th>
+              </tr>
+            </thead>
+            <tbody>
+              @forelse ($kurs as $kur)
+              <tr>
+                <td class="text-center">{{$loop->iteration}}</td>
+                <td>{{$kur->tanggal}}</td>
+                <td class="text-right">{{number_format($kur->harga)}}</td>
+              </tr>
+              @empty
+              <tr>
+                <td colspan="3">Tidak ada data</td>
+              </tr>
+              @endforelse
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>

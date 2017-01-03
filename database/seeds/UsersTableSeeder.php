@@ -19,7 +19,7 @@ class UsersTableSeeder extends Seeder
         $user->telepon = '0';
         $user->hp = '0';
         $user->tempat_lahir = 'Admin';
-        $user->jabatan = 'Admin';
+        $user->jabatan = 'admin';
         $user->username = 'admin';
         $user->password = bcrypt('admin');
         $user->save();

@@ -88,6 +88,7 @@
           <input type="hidden" id="rangestart" name="start">
           <input type="hidden" id="rangeend" name="end">
         </form>
+        <div class="table-responsive">
         <table id="datatable-buttons" class="table datatabel">
           <thead>
             <tr>
@@ -120,6 +121,7 @@
             @endforeach
           </tbody>
         </table>
+        </div>
       </div>
     </div>
   </div>

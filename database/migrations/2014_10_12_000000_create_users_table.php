@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->date('tanggal_lahir');
             $table->string('telepon')->nullable();
             $table->string('tempat_lahir');
-            $table->string('jabatan');
+            $table->string('jabatan'); // admin, petugas, keuangan
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
