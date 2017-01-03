@@ -90,7 +90,7 @@
             @endforeach
           </tbody>
         </table>
-        <div class="table-responsive">
+        </div>
       </div>
     </div>
   </div>

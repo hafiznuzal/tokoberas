@@ -26,6 +26,7 @@
         <ul class="treeview-menu">
           <li><a href="{{ url('laporan_pembelian') }}"><i class="fa fa-circle-o"></i> Pembelian</a></li>
           <li><a href="{{ url('laporan_penjualan') }}"><i class="fa fa-circle-o"></i> Penjualan</a></li>
+          <li><a href="{{ url('inventory') }}"><i class="fa fa-circle-o"></i> Inventory</a></li>
         </ul>
       </li>
       <li class="treeview">
