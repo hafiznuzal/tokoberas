@@ -29,6 +29,7 @@ $(function () {
       searching: true,
       ordering: true,
       info: true,
+      responsive: true,
       autoWidth: false,
       buttons: [
         // {

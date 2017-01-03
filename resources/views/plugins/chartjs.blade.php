@@ -1,6 +1,7 @@
 @section('js') @parent
 <script src="{{ url('bower_components/chart.js/dist/Chart.min.js')}}"></script>
 <script>
+  Chart.defaults.global.scale.yAxes.ticks.beginAtZero = true;
   //Boolean - If we should show the scale at all
   Chart.defaults.global.showScale = true;
   //Boolean - Whether grid lines are shown across the chart

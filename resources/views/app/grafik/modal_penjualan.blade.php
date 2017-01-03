@@ -51,7 +51,6 @@ $(function() {
         borderWidth: 1,
         data: {!! $jumlah_modal !!},
       }
-      
     ]
   };
 
@@ -59,6 +58,15 @@ $(function() {
   var myChart = new Chart(ctx, {
     type: 'bar',
     data: data,
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero:true
+          }
+        }]
+      }
+    }
   });
   @endif
   
