@@ -293,5 +293,8 @@ app.controller("penjualan", function($scope) {
 @if (session('tambah_success'))
   swal("Success", "Transaksi berhasil dilakukan", "success");
 @endif
+@if (session('nota_id'))
+  window.open('{{url('excel_penjualan/'.session('nota_id'))}}')
+@endif
 </script>
 @endsection

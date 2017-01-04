@@ -116,6 +116,8 @@ class TransaksiController extends Controller
             $item->nota_id = $nota->id;
             $item->save();
         }
-        return redirect()->back()->with('tambah_success', true);
+        return redirect()->back()
+            ->with('nota_id', $nota->id)
+            ->with('tambah_success', true);
     }
 }

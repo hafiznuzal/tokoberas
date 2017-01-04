@@ -46,7 +46,7 @@
           <div class="form-group">
             <label class="col-sm-4"></label>
             <div class="col-sm-7">
-              <a href="{{url('excel_penjualan/'.$nota->id)}}" class="btn btn-default">Download</a>
+              <a href="{{url('excel_penjualan/'.$nota->id)}}" class="">Download kwitansi</a>
             </div>
           </div>
         </div>
