@@ -16,6 +16,7 @@ use App\Nota;
 use App\Pembayaran;
 use App\Produsen;
 use App\RiwayatOperasional;
+use Excel;
 
 class LaporanTransaksiController extends Controller
 {
@@ -71,4 +72,29 @@ class LaporanTransaksiController extends Controller
         $data = compact('nota');
         return view('app.laporan_penjualan_show', $data);
     }
+
+    /**
+     * Ngeluarin kuitansi penjualan dalam excel.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function excelPenjualan($id)
+    {
+        $nota = Nota::find($id);
+        Excel::create('Filename', function($excel) use($nota) {
+            $excel->sheet('Sheetname', function($sheet) use($nota) {
+                $items = $nota->item_transaksi
+                    ->map(function($item, $key) {
+                        $item->nama = $item->jenis->nama;
+                        $item->no = $key + 1;
+                        return collect($item->toArray())
+                            ->only(['no', 'nama', 'biaya'])
+                            ->reverse();
+                    });
+                // dd($items);
+                $sheet->fromArray($items, null, 'A3');
+            });
+        })->export('xls');
+    }
+
 }

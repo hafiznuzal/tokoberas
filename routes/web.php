@@ -40,6 +40,7 @@ Route::group(['middleware' => 'auth'], function () {
     /* Laporan dll */
     Route::get('laporan_penjualan','LaporanTransaksiController@indexPenjualan');
     Route::get('laporan_penjualan/{id}','LaporanTransaksiController@showPenjualan');
+    Route::get('excel_penjualan/{id}','LaporanTransaksiController@excelPenjualan');
     Route::get('laporan_pembelian','LaporanTransaksiController@indexPembelian');
     Route::get('laporan_pembelian/{id}','LaporanTransaksiController@showPembelian');
 

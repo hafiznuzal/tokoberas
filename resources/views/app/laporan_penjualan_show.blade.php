@@ -43,6 +43,12 @@
             <label class="col-sm-4 control-label">Total Operasional</label>
             <label class="col-sm-7 content-label">{{number_format($nota->operasional->sum('harga'))}}</label>
           </div>
+          <div class="form-group">
+            <label class="col-sm-4"></label>
+            <div class="col-sm-7">
+              <a href="{{url('excel_penjualan/'.$nota->id)}}" class="btn btn-default">Download</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -51,10 +57,11 @@
         <h4>Detail Operasional</h4>
       </div>
       <div class="box-body">
+        <div class="table-responsive">
         <table class="table table-hover">
           <thead>
             <tr>
-              <th class="text-center">No</th>
+              <th class="text-center col-md-1">No</th>
               <th>Nama</th>
               <th class="text-right">Harga Satuan</th>
             </tr>
@@ -62,9 +69,9 @@
           <tbody>
             @forelse ($nota->operasional as $op)
             <tr>
-              <td>{{$loop->iteration}}</td>
+              <td class="text-center">{{$loop->iteration}}</td>
               <td>{{$op->jenis_operasional->nama}}</td>
-              <td>{{$op->harga}}</td>
+              <td class="text-right">{{number_format($op->biaya)}}</td>
             </tr>
             @empty
             <tr>
@@ -73,8 +80,6 @@
             @endforelse
           </tbody>
         </table>
-        <div class="text-right">
-          <h4>Total = {{number_format($nota->biaya)}}</h4>
         </div>
       </div>
     </div>
@@ -83,6 +88,7 @@
         <h4>Detail Barang</h4>
       </div>
       <div class="box-body">
+        <div class="table-responsive">
         <table class="table table-hover">
           <thead>
             <tr>
@@ -113,6 +119,7 @@
             @endforelse
           </tbody>
         </table>
+        </div>
       </div>
     </div>
     <div class="box box-primary">
@@ -120,6 +127,7 @@
         <h4>Detail Pembayaran</h4>
       </div>
       <div class="box-body">
+        <div class="table-responsive">
         <table class="table table-hover">
           <thead>
             <tr>
@@ -131,7 +139,7 @@
           </thead>
           <tbody>
             @php $sisa = $nota->total_harga; @endphp
-            @foreach ($nota->pembayaran as $bayar)
+            @forelse ($nota->pembayaran as $bayar)
             @php $sisa -= $bayar->biaya; @endphp
             <tr>
               <td class="text-center">{{$loop->iteration}}</td>
@@ -139,9 +147,14 @@
               <td class="text-right">{{number_format($bayar->biaya)}}</td>
               <td class="text-right">{{number_format($sisa)}}</td>
             </tr>
-            @endforeach
+            @empty
+            <tr>
+              <td colspan="3" class="text-muted">Tidak ada data</td>
+            </tr>
+            @endforelse
           </tbody>
         </table>
+        </div>
       </div>
     </div>
   </div>
