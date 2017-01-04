@@ -16,6 +16,7 @@
           <li><a href="{{ url('pembayaran') }}"><i class="fa fa-circle-o"></i> Pembayaran</a></li>
         </ul>
       </li>
+      @if (in_array(Auth::user()->jabatan, ['admin', 'keuangan']))
       <li class="treeview">
         <a href="#">
           <i class="fa fa-list-ol"></i> <span>Laporan</span>
@@ -29,6 +30,8 @@
           <li><a href="{{ url('inventory') }}"><i class="fa fa-circle-o"></i> Inventory</a></li>
         </ul>
       </li>
+      @endif
+      @if (in_array(Auth::user()->jabatan, ['admin', 'keuangan']))
       <li class="treeview">
         <a href="#">
           <i class="fa fa-pie-chart"></i> <span>Grafik</span>
@@ -48,6 +51,8 @@
           <li><a href="{{ url('grafik/modal_penjualan') }}"><i class="fa fa-circle-o"></i> Modal : Penjualan</a></li>
         </ul>
       </li>
+      @endif
+      @if (in_array(Auth::user()->jabatan, ['admin']))
       <li class="treeview">
         <a href="#">
           <i class="fa fa-database"></i> <span>CRUD</span>
@@ -63,6 +68,7 @@
           <li><a href="{{ url('jenis_operasional') }}"><i class="fa fa-circle-o"></i> Jenis Operasional</a></li>
         </ul>
       </li>
+      @endif
     </ul>
   </section>
 </aside>

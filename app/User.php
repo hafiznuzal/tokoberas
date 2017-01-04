@@ -6,6 +6,9 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+/**
+ * Jabatan itu meliputi admin, petugas, dan keuangan
+ */
 class User extends Authenticatable
 {
     use Notifiable, SoftDeletes;

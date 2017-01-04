@@ -23,7 +23,7 @@
         <li class="dropdown user user-menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             {{-- <img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image"> --}}
-            <i class="fa fa-user"></i>
+            <i class="fa fa-user visible-xs"></i>
             <span class="hidden-xs">{{Auth::user()->nama}}</span>
           </a>
           <ul class="dropdown-menu">

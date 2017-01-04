@@ -40,7 +40,6 @@
 <div class="wrapper">
 
   @include('components.topnav')
-
   @include('components.sidebar')
 
   <!-- Content Wrapper. Contains page content -->
