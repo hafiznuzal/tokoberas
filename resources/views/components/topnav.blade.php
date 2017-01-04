@@ -1,6 +1,6 @@
 <header class="main-header">
   <!-- Logo -->
-  <a href="../../index2.html" class="logo">
+  <a href="#" class="logo">
     <!-- mini logo for sidebar mini 50x50 pixels -->
     <span class="logo-mini"><b>T</b>B</span>
     <!-- logo for regular state and mobile devices -->
@@ -23,9 +23,8 @@
         <li class="dropdown user user-menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             {{-- <img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image"> --}}
-            <span class="hidden-xs">
-              {{Auth::user()->nama}}
-            </span>
+            <i class="fa fa-user"></i>
+            <span class="hidden-xs">{{Auth::user()->nama}}</span>
           </a>
           <ul class="dropdown-menu">
             <!-- User image -->
@@ -33,7 +32,7 @@
               {{-- <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image"> --}}
               <p>
                 {{Auth::user()->nama}} - {{Auth::user()->jabatan}}
-                <small>Member since Nov. 2012</small>
+                <small>Member since {{date('M. Y', strtotime(Auth::user()->created_at))}}</small>
               </p>
             </li>
             <!-- Menu Body -->
