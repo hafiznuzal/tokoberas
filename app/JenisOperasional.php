@@ -12,4 +12,14 @@ class JenisOperasional extends Model
     protected $table = 'jenis_operasional';
 
     protected $guarded = [];
+
+    public function pengeluaran_lainnya()
+    {
+        return $this->hasMany('App\PengeluaranLainnya');
+    }
+
+    public function riwayat_operasional()
+    {
+        return $this->hasMany('App\RiwayatOperasional');
+    }
 }

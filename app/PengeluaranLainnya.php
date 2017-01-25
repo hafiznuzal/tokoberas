@@ -10,7 +10,7 @@ class PengeluaranLainnya extends Model
 
     public function jenis_operasional()
     {
-    	return $this->belongsTo('App\JenisOperasional');
+        return $this->belongsTo('App\JenisOperasional');
     }
 
     public function user()

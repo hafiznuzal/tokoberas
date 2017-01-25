@@ -48,7 +48,7 @@
           <li><a href="{{ url('grafik/komposisi_operasional') }}"><i class="fa fa-circle-o"></i> Komposisi Operasional</a></li>
           <li><a href="{{ url('grafik/komposisi_pengeluaran') }}"><i class="fa fa-circle-o"></i> Komposisi Pengeluaran</a></li>
           <li><a href="{{ url('grafik/pemasukan_pengeluaran') }}"><i class="fa fa-circle-o"></i> Pemasukan : Pengeluaran</a></li>
-          <li><a href="{{ url('grafik/modal_penjualan') }}"><i class="fa fa-circle-o"></i> Modal : Penjualan</a></li>
+          {{-- <li><a href="{{ url('grafik/modal_penjualan') }}"><i class="fa fa-circle-o"></i> Modal : Penjualan</a></li> --}}
         </ul>
       </li>
       @endif

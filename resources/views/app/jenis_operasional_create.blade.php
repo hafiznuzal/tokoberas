@@ -46,7 +46,11 @@
               <td class="text-center">{{$loop->iteration}}</td>
               <td>{{$operasional->nama}}</td>
               <td class="text-center">
+                @if ($operasional->pengeluaran_lainnya()->count() > 0 || $operasional->riwayat_operasional()->count() > 0)
+                <a class="btn btn-danger fa fa-trash" disabled title="Operasional sudah digunakan pada transaksi."></a>
+                @else
                 <a class="btn btn-danger fa fa-trash delete-resource" data-id="{{encrypt($operasional->id)}}"></a>
+                @endif
               </td>
             </tr>
             @empty

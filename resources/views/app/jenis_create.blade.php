@@ -55,7 +55,11 @@
               <td>{{$barang->nama}}</td>
               <td class="text-right"><a href="{{url("jenis/$barang->id")}}">{{number_format($barang->latest_kurs->harga)}}</a></td>
               <td class="text-center">
+                @if ($barang->inventory()->count() > 0)
+                <a class="btn btn-danger fa fa-trash" disabled title="Barang sudah digunakan pada transaksi."></a>
+                @else
                 <a class="btn btn-danger fa fa-trash delete-resource" data-id="{{encrypt($barang->id)}}"></a>
+                @endif
               </td>
             </tr>
             @empty
