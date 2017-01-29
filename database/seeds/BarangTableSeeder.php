@@ -12,10 +12,10 @@ class BarangTableSeeder extends Seeder
      */
     public function run()
     {
-        Jenis::createAndKurs('Beras Pandan Wangi', 20000);
-        Jenis::createAndKurs('Beras Lokal', 10000);
-        Jenis::createAndKurs('Beras Impor Jepang', 22500);
-        Jenis::createAndKurs('Beras Wangi', 18000);
-        Jenis::createAndKurs('Beras Wangi SDK', 18000);
+        Jenis::create(['nama' => 'Beras Pandan Wangi', 'harga' => 20000]);
+        Jenis::create(['nama' => 'Beras Lokal', 'harga' => 10000]);
+        Jenis::create(['nama' => 'Beras Impor Jepang', 'harga' => 22500]);
+        Jenis::create(['nama' => 'Beras Wangi', 'harga' => 18000]);
+        Jenis::create(['nama' => 'Beras Wangi SDK', 'harga' => 18000]);
     }
 }

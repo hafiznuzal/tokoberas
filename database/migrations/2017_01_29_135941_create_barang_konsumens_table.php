@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateJenisTable extends Migration
+class CreateBarangKonsumensTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateJenisTable extends Migration
      */
     public function up()
     {
-        Schema::create('jenis', function (Blueprint $table) {
+        Schema::create('barang_konsumens', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nama');
+            $table->integer('jenis_id')->unsigned();
+            $table->integer('konsumen_id')->unsigned();
             $table->bigInteger('harga');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -29,6 +29,6 @@ class CreateJenisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jenis');
+        Schema::dropIfExists('barang_konsumens');
     }
 }

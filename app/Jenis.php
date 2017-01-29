@@ -58,4 +58,10 @@ class Jenis extends Model
     {
         return $this->hasMany('App\Inventory');
     }
+
+    public function konsumen()
+    {
+        return $this->belongsToMany('App\Konsumen', 'barang_konsumens')
+            ->withPivot('harga');
+    }
 }

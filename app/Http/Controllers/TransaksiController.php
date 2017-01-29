@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
 
+use App\BarangKonsumen;
 use App\Inventory;
 use App\ItemTransaksi;
 use App\Jenis;
@@ -51,22 +52,33 @@ class TransaksiController extends Controller
         return redirect()->back()->with('tambah_success', true);
     }
 
-    public function getPenjualan()
+    public function getPenjualan($konsumen_id = false)
     {
-        $inventory = Inventory::available()->with('jenis.latest_kurs')->get();
-        $operasional = JenisOperasional::get();
-        $dotinvent = $inventory->map(function ($item) {
-            return array_dot($item->toArray());
-        });
-        $konsumen = Konsumen::get();
+        if (!$konsumen_id) {
+            $data['konsumen'] = Konsumen::get();
+            return view('app.transaksi_penjualan', $data);
+        } else {
+            $inventory = Inventory::available()->with('jenis')->get();
+            $data['konsumen'] = Konsumen::find($konsumen_id);
+            $data['operasional'] = JenisOperasional::get();
+            $data['dotinvent'] = $inventory->map(function ($item) use($konsumen_id) {
+                $brg_kon = BarangKonsumen::cari($item->jenis_id, $konsumen_id);
+                $item->harga = $brg_kon->harga;
+                $item->nama = $item->jenis->nama;
+                return $item;
+            });
 
-        $data = compact('operasional', 'dotinvent', 'konsumen');
-        // dd($data);
-        return view('app.transaksi_penjualan', $data);
+            return view('app.transaksi_penjualan_konsumen', $data);
+        }
     }
 
     public function postPenjualan(Request $request)
     {
+        if ($request->input('pilih_konsumen')) {
+            $konsumen = $request->input('konsumen');
+            return redirect('transaksi/penjualan/' . $konsumen);
+        }
+
         $inventory = $request->input('inventory');
         $operasional = $request->input('operasional');
         $total = $request->input('total');

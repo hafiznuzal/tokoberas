@@ -35,6 +35,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('transaksi/pembelian','TransaksiController@getPembelian');
     Route::post('transaksi/pembelian','TransaksiController@postPembelian');
     Route::get('transaksi/penjualan','TransaksiController@getPenjualan');
+    Route::get('transaksi/penjualan/{konsumen}','TransaksiController@getPenjualan');
     Route::post('transaksi/penjualan','TransaksiController@postPenjualan');
 
     /* Laporan dll */

@@ -12,4 +12,10 @@ class Konsumen extends Model
     protected $table = 'konsumen';
 
     protected $guarded = [];
+
+    public function jenis()
+    {
+        return $this->belongsToMany('App\Jenis', 'barang_konsumens')
+            ->withPivot('harga');
+    }
 }
