@@ -44,7 +44,7 @@
             <tr>
               <th class="text-center col-sm-2">No</th>
               <th>Nama</th>
-              <th class="text-right">Harga Jual</th>
+              <th class="text-right">Harga Jual (default)</th>
               <th></th>
             </tr>
           </thead>
@@ -53,8 +53,9 @@
             <tr>
               <td class="text-center">{{$loop->iteration}}</td>
               <td>{{$barang->nama}}</td>
-              <td class="text-right"><a href="{{url("jenis/$barang->id")}}">{{number_format($barang->latest_kurs->harga)}}</a></td>
+              <td class="text-right">{{number_format($barang->harga)}}</td>
               <td class="text-center">
+                <a href="{{url("jenis/$barang->id")}}" class="btn btn-primary fa fa-eye" title="detail"></a>
                 @if ($barang->inventory()->count() > 0)
                 <a class="btn btn-danger fa fa-trash" disabled title="Barang sudah digunakan pada transaksi."></a>
                 @else

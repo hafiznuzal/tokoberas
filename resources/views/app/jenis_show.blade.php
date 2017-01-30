@@ -22,13 +22,13 @@
           {{ csrf_field() }}
           {{ method_field('PUT') }}
           <div class="form-group">
-            <label class="col-sm-4 control-label">Ubah Harga Barang</label>
-            <div class="col-sm-7">
-              <input type="text" class="form-control input-accounting" name="harga" placeholder="" value="{{number_format($jenis->latest_kurs->harga)}}">
+            <label class="col-sm-5 control-label">Ubah harga jual default</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control input-accounting" name="harga" placeholder="" value="{{number_format($jenis->harga)}}">
             </div>
           </div>
           <div class="form-group">
-            <div class="col-sm-8 col-sm-offset-4">
+            <div class="col-sm-5 col-sm-offset-5">
               <button type="submit" class="btn btn-success">Submit</button>
             </div>
           </div>
@@ -37,7 +37,7 @@
     </div>
     <div class="box box-primary">
       <div class="box-header">
-        <h4>History Harga Jual Barang</h4>
+        <h4>Harga Jual Barang per Konsumen</h4>
       </div>
       <div class="box-body">
         <div class="table-responsive">
@@ -45,20 +45,24 @@
             <thead>
               <tr>
                 <th class="text-center col-sm-2">No</th>
-                <th>Tanggal</th>
+                <th>Konsumen</th>
                 <th class="text-right">Harga Jual</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
-              @forelse ($kurs as $kur)
+              @forelse ($jenis->konsumen as $konsumen)
               <tr>
                 <td class="text-center">{{$loop->iteration}}</td>
-                <td>{{$kur->tanggal}}</td>
-                <td class="text-right">{{number_format($kur->harga)}}</td>
+                <td>{{$konsumen->nama}}</td>
+                <td class="text-right">{{number_format($konsumen->pivot->harga)}}</td>
+                <td class="text-center">
+                  <a href="/jenis/{{$jenis->id}}/konsumen/{{$konsumen->id}}" class="btn btn-primary btn-sm">Edit</a>
+                </td>
               </tr>
               @empty
               <tr>
-                <td colspan="3">Tidak ada data</td>
+                <td colspan="4">Tidak ada data</td>
               </tr>
               @endforelse
             </tbody>

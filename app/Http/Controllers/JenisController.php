@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\BarangKonsumen;
 use App\Jenis;
-use App\KursBarang as Kurs;
+use App\Konsumen;
 
 class JenisController extends Controller
 {
@@ -43,11 +44,41 @@ class JenisController extends Controller
      */
     public function show($id)
     {
-        $jenis = Jenis::find($id);
-        $kurs = $jenis->kurs->sortByDesc('tanggal');
+        $data['jenis'] = Jenis::find($id);
 
-        $data = compact('jenis', 'kurs');
         return view('app.jenis_show', $data);
+    }
+
+    /**
+     * Nampilin edit harga barang per konsumen.
+     *
+     * @param  int  $id jenis
+     * @param  int  $id_konsumen
+     * @return \Illuminate\Http\Response
+     */
+    public function getKonsumen($id, $konsumen_id)
+    {
+        $data['jenis'] = Jenis::find($id);
+        $data['konsumen'] = Konsumen::find($konsumen_id);
+        $data['barang_konsumen'] = BarangKonsumen::cari($id, $konsumen_id);
+
+        return view('app.jenis_edit_konsumen', $data);
+    }
+
+    /**
+     * Edit edit harga barang per konsumen.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id jenis
+     * @param  int  $id_konsumen
+     * @return \Illuminate\Http\Response
+     */
+    public function postKonsumen(Request $request, $id, $konsumen_id)
+    {
+        $barang_konsumen = BarangKonsumen::cari($id, $konsumen_id);
+        $barang_konsumen->harga = str_replace(',', '', $request->input('harga'));
+        $barang_konsumen->save();
+        return redirect('jenis/'.$id)->with('edit_success', true);
     }
 
     /**

@@ -27,6 +27,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('konsumen','KonsumenController');
     Route::resource('pengeluaran','PengeluaranController');
     Route::resource('jenis','JenisController');
+    Route::get('jenis/{jenis}/konsumen/{konsumen}','JenisController@getKonsumen');
+    Route::put('jenis/{jenis}/konsumen/{konsumen}','JenisController@postKonsumen');
     Route::resource('jenis_operasional','JenisOperasionalController');
     Route::resource('pembayaran','PembayaranController');
     Route::resource('inventory','InventoryController');
