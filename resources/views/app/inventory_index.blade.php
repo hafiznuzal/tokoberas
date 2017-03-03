@@ -17,7 +17,7 @@
               <th class="text-center col-sm-1">No</th>
               <th>Nama</th>
               <th>Stok</th>
-              <th class="text-right">Harga</th>
+              <th class="text-right">Harga default</th>
             </tr>
           </thead>
           <tbody>
@@ -26,7 +26,7 @@
               <td class="text-center">{{$loop->iteration}}</td>
               <td>{{$item->nama}}</td>
               <td>{{$item->jumlah}}</td>
-              <td class="text-right">{{number_format($item->latest_kurs->harga)}}</td>
+              <td class="text-right">{{number_format($item->harga)}}</td>
             </tr>
             @empty
             <tr>
