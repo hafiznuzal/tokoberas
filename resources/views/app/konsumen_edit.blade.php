@@ -41,14 +41,42 @@
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-3">Nomor telepon</label>
             <div class="col-md-6 col-sm-6">
-              <input class="form-control col-md-7" type="number" name="telepon" value="{{$konsumen->telepon}}">
+              <input type="text" class="form-control col-md-7" name="telepon" value="{{$konsumen->telepon}}">
             </div>
           </div>
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-3">Nomor handphone <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
-              <input type="number" name="hp" required="required" class="form-control col-md-7" value="{{$konsumen->hp}}">
+              <input type="text" name="hp" required="required" class="form-control col-md-7" value="{{$konsumen->hp}}">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3">Nama Restoran<span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6">
+              <input type="text" name="nama_restoran" required="required" class="form-control col-md-7" value="{{$konsumen->nama_restoran}}">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3">Telepon Restoran
+            </label>
+            <div class="col-md-6 col-sm-6">
+              <input type="text" name="telepon_restoran" class="form-control col-md-7" value="{{$konsumen->telepon_restoran}}">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3">Nama CP<span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6">
+              <input type="text" name="nama_cp" required="required" class="form-control col-md-7" value="{{$konsumen->nama_cp}}">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3">Telepon CP<span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6">
+              <input type="text" name="telepon_cp" required="required" class="form-control col-md-7" value="{{$konsumen->telepon_cp}}">
             </div>
           </div>
           <div class="form-group">

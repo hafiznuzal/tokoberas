@@ -42,6 +42,10 @@ class KonsumenController extends Controller
         $konsumen->alamat = $request->input('alamat');
         $konsumen->telepon = $request->input('telepon');
         $konsumen->hp = $request->input('hp');
+        $konsumen->nama_restoran = $request->input('nama_restoran');
+        $konsumen->telepon_restoran = $request->input('telepon_restoran');
+        $konsumen->nama_cp = $request->input('nama_cp');
+        $konsumen->telepon_cp = $request->input('telepon_cp');
         $konsumen->save();
 
         return redirect()->back()->with('tambah_success', true);
@@ -85,6 +89,10 @@ class KonsumenController extends Controller
         $konsumen->alamat = $request->input('alamat');
         $konsumen->telepon = $request->input('telepon');
         $konsumen->hp = $request->input('hp');
+        $konsumen->nama_restoran = $request->input('nama_restoran');
+        $konsumen->telepon_restoran = $request->input('telepon_restoran');
+        $konsumen->nama_cp = $request->input('nama_cp');
+        $konsumen->telepon_cp = $request->input('telepon_cp');
         $konsumen->save();
 
         return redirect('konsumen')->with('edit_success', true);;
