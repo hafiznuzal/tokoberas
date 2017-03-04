@@ -21,15 +21,45 @@ use Excel;
 class LaporanTransaksiController extends Controller
 {
     /**
+     * Ini fungsi buat ngefilter data sebelum di "get". filternya pake range
+     * jadi ada parameter $start dan $end. Kalau filternya kosong, brarti ga
+     * perlu difilter
+     *
+     * @param QueryBuilder
+     * @param String date start
+     * @param String date end
+     * @param String date field on model
+     *
+     * @return QueryBuilder
+     */
+    private function filterDateRange($model, $start, $end, $tanggal = 'tanggal')
+    {
+        if ($start && $end) {
+            return $model->where($tanggal, '>=', $start)->where($tanggal, '<=', $end);
+        } else {
+            return $model;
+        }
+    }
+
+    /**
      * List transaksi pembelian.
      *
      * @return \Illuminate\Http\Response
      */
-    public function indexPembelian()
+    public function indexPembelian(Request $request)
     {
-        $modal = Modal::get();
+        $start = $request->input('start');
+        $end = $request->input('end');
 
-        $data = compact('modal');
+        $modal = $this->filterDateRange(Modal::select('*'), $start, $end)->get();
+
+        if (!$start) {
+            $start = date('Y-m-d');
+        }
+        if (!$end) {
+            $end = date('Y-m-d');
+        }
+        $data = compact('modal', 'start', 'end');
         return view('app.laporan_pembelian_list', $data);
     }
 
@@ -51,11 +81,20 @@ class LaporanTransaksiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function indexPenjualan()
+    public function indexPenjualan(Request $request)
     {
-        $nota = Nota::get();
+        $start = $request->input('start');
+        $end = $request->input('end');
 
-        $data = compact('nota');
+        $nota = $this->filterDateRange(Nota::select('*'), $start, $end)->get();
+
+        if (!$start) {
+            $start = date('Y-m-d');
+        }
+        if (!$end) {
+            $end = date('Y-m-d');
+        }
+        $data = compact('nota', 'start', 'end');
         return view('app.laporan_penjualan_list', $data);
     }
 
