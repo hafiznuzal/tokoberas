@@ -87,7 +87,7 @@
                 <td>{{$prod->telepon}}</td>
                 <td>{{$prod->hp}}</td>
                 <td>
-                  <a class="btn btn-primary fa fa-edit" href="{{ url("produsen/$prod->id/edit") }}"></a>
+                  <a class="btn btn-primary fa fa-edit" href="{{ url('produsen/$prod->id/edit') }}"></a>
                   <a class="btn btn-danger fa fa-trash delete-resource" data-id="{{encrypt($prod->id)}}"></a>
                 </td>
               </tr>

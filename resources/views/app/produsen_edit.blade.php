@@ -12,7 +12,7 @@
       <div class="box box-primary">
       <div class="box-header with-border">
 
-        <form data-parsley-validate class="form-horizontal form-label-left" method="post" action="{{url("produsen/$produsen->id")}}">
+        <form data-parsley-validate class="form-horizontal form-label-left" method="post" action="{{url('produsen/$produsen->id')}}">
           {{ method_field('PUT') }}
           {{csrf_field()}}
           <div class="form-group">

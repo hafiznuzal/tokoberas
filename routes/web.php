@@ -22,30 +22,35 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('logout','AuthController@logout');
 
+    /* Crud */
     Route::resource('users','UsersController');
     Route::resource('produsen','ProdusenController');
     Route::resource('konsumen','KonsumenController');
-    Route::resource('pengeluaran','PengeluaranController');
     Route::resource('jenis','JenisController');
     Route::get('jenis/{jenis}/konsumen/{konsumen}','JenisController@getKonsumen');
     Route::put('jenis/{jenis}/konsumen/{konsumen}','JenisController@postKonsumen');
     Route::resource('jenis_operasional','JenisOperasionalController');
-    Route::resource('pembayaran','PembayaranController');
-    Route::resource('inventory','InventoryController');
 
-    /* Transaksi pembelian dan penjualan */
+    /* Transaksi pembelian dan penjualan, serta pengeluaran dan pembayaran */
     Route::get('transaksi/pembelian','TransaksiController@getPembelian');
     Route::post('transaksi/pembelian','TransaksiController@postPembelian');
     Route::get('transaksi/penjualan','TransaksiController@getPenjualan');
     Route::get('transaksi/penjualan/{konsumen}','TransaksiController@getPenjualan');
     Route::post('transaksi/penjualan','TransaksiController@postPenjualan');
+    
+    Route::resource('transaksi/pengeluaran','PengeluaranController');
+    // Route::resource('transaksi/pembayaran','PembayaranController');
+    Route::get('transaksi/pembayaran','PembayaranController@index');
+    Route::get('transaksi/pembayaran/create/{konsumen}','PembayaranController@create');
+    Route::post('transaksi/pembayaran','PembayaranController@store');
 
     /* Laporan dll */
-    Route::get('laporan_penjualan','LaporanTransaksiController@indexPenjualan');
-    Route::get('laporan_penjualan/{id}','LaporanTransaksiController@showPenjualan');
-    Route::get('excel_penjualan/{id}','LaporanTransaksiController@excelPenjualan');
-    Route::get('laporan_pembelian','LaporanTransaksiController@indexPembelian');
-    Route::get('laporan_pembelian/{id}','LaporanTransaksiController@showPembelian');
+    Route::get('laporan/penjualan','LaporanTransaksiController@indexPenjualan');
+    Route::get('laporan/penjualan/{id}','LaporanTransaksiController@showPenjualan');
+    Route::get('laporan/penjualan/excel/{id}','LaporanTransaksiController@excelPenjualan');
+    Route::get('laporan/pembelian','LaporanTransaksiController@indexPembelian');
+    Route::get('laporan/pembelian/{id}','LaporanTransaksiController@showPembelian');
+    Route::resource('laporan/inventory','InventoryController');
 
     /* Laporan grafik */
     Route::get('grafik/keuntungan_bersih','GrafikController@keuntunganBersih');

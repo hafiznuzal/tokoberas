@@ -4,7 +4,7 @@
   <div class="col-lg-2 col-sm-4">
     <div class="panel panel-default">
       <div class="panel-body">
-        <a href="{{url('laporan_penjualan')}}" class="btn btn-primary btn-block">Kembali</a>
+        <a href="{{url('laporan/penjualan')}}" class="btn btn-primary btn-block">Kembali</a>
       </div>
     </div>
   </div>
@@ -46,7 +46,7 @@
           <div class="form-group">
             <label class="col-sm-4"></label>
             <div class="col-sm-7">
-              <a href="{{url('excel_penjualan/'.$nota->id)}}" class="">Download kwitansi</a>
+              <a href="{{url('laporan/penjualan/excel/'.$nota->id)}}" class="">Download kwitansi</a>
             </div>
           </div>
         </div>

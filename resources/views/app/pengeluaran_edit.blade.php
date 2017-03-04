@@ -13,7 +13,7 @@
         <h4>Ubah Pengeluaran</h4>
       </div>
       <div class="box-body">
-        <form data-parsley-validate class="form-horizontal form-label-left" method="post" action="{{url('pengeluaran/'.$pengeluaran->id)}}">
+        <form data-parsley-validate class="form-horizontal form-label-left" method="post" action="{{url('transaksi/pengeluaran/'.$pengeluaran->id)}}">
           {{csrf_field()}}
           {{ method_field('PUT') }}
           <div class="form-group">
@@ -67,7 +67,7 @@
           </div>
           <div class="form-group">
             <div class="col-md-6 col-sm-6 col-md-offset-3">
-              <a href="{{url('pengeluaran')}}" class="btn btn-default">Cancel</a>
+              <a href="{{url('transaksi/pengeluaran')}}" class="btn btn-default">Cancel</a>
               <button type="submit" class="btn btn-success">Submit</button>
             </div>
           </div>

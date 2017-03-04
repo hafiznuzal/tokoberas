@@ -11,7 +11,7 @@
         <h4>Tambah Jenis Barang</h4>
       </div>
       <div class="box-body">
-        <form method="post" class="form-horizontal" action="{{ url('jenis') }}">
+        <form method="post" class="form-horizontal" action="{{ url('crud/jenis') }}">
           {{ csrf_field() }}
           <div class="form-group">
             <label class="col-sm-3 control-label">Nama Barang</label>
@@ -55,7 +55,7 @@
               <td>{{$barang->nama}}</td>
               <td class="text-right">{{number_format($barang->harga)}}</td>
               <td class="text-center">
-                <a href="{{url("jenis/$barang->id")}}" class="btn btn-primary fa fa-eye" title="detail"></a>
+                <a href="{{url('crud/jenis/$barang->id')}}" class="btn btn-primary fa fa-eye" title="detail"></a>
                 @if ($barang->inventory()->count() > 0)
                 <a class="btn btn-danger fa fa-trash" disabled title="Barang sudah digunakan pada transaksi."></a>
                 @else

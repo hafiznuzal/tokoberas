@@ -119,7 +119,7 @@
               <td>{{$kons->nama_cp}}</td>
               <td>{{$kons->telepon_cp}}</td>
               <td>
-                <a class="btn btn-primary fa fa-edit" href="{{ url("konsumen/$kons->id/edit") }}"></a>
+                <a class="btn btn-primary fa fa-edit" href="{{ url('konsumen/$kons->id/edit') }}"></a>
                 <a class="btn btn-danger fa fa-trash delete-resource" data-id="{{encrypt($kons->id)}}"></a>
               </td>
             </tr>

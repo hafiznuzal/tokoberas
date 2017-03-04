@@ -14,7 +14,7 @@
         <h4>Tambah Pengeluaran</h4>
       </div>
       <div class="box-body">
-        <form data-parsley-validate class="form-horizontal form-label-left" method="post" action="{{url('pengeluaran')}}">
+        <form data-parsley-validate class="form-horizontal form-label-left" method="post" action="{{url('transaksi/pengeluaran')}}">
           {{csrf_field()}}
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-3">Jenis Pengeluaran <span class="required">*</span>
@@ -113,7 +113,7 @@
                 <td>{{$klr->uraian}}</td>
                 <td class="text-right">{{number_format($klr->biaya)}}</td>
                 <td>
-                  <a class="btn btn-primary fa fa-edit" href="{{ url("pengeluaran/$klr->id/edit") }}"></a>
+                  <a class="btn btn-primary fa fa-edit" href="{{ url('pengeluaran/$klr->id/edit') }}"></a>
                   <a class="btn btn-danger fa fa-trash delete-resource" data-id="{{encrypt($klr->id)}}"></a>
                 </td>
               </tr>

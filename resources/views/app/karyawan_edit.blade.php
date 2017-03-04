@@ -10,7 +10,7 @@
         <h4>Edit Data Karyawan</h4>
       </div>
       <div class="box-body">
-        <form data-parsley-validate class="form-horizontal form-label-left" method="post" action="{{url("users/$user->id")}}">
+        <form data-parsley-validate class="form-horizontal form-label-left" method="post" action="{{url('users/$user->id')}}">
           {{ method_field('PUT') }}
           {{csrf_field()}}
           <div class="form-group">

@@ -12,8 +12,8 @@
         <ul class="treeview-menu">
           <li><a href="{{ url('transaksi/pembelian') }}"><i class="fa fa-circle-o"></i> Pembelian</a></li>
           <li><a href="{{ url('transaksi/penjualan') }}"><i class="fa fa-circle-o"></i> Penjualan</a></li>
-          <li><a href="{{ url('pengeluaran') }}"><i class="fa fa-circle-o"></i> Pengeluaran</a></li>
-          <li><a href="{{ url('pembayaran') }}"><i class="fa fa-circle-o"></i> Pembayaran</a></li>
+          <li><a href="{{ url('transaksi/pengeluaran') }}"><i class="fa fa-circle-o"></i> Pengeluaran</a></li>
+          <li><a href="{{ url('transaksi/pembayaran') }}"><i class="fa fa-circle-o"></i> Pembayaran</a></li>
         </ul>
       </li>
       @if (in_array(Auth::user()->jabatan, ['admin', 'keuangan']))
@@ -25,9 +25,9 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="{{ url('laporan_pembelian') }}"><i class="fa fa-circle-o"></i> Pembelian</a></li>
-          <li><a href="{{ url('laporan_penjualan') }}"><i class="fa fa-circle-o"></i> Penjualan</a></li>
-          <li><a href="{{ url('inventory') }}"><i class="fa fa-circle-o"></i> Inventory</a></li>
+          <li><a href="{{ url('laporan/pembelian') }}"><i class="fa fa-circle-o"></i> Pembelian</a></li>
+          <li><a href="{{ url('laporan/penjualan') }}"><i class="fa fa-circle-o"></i> Penjualan</a></li>
+          <li><a href="{{ url('laporan/inventory') }}"><i class="fa fa-circle-o"></i> Inventory</a></li>
         </ul>
       </li>
       @endif
@@ -64,8 +64,8 @@
           <li><a href="{{ url('users') }}"><i class="fa fa-circle-o"></i> User</a></li>
           <li><a href="{{ url('produsen') }}"><i class="fa fa-circle-o"></i> Produsen</a></li>
           <li><a href="{{ url('konsumen') }}"><i class="fa fa-circle-o"></i> Konsumen</a></li>
-          <li><a href="{{ url('jenis') }}"><i class="fa fa-circle-o"></i> Jenis Barang</a></li>
-          <li><a href="{{ url('jenis_operasional') }}"><i class="fa fa-circle-o"></i> Jenis Operasional</a></li>
+          <li><a href="{{ url('crud/jenis') }}"><i class="fa fa-circle-o"></i> Jenis Barang</a></li>
+          <li><a href="{{ url('crud/jenis_operasional') }}"><i class="fa fa-circle-o"></i> Jenis Operasional</a></li>
         </ul>
       </li>
       @endif

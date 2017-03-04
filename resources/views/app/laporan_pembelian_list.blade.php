@@ -29,7 +29,7 @@
           <td>{{$beli->inventory->count()}}</td>
           <td>{{$beli->tanggal}}</td>
           <td>
-            <a href="{{url('laporan_pembelian/'.$beli->id)}}" class="btn btn-primary btn-sm">Detail</a>
+            <a href="{{url('laporan/pembelian/'.$beli->id)}}" class="btn btn-primary btn-sm">Detail</a>
           </td>
         </tr>
         @endforeach

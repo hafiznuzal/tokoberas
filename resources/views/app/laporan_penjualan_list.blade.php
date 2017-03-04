@@ -31,7 +31,7 @@
           <td>{{$jual->tanggal}}</td>
           <td class="text-right">{{number_format($jual->total_harga)}}</td>
           <td>
-            <a href="{{url('laporan_penjualan/'.$jual->id)}}" class="btn btn-primary btn-sm">Detail</a>
+            <a href="{{url('laporan/penjualan/'.$jual->id)}}" class="btn btn-primary btn-sm">Detail</a>
           </td>
         </tr>
         @endforeach

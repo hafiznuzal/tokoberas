@@ -5,7 +5,7 @@
   <div class="col-lg-2 col-sm-4">
     <div class="panel panel-default">
       <div class="panel-body">
-        <a href="{{url('laporan_penjualan')}}" class="btn btn-primary btn-block">Kembali</a>
+        <a href="{{url('laporan/penjualan')}}" class="btn btn-primary btn-block">Kembali</a>
       </div>
     </div>
   </div>

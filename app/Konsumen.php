@@ -18,4 +18,9 @@ class Konsumen extends Model
         return $this->belongsToMany('App\Jenis', 'barang_konsumens')
             ->withPivot('harga');
     }
+
+    public function nota()
+    {
+        return $this->hasMany('App\Nota');
+    }
 }

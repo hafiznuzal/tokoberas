@@ -128,7 +128,7 @@
                     <td>{{$userdata->hp}}</td>
                     <td>{{$userdata->jabatan}}</td>
                     <td>{{$userdata->username}}</td>
-                    <td><a class="btn btn-primary fa fa-edit" href="{{ url("users/$userdata->id/edit") }}"></a>
+                    <td><a class="btn btn-primary fa fa-edit" href="{{ url('users/$userdata->id/edit') }}"></a>
                       <a class="btn btn-danger fa fa-trash delete-resource" data-id="{{encrypt($userdata->id)}}"></a>
                     </td>
                   </tr>

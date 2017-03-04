@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Pembayaran;
+use App\Konsumen;
 use App\Nota;
+use App\Pembayaran;
 use App\User;
-
 
 class PembayaranController extends Controller
 {
@@ -30,13 +30,16 @@ class PembayaranController extends Controller
         }
 
         $nota = Nota::with('konsumen')->get();
-        $user = User::get();
-        $dotnota = $nota->map(function ($item) {
-            return array_dot($item->toArray());
+        $konsumen = Konsumen::get();
+        $konsumen->transform(function ($item) {
+            $total_harga = ($item->nota()->sum('total_harga'));
+            $total_pembayaran = ($item->nota()->sum('total_pembayaran'));
+            $item->total_hutang = $total_harga - $total_pembayaran;
+            return $item;
         });
-        $data = compact('pembayaran', 'nota', 'user', 'dotnota', 'start', 'end');
+        $data = compact('pembayaran', 'nota', 'konsumen', 'start', 'end');
         // dd($data);
-        return view('app.laporan_pembayaran_index', $data);
+        return view('app.laporan.pembayaran.index', $data);
     }
 
     /**
@@ -44,9 +47,16 @@ class PembayaranController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($konsumen_id)
     {
-        //
+        $nota = Nota::where('konsumen_id', $konsumen_id)->with('konsumen')->get();
+        $dotnota = $nota->map(function ($item) {
+            return array_dot($item->toArray());
+        });
+        $users = User::get();
+        $data = compact('nota', 'konsumen_id', 'dotnota', 'users');
+        return view('app.laporan.pembayaran.create', $data);
+        dd($data);
     }
 
     /**
@@ -73,7 +83,7 @@ class PembayaranController extends Controller
         $nota->save();
         $pembayaran->save();
 
-        return redirect()->back()->with('tambah_success', true);
+        return redirect('transaksi/pembayaran')->with('tambah_success', true);
     }
 
     /**

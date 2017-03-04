@@ -8,7 +8,7 @@
   <div class="col-lg-2 col-sm-4">
     <div class="panel panel-default">
       <div class="panel-body">
-        <a href="{{url('jenis')}}" class="btn btn-primary btn-block">Kembali</a>
+        <a href="{{url('crud/jenis')}}" class="btn btn-primary btn-block">Kembali</a>
       </div>
     </div>
   </div>
@@ -18,7 +18,7 @@
         <h4>{{$jenis->nama}}</h4>
       </div>
       <div class="box-body">
-        <form method="POST" class="form-horizontal" action="{{ url("jenis/$jenis->id") }}">
+        <form method="POST" class="form-horizontal" action="{{ url('crud/jenis/$jenis->id') }}">
           {{ csrf_field() }}
           {{ method_field('PUT') }}
           <div class="form-group">
