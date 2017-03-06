@@ -14,7 +14,7 @@
         <form data-parsley-validate class="form-horizontal form-label-left" method="post" action="{{url('konsumen')}}">
           {{csrf_field()}}
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3">Nama<span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3">Nama <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
               <input type="text" name="nama" required="required" class="form-control col-md-7">
@@ -50,7 +50,7 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3">Nama Restoran<span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3">Nama Restoran <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
               <input type="text" name="nama_restoran" required="required" class="form-control col-md-7">
@@ -64,14 +64,14 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3">Nama CP<span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3">Nama CP <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
               <input type="text" name="nama_cp" required="required" class="form-control col-md-7">
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3">Telepon CP<span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3">Telepon CP <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
               <input type="text" name="telepon_cp" required="required" class="form-control col-md-7">
@@ -119,7 +119,7 @@
               <td>{{$kons->nama_cp}}</td>
               <td>{{$kons->telepon_cp}}</td>
               <td>
-                <a class="btn btn-primary fa fa-edit" href="{{ url('konsumen/$kons->id/edit') }}"></a>
+                <a class="btn btn-primary fa fa-edit" href="/konsumen/{{$kons->id}}/edit"></a>
                 <a class="btn btn-danger fa fa-trash delete-resource" data-id="{{encrypt($kons->id)}}"></a>
               </td>
             </tr>

@@ -10,11 +10,11 @@
         <h4>Edit Data Konsumen</h4>  
       </div>
       <div class="box-body">
-        <form data-parsley-validate class="form-horizontal form-label-left" method="post" action="{{url('konsumen/$konsumen->id')}}">
+        <form data-parsley-validate class="form-horizontal form-label-left" method="post" action="/konsumen/{{$konsumen->id}}">
           {{ method_field('PUT') }}
           {{csrf_field()}}
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3">Nama<span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3">Nama <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
               <input type="text" name="nama" required="required" class="form-control col-md-7" value="{{$konsumen->nama}}">
@@ -52,7 +52,7 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3">Nama Restoran<span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3">Nama Restoran <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
               <input type="text" name="nama_restoran" required="required" class="form-control col-md-7" value="{{$konsumen->nama_restoran}}">
@@ -66,14 +66,14 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3">Nama CP<span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3">Nama CP <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
               <input type="text" name="nama_cp" required="required" class="form-control col-md-7" value="{{$konsumen->nama_cp}}">
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3">Telepon CP<span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3">Telepon CP <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
               <input type="text" name="telepon_cp" required="required" class="form-control col-md-7" value="{{$konsumen->telepon_cp}}">

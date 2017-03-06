@@ -1,5 +1,5 @@
 @section('js') @parent
-<script src="{{ url('bower_components/chart.js/dist/Chart.min.js')}}"></script>
+<script src="{{url('bower_components/chart.js/dist/Chart.min.js')}}"></script>
 <script>
   Chart.defaults.global.scale.yAxes.ticks.beginAtZero = true;
   //Boolean - If we should show the scale at all

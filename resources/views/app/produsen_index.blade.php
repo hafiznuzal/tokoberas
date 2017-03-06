@@ -21,7 +21,7 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="col-sm-3 control-label">Tanggal Lahir<span class="required">*</span></label>
+            <label class="col-sm-3 control-label">Tanggal Lahir <span class="required">*</span></label>
             <div class="col-sm-6">
               <div class="input-group">
                 <div class="input-group-addon">
@@ -87,7 +87,7 @@
                 <td>{{$prod->telepon}}</td>
                 <td>{{$prod->hp}}</td>
                 <td>
-                  <a class="btn btn-primary fa fa-edit" href="{{ url('produsen/$prod->id/edit') }}"></a>
+                  <a class="btn btn-primary fa fa-edit" href="/produsen/{{$prod->id}}/edit"></a>
                   <a class="btn btn-danger fa fa-trash delete-resource" data-id="{{encrypt($prod->id)}}"></a>
                 </td>
               </tr>

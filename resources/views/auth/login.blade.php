@@ -10,11 +10,11 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap -->
-  <link href="{{ url('bower_components/gentelella/vendors/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{url('bower_components/gentelella/vendors/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
   <!-- Font Awesome -->
-  <link href="{{ url('bower_components/gentelella/vendors/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+  <link href="{{url('bower_components/gentelella/vendors/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
   <!-- AdminLTE -->
-  <link href="{{ url('bower_components/AdminLTE/dist/css/AdminLTE.min.css') }}" rel="stylesheet">
+  <link href="{{url('bower_components/AdminLTE/dist/css/AdminLTE.min.css')}}" rel="stylesheet">
 </head>
 <body class="hold-transition skin-green login-page" style="background-color: #1a2226">
 <div class="login-box">
@@ -62,11 +62,11 @@
 </body>
 
 <!-- jQuery -->
-<script src="{{ url('bower_components/gentelella/vendors/jquery/dist/jquery.min.js')}}"></script>
+<script src="{{url('bower_components/gentelella/vendors/jquery/dist/jquery.min.js')}}"></script>
 <!-- Bootstrap -->
-<script src="{{ url('bower_components/gentelella/vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+<script src="{{url('bower_components/gentelella/vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 <!-- AdminLTE -->
-<script src="{{ url('bower_components/AdminLTE/dist/js/app.min.js')}}"></script>
+<script src="{{url('bower_components/AdminLTE/dist/js/app.min.js')}}"></script>
 
 <script>
   $(function() {

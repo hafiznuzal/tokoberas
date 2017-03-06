@@ -10,7 +10,7 @@
         <h4>Tambah Jenis Operasional</h4>
       </div>
       <div class="box-body">
-        <form method="post" class="form-horizontal" action="{{ url('crud/jenis_operasional') }}">
+        <form method="post" class="form-horizontal" action="{{url('crud/jenis_operasional')}}">
           {{ csrf_field() }}
           <div class="form-group">
             <label class="col-sm-3 control-label">Nama Operasional</label>
@@ -86,7 +86,7 @@ $(function() {
     function(isConfirm){
       if (isConfirm) {
         $.ajax({
-          url: $('meta[name="base_url"]').attr('content') + '/jenis_operasional/' + id,
+          url: $('meta[name="base_url"]').attr('content') + '/crud/jenis_operasional/' + id,
           method: 'POST',
           data: {
             '_method': 'DELETE'

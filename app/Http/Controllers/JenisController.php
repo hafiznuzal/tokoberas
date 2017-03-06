@@ -29,9 +29,10 @@ class JenisController extends Controller
      */
     public function store(Request $request)
     {
-        $nama = $request->input('nama');
-        $harga = str_replace(',', '', $request->input('harga'));
-        $jenis = Jenis::createAndKurs($nama, $harga);
+        $jenis = new Jenis;
+        $jenis->nama = $request->input('nama');
+        $jenis->harga = str_replace(',', '', $request->input('harga'));
+        $jenis->save();
 
         return redirect()->back()->with('tambah_success', true);
     }
@@ -78,7 +79,7 @@ class JenisController extends Controller
         $barang_konsumen = BarangKonsumen::cari($id, $konsumen_id);
         $barang_konsumen->harga = str_replace(',', '', $request->input('harga'));
         $barang_konsumen->save();
-        return redirect('jenis/'.$id)->with('edit_success', true);
+        return redirect('crud/jenis/'.$id)->with('edit_success', true);
     }
 
     /**
@@ -101,14 +102,8 @@ class JenisController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $kurs = new Kurs;
-        $kurs->harga = str_replace(',', '', $request->input('harga'));
-        $kurs->tanggal = date('Y-m-d H:i:s');
-        $kurs->jenis_id = $id;
-        $kurs->save();
-
         $jenis = Jenis::find($id);
-        $jenis->latest_kurs_id = $kurs->id;
+        $jenis->harga = str_replace(',', '', $request->input('harga'));
         $jenis->save();
 
         return redirect()->back()->with('edit_success', true);

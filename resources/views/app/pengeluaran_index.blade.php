@@ -113,7 +113,7 @@
                 <td>{{$klr->uraian}}</td>
                 <td class="text-right">{{number_format($klr->biaya)}}</td>
                 <td>
-                  <a class="btn btn-primary fa fa-edit" href="{{ url('pengeluaran/$klr->id/edit') }}"></a>
+                  <a class="btn btn-primary fa fa-edit" href="/transaksi/pengeluaran/{{$klr->id}}/edit"></a>
                   <a class="btn btn-danger fa fa-trash delete-resource" data-id="{{encrypt($klr->id)}}"></a>
                 </td>
               </tr>

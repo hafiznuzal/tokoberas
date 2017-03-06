@@ -12,7 +12,7 @@
       <div class="box box-primary">
       <div class="box-header with-border">
 
-        <form data-parsley-validate class="form-horizontal form-label-left" method="post" action="{{url('produsen/$produsen->id')}}">
+        <form data-parsley-validate class="form-horizontal form-label-left" method="post" action="/produsen/{{$produsen->id}}">
           {{ method_field('PUT') }}
           {{csrf_field()}}
           <div class="form-group">
@@ -23,7 +23,7 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3">Tanggal lahir<span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3">Tanggal lahir <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
               <div class="input-group date">

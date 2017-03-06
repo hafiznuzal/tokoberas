@@ -10,18 +10,18 @@
         <h4>Edit Data Karyawan</h4>
       </div>
       <div class="box-body">
-        <form data-parsley-validate class="form-horizontal form-label-left" method="post" action="{{url('users/$user->id')}}">
+        <form data-parsley-validate class="form-horizontal form-label-left" method="post" action="/users/{{$user->id}}">
           {{ method_field('PUT') }}
           {{csrf_field()}}
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3">Nama<span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3">Nama <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
               <input type="text" name="nama" required="required" class="form-control col-md-7" value="{{$user->nama}}">
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3">Tanggal lahir<span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3">Tanggal lahir <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
               <div class="input-group date">
@@ -33,7 +33,7 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3">Tempat lahir<span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3">Tempat lahir <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
               <input type="text" name="tempatlahir" required="required" class="form-control col-md-7" value="{{$user->tempat_lahir}}">
@@ -54,7 +54,7 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3">Jabatan<span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3">Jabatan <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
               <select name="jabatan" required="required" class="form-control col-md-7" value="{{$user->jabatan}}">

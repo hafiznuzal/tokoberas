@@ -26,10 +26,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('users','UsersController');
     Route::resource('produsen','ProdusenController');
     Route::resource('konsumen','KonsumenController');
-    Route::resource('jenis','JenisController');
-    Route::get('jenis/{jenis}/konsumen/{konsumen}','JenisController@getKonsumen');
-    Route::put('jenis/{jenis}/konsumen/{konsumen}','JenisController@postKonsumen');
-    Route::resource('jenis_operasional','JenisOperasionalController');
+    Route::resource('crud/jenis','JenisController');
+    Route::get('crud/jenis/{jenis}/konsumen/{konsumen}','JenisController@getKonsumen');
+    Route::put('crud/jenis/{jenis}/konsumen/{konsumen}','JenisController@postKonsumen');
+    Route::resource('crud/jenis_operasional','JenisOperasionalController');
 
     /* Transaksi pembelian dan penjualan, serta pengeluaran dan pembayaran */
     Route::get('transaksi/pembelian','TransaksiController@getPembelian');

@@ -7,7 +7,7 @@
 @include('plugins.selectize')
 
 @section('css')
-<link href="{{ url('bower_components/AdminLTE/plugins/datatables/extensions/Responsive/css/dataTables.responsive.css') }}" rel="stylesheet">
+<link href="{{url('bower_components/AdminLTE/plugins/datatables/extensions/Responsive/css/dataTables.responsive.css')}}" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -22,7 +22,7 @@
           {{csrf_field()}}
           <div class="form-group">
             <label class="control-label col-md-3">
-              Nota<span class="required">*</span>
+              Nota <span class="required">*</span>
             </label>
             <div class="col-md-6">
               <select id="pilihnota" name="nota_id" placeholder="Pilih nota penjualan">
@@ -31,7 +31,7 @@
           </div>
           <div class="form-group">
             <label class="control-label col-md-3">
-              Tanggal Pembayaran<span class="required">*</span>
+              Tanggal Pembayaran <span class="required">*</span>
             </label>
             <div class="col-md-6">
               <div class="input-group date">

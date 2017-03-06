@@ -7,7 +7,7 @@
 @include('plugins.selectize')
 
 @section('css')
-<link href="{{ url('bower_components/AdminLTE/plugins/datatables/extensions/Responsive/css/dataTables.responsive.css') }}" rel="stylesheet">
+<link href="{{url('bower_components/AdminLTE/plugins/datatables/extensions/Responsive/css/dataTables.responsive.css')}}" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -36,7 +36,7 @@
               <td>{{number_format($kons->total_hutang)}}</td>
               <td>
                 @if ($kons->total_hutang > 0)
-                <a href="{{url('transaksi/pembayaran/create/'.$kons->id)}}" class="btn btn-default btn-sm">Bayar</a>
+                <a href="/transaksi/pembayaran/create/{{$kons->id}}" class="btn btn-default btn-sm">Bayar</a>
                 @endif
               </td>
             </tr>
@@ -96,7 +96,7 @@
               <td class="text-center">{{$bayar->tanggal}}</td>
               <td class="text-right">{{number_format($bayar->biaya)}}</td>
               <td>
-                <a class="btn btn-primary fa fa-edit" href="{{ url('pengeluaran/$bayar->id/edit') }}"></a>
+                <a class="btn btn-primary fa fa-edit" href="/pengeluaran/{{$bayar->id}}/edit"></a>
                 <a class="btn btn-danger fa fa-trash delete-resource" data-id="{{encrypt($bayar->id)}}"></a>
               </td>
             </tr>

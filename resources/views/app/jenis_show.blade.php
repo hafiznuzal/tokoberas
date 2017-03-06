@@ -18,7 +18,7 @@
         <h4>{{$jenis->nama}}</h4>
       </div>
       <div class="box-body">
-        <form method="POST" class="form-horizontal" action="{{ url('crud/jenis/$jenis->id') }}">
+        <form method="POST" class="form-horizontal" action="/crud/jenis/{{$jenis->id}}">
           {{ csrf_field() }}
           {{ method_field('PUT') }}
           <div class="form-group">
@@ -57,7 +57,7 @@
                 <td>{{$konsumen->nama}}</td>
                 <td class="text-right">{{number_format($konsumen->pivot->harga)}}</td>
                 <td class="text-center">
-                  <a href="/jenis/{{$jenis->id}}/konsumen/{{$konsumen->id}}" class="btn btn-primary btn-sm">Edit</a>
+                  <a href="/crud/jenis/{{$jenis->id}}/konsumen/{{$konsumen->id}}" class="btn btn-primary btn-sm">Edit</a>
                 </td>
               </tr>
               @empty

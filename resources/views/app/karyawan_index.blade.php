@@ -16,14 +16,14 @@
         <form data-parsley-validate class="form-horizontal form-label-left" method="post" action="{{url('users')}}">
           {{csrf_field()}}
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3">Nama<span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3">Nama <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
               <input type="text" name="nama" required="required" class="form-control col-md-7">
             </div>
           </div>
           <div class="form-group">
-            <label class="col-sm-3 control-label">Tanggal Lahir<span class="required">*</span></label>
+            <label class="col-sm-3 control-label">Tanggal Lahir <span class="required">*</span></label>
             <div class="col-sm-6">
               <div class="input-group">
                 <div class="input-group-addon">
@@ -34,7 +34,7 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3">Tempat Lahir<span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3">Tempat Lahir <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
               <input type="text" name="tempatlahir" required="required" class="form-control col-md-7">
@@ -55,7 +55,7 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3">Jabatan<span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3">Jabatan <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
               <select name="jabatan" required="required" class="form-control col-md-7">
@@ -73,14 +73,14 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3">Password<span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3">Password <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
               <input type="password" name="password" required="required" class="form-control col-md-7">
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3">Confirm Password<span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3">Confirm Password <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
               <input type="password" name="confirmpassword" required="required" class="form-control col-md-7">
@@ -128,7 +128,7 @@
                     <td>{{$userdata->hp}}</td>
                     <td>{{$userdata->jabatan}}</td>
                     <td>{{$userdata->username}}</td>
-                    <td><a class="btn btn-primary fa fa-edit" href="{{ url('users/$userdata->id/edit') }}"></a>
+                    <td><a class="btn btn-primary fa fa-edit" href="/users/{{$userdata->id}}/edit"></a>
                       <a class="btn btn-danger fa fa-trash delete-resource" data-id="{{encrypt($userdata->id)}}"></a>
                     </td>
                   </tr>

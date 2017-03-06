@@ -17,7 +17,7 @@
           {{csrf_field()}}
           {{ method_field('PUT') }}
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3">Jenis Pengeluaran<span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3">Jenis Pengeluaran <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
               <select class="form-control select2" name="jenis" value="{{$pengeluaran->jenis_operasional->nama}}">
@@ -36,7 +36,7 @@
           </div>
 
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3">Tanggal Pengeluaran<span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3">Tanggal Pengeluaran <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
               <div class="input-group date">
@@ -55,7 +55,7 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3">Penanggung Jawab<span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3">Penanggung Jawab <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
               <select class="form-control select2" name="user_id" value="{{$pengeluaran->user->nama}}">
