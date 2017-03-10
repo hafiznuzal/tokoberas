@@ -50,7 +50,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('laporan/penjualan/excel/{id}','LaporanTransaksiController@excelPenjualan');
     Route::get('laporan/pembelian','LaporanTransaksiController@indexPembelian');
     Route::get('laporan/pembelian/{id}','LaporanTransaksiController@showPembelian');
-    Route::resource('laporan/inventory','InventoryController');
+    Route::get('laporan/inventory/stok','LaporanInventoryController@stok');
+    Route::get('laporan/inventory/harian','LaporanInventoryController@harian');
 
     /* Laporan grafik */
     Route::get('grafik/keuntungan_bersih','GrafikController@keuntunganBersih');

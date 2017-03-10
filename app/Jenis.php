@@ -29,6 +29,11 @@ class Jenis extends Model
         return $this->hasMany('App\Inventory');
     }
 
+    public function transaksi()
+    {
+        return $this->hasMany('App\ItemTransaksi', 'inventory_jenis');
+    }
+
     public function konsumen()
     {
         return $this->belongsToMany('App\Konsumen', 'barang_konsumens')
