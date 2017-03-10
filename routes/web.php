@@ -39,9 +39,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('transaksi/penjualan','TransaksiController@postPenjualan');
     
     Route::resource('transaksi/pengeluaran','PengeluaranController');
-    // Route::resource('transaksi/pembayaran','PembayaranController');
     Route::get('transaksi/pembayaran','PembayaranController@index');
-    Route::get('transaksi/pembayaran/create/{konsumen}','PembayaranController@create');
+    Route::get('transaksi/pembayaran/create/konsumen/{konsumen}','PembayaranController@createKonsumen');
+    Route::get('transaksi/pembayaran/create/nota/{nota}','PembayaranController@createNota');
     Route::post('transaksi/pembayaran','PembayaranController@store');
 
     /* Laporan dll */

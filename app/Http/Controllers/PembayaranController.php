@@ -10,11 +10,6 @@ use App\User;
 
 class PembayaranController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index(Request $request)
     {
         $start = $request->input('start');
@@ -42,21 +37,32 @@ class PembayaranController extends Controller
         return view('app.laporan.pembayaran.index', $data);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create($konsumen_id)
+    public function createKonsumen($konsumen_id)
     {
-        $nota = Nota::where('konsumen_id', $konsumen_id)->with('konsumen')->get();
+        $nota = Nota::with('konsumen')
+            ->where('konsumen_id', $konsumen_id)
+            ->whereRaw('total_harga > total_pembayaran')
+            ->get();
         $dotnota = $nota->map(function ($item) {
             return array_dot($item->toArray());
         });
         $users = User::get();
-        $data = compact('nota', 'konsumen_id', 'dotnota', 'users');
+        $data = compact('nota', 'dotnota', 'users');
         return view('app.laporan.pembayaran.create', $data);
-        dd($data);
+    }
+
+    public function createNota($nota_id)
+    {
+        $nota = Nota::with('konsumen')
+            ->where('id', $nota_id)
+            ->whereRaw('total_harga > total_pembayaran')
+            ->get();
+        $dotnota = $nota->map(function ($item) {
+            return array_dot($item->toArray());
+        });
+        $users = User::get();
+        $data = compact('nota', 'dotnota', 'users');
+        return view('app.laporan.pembayaran.create', $data);
     }
 
     /**
@@ -84,50 +90,5 @@ class PembayaranController extends Controller
         $pembayaran->save();
 
         return redirect('transaksi/pembayaran')->with('tambah_success', true);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }

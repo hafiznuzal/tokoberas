@@ -36,7 +36,7 @@
               <td>{{number_format($kons->total_hutang)}}</td>
               <td>
                 @if ($kons->total_hutang > 0)
-                <a href="/transaksi/pembayaran/create/{{$kons->id}}" class="btn btn-default btn-sm">Bayar</a>
+                <a href="/transaksi/pembayaran/create/konsumen/{{$kons->id}}" class="btn btn-default btn-sm">Bayar</a>
                 @endif
               </td>
             </tr>

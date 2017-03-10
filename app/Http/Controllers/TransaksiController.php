@@ -128,8 +128,8 @@ class TransaksiController extends Controller
             $item->nota_id = $nota->id;
             $item->save();
         }
-        return redirect()->back()
+        return redirect('transaksi/pembayaran/create/nota/' . $nota->id)
             ->with('nota_id', $nota->id)
-            ->with('tambah_success', true);
+            ->with('transaksi_success', true);
     }
 }

@@ -47,7 +47,7 @@
               Jumlah Pembayaran <span class="required">*</span>
             </label>
             <div class="col-md-6">
-              <input type="text" name="biaya" required="required" class="form-control col-md-7 input-accounting">
+              <input type="text" id="biaya" name="biaya" required="required" class="form-control col-md-7 input-accounting">
             </div>
           </div>
           <div class="form-group">
@@ -103,10 +103,17 @@ $(function(){
       }
     },
   })[0].selectize;
+  inventory.on('change', function(value) {
+    selected = inventory.options[value];
+    $("#biaya").val(accounting(selected.total_harga - selected.total_pembayaran));
+  });
 })
 
+@if (session('transaksi_success'))
+  swal("Success", "Transaksi berhasil dilakukan", "success");
+@endif
 @if (session('tambah_success'))
-  swal("Success", "Data berhasil ditambah", "success");
+  swal("Success", "Pembayaran berhasil dilakukan", "success");
 @endif
 @if (session('edit_success'))
   swal("Success", "Data berhasil diubah", "success");

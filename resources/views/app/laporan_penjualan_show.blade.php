@@ -43,12 +43,6 @@
             <label class="col-sm-4 control-label">Total Operasional</label>
             <label class="col-sm-7 content-label">{{number_format($nota->operasional->sum('harga'))}}</label>
           </div>
-          <div class="form-group">
-            <label class="col-sm-4"></label>
-            <div class="col-sm-7">
-              <a href="{{url('laporan/penjualan/excel/'.$nota->id)}}" class="">Download kwitansi</a>
-            </div>
-          </div>
         </div>
       </div>
     </div>
