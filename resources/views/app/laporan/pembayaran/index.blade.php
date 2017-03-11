@@ -96,7 +96,7 @@
               <td class="text-center">{{$bayar->tanggal}}</td>
               <td class="text-right">{{number_format($bayar->biaya)}}</td>
               <td>
-                <a class="btn btn-primary fa fa-edit" href="/pengeluaran/{{$bayar->id}}/edit"></a>
+                <a class="btn btn-primary fa fa-download" href="/transaksi/pembayaran/kuitansi/{{$bayar->id}}"></a>
                 <a class="btn btn-danger fa fa-trash delete-resource" data-id="{{encrypt($bayar->id)}}"></a>
               </td>
             </tr>

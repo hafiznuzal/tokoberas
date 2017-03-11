@@ -7,7 +7,7 @@
   <div class="col-md-12 col-sm-12">
     <div class="box box-primary">
       <div class="box-header with-border">
-        <h4>Edit Data Konsumen</h4>  
+        <h4>Edit Data Konsumen</h4>
       </div>
       <div class="box-body">
         <form data-parsley-validate class="form-horizontal form-label-left" method="post" action="/konsumen/{{$konsumen->id}}">

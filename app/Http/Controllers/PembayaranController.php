@@ -7,6 +7,7 @@ use App\Konsumen;
 use App\Nota;
 use App\Pembayaran;
 use App\User;
+use Excel;
 
 class PembayaranController extends Controller
 {
@@ -90,5 +91,62 @@ class PembayaranController extends Controller
         $pembayaran->save();
 
         return redirect('transaksi/pembayaran')->with('tambah_success', true);
+    }
+
+    /**
+     * Nampilin nota pembayaran
+     *
+     * @param $id_pembayaran
+     * @return Excel
+     */
+    public function excelPembayaran($id)
+    {
+        $pembayaran = Pembayaran::find($id);
+        Excel::create('nota_' . $id, function($excel) use($pembayaran) {
+            $excel->sheet($pembayaran->konsumen->nama, function($sheet) use($pembayaran) {
+                /* Nampilin header kuitansi */
+                $sheet->mergeCells('C1:D1');
+                $sheet->cell('C1', 'Padang, ' . date('d F Y', strtotime($pembayaran->tanggal)));
+                $sheet->mergeCells('C3:D3');
+                $sheet->cell('C3', 'Kepada Yth.');
+                $sheet->mergeCells('C4:D4');
+                $sheet->cell('C4', $pembayaran->konsumen->nama);
+
+                /* Nampilin item item pembelian */
+                $items = $pembayaran->nota->item_transaksi
+                    ->map(function($item, $key) {
+                        $ans = [
+                            'Banyaknya' => $item->jumlah,
+                            'Nama Barang' => $item->jenis->nama,
+                            'Harga Satuan' => number_format($item->biaya),
+                            'Total' => number_format($item->biaya * $item->jumlah),
+                        ];
+                        return $ans;
+                    });
+                $sheet->fromArray($items, null, 'A7', false);
+
+
+                $sheet->cell('A7:D7', function($cells) {
+                    $cells->setFontWeight('bold');
+                });
+
+                /* ngasih border di item pembelian */
+                $total_count = max($items->count(), 11);
+                $cells = 'A7:D'.($total_count + 7);
+                $sheet->cell($cells, function($cells) {
+                    $cells->setBorder('solid', 'solid', 'solid', 'solid');
+                    $cells->setAlignment('left');
+                });
+
+                $sheet->cell('C' . ($total_count + 8), 'Total harga');
+                $sheet->cell('D' . ($total_count + 8), number_format($pembayaran->nota->total_harga));
+                $sheet->cell('C' . ($total_count + 9), 'Total pembayaran');
+                $sheet->cell('D' . ($total_count + 9), number_format($pembayaran->nota->total_pembayaran));
+                $sheet->cell('C' . ($total_count + 10), 'Pembayaran sekarang');
+                $sheet->cell('D' . ($total_count + 10), number_format($pembayaran->biaya));
+                $sheet->cell('C' . ($total_count + 11), 'Sisa');
+                $sheet->cell('D' . ($total_count + 11), number_format($pembayaran->nota->total_harga - $pembayaran->nota->total_pembayaran));
+            });
+        })->export('xls');
     }
 }

@@ -59,7 +59,7 @@ $(function() {
     type: 'line',
     data: areaChartData,
   });
-  
+
   $('#daterange').daterangepicker({
     format: 'YYYY-MM-DD',
     locale: {

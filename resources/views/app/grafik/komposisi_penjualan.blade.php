@@ -61,7 +61,7 @@ $(function() {
     }
   });
   @endif
-  
+
   $('#daterange').daterangepicker({
     format: 'YYYY-MM-DD',
     locale: {

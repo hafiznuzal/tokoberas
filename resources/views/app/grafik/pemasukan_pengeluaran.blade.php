@@ -51,7 +51,7 @@ $(function() {
     type: 'pie',
     data: areaChartData,
   });
-  
+
   $('#daterange').daterangepicker({
     format: 'YYYY-MM-DD',
     locale: {

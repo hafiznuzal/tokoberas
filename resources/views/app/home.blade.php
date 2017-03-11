@@ -8,7 +8,6 @@
         <h4>Selamat datang!</h4>
       </div>
       <div class="box-body">
-        
       </div>
     </div>
   </div>

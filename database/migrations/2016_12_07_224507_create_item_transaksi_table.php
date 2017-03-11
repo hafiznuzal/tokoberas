@@ -17,7 +17,7 @@ class CreateItemTransaksiTable extends Migration
             $table->increments('id');
             $table->integer('jumlah');
             $table->integer('nota_id')->unsigned();
-            $table->bigInteger('biaya');
+            $table->bigInteger('biaya'); // satuan
             $table->integer('inventory_id')->unsigned();
             $table->integer('inventory_jenis')->unsigned();
             $table->timestamps();

@@ -49,7 +49,7 @@ $(function() {
     type: 'bar',
     data: data,
   });
-  
+
   $('#daterange').daterangepicker({
     format: 'YYYY-MM-DD',
     locale: {

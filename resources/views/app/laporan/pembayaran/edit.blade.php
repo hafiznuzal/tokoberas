@@ -8,11 +8,11 @@
   <div class="col-md-12 col-sm-12">
     <div class="box box-primary">
       <div class="box-header box-body">
-        <h4>Tambah Pembayaran</h4>  
+        <h4>Tambah Pembayaran</h4>
       </div>
       <div class="box box-primary">
       <div class="box-header with-border">
-       
+
         <form data-parsley-validate class="form-horizontal form-label-left" method="post" action="{{url('konsumen')}}">
           {{csrf_field()}}
           <div class="form-group">
@@ -22,7 +22,7 @@
               <select class="form-control select2">
                   @foreach ($nota as $not)
                   <option value="{{$not->id}}">{{$not->id}}</option>
-                  @endforeach   
+                  @endforeach
               </select>
             </div>
           </div>
