@@ -94,7 +94,7 @@ class PembayaranController extends Controller
     }
 
     /**
-     * Nampilin nota pembayaran
+     * Nampilin nota pembayaran dalam excel
      *
      * @param $id_pembayaran
      * @return Excel
@@ -104,6 +104,16 @@ class PembayaranController extends Controller
         $pembayaran = Pembayaran::find($id);
         Excel::create('nota_' . $id, function($excel) use($pembayaran) {
             $excel->sheet($pembayaran->konsumen->nama, function($sheet) use($pembayaran) {
+                /* Set top, right, bottom, left */
+                $sheet->setPageMargin([0.25, 0.30, 0.25, 0.30]);
+                /* columns width */
+                $sheet->setWidth(array(
+                    'A' => 12,
+                    'B' => 25,
+                    'C' => 20,
+                    'D' => 18,
+                ));
+
                 /* Nampilin header kuitansi */
                 $sheet->mergeCells('C1:D1');
                 $sheet->cell('C1', 'Padang, ' . date('d F Y', strtotime($pembayaran->tanggal)));
@@ -134,19 +144,47 @@ class PembayaranController extends Controller
                 $total_count = max($items->count(), 11);
                 $cells = 'A7:D'.($total_count + 7);
                 $sheet->cell($cells, function($cells) {
-                    $cells->setBorder('solid', 'solid', 'solid', 'solid');
                     $cells->setAlignment('left');
                 });
+                $sheet->setBorder($cells, 'thin');
 
+                /* */
                 $sheet->cell('C' . ($total_count + 8), 'Total harga');
-                $sheet->cell('D' . ($total_count + 8), number_format($pembayaran->nota->total_harga));
+                $sheet->cell('D' . ($total_count + 8), "'" . number_format($pembayaran->nota->total_harga));
                 $sheet->cell('C' . ($total_count + 9), 'Total pembayaran');
-                $sheet->cell('D' . ($total_count + 9), number_format($pembayaran->nota->total_pembayaran));
+                $sheet->cell('D' . ($total_count + 9), "'" . number_format($pembayaran->nota->total_pembayaran));
                 $sheet->cell('C' . ($total_count + 10), 'Pembayaran sekarang');
-                $sheet->cell('D' . ($total_count + 10), number_format($pembayaran->biaya));
+                $sheet->cell('D' . ($total_count + 10), "'" . number_format($pembayaran->biaya));
                 $sheet->cell('C' . ($total_count + 11), 'Sisa');
-                $sheet->cell('D' . ($total_count + 11), number_format($pembayaran->nota->total_harga - $pembayaran->nota->total_pembayaran));
+                $sheet->cell('D' . ($total_count + 11), "'" . number_format($pembayaran->nota->total_harga - $pembayaran->nota->total_pembayaran));
+                $sheet->setBorder('D' . ($total_count + 8) . ':D' . ($total_count + 11), 'thin');
+                $sheet->cell('C' . ($total_count + 11), 'Sisa');
+
+                /* Terbilang dari biaya transaksinya */
+                $sheet->mergeCells('A'.($total_count + 9).':B'.($total_count + 10));
+                $sheet->cell('A'.($total_count + 9), strtoupper(terbilang($pembayaran->biaya)) . ' RUPIAH');
+                $sheet->cell('A'.($total_count + 9), function($cells) {
+                    $cells->setFontWeight('bold');
+                    $cells->setValignment('center');
+                });
+
+                /* Final touch */
+                $sheet->mergeCells('A'.($total_count + 11).':B'.($total_count + 11));
+                $sheet->cell('A'.($total_count + 11), 'Tanda Terima');
+
+                $sheet->cell('D'.($total_count + 12), 'Hormat kami');
             });
         })->export('xls');
+    }
+
+    /**
+     * Nampilin nota pembayaran dalam pdf
+     *
+     * @param $id_pembayaran
+     * @return Pdf
+     */
+    public function pdfPembayaran($id)
+    {
+        # code...
     }
 }
