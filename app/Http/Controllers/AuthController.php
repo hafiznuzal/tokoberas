@@ -27,9 +27,9 @@ class AuthController extends Controller
     }
 
     /**
-     * Handle a login request to the application.
+     * Handle a logout request to the application.
      */
-    public function logout(Request $request)
+    public function logout()
     {
         Auth::logout();
         return redirect('login');

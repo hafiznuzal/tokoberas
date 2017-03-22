@@ -129,6 +129,7 @@
               <th>Tanggal</th>
               <th class="text-right">Jumlah</th>
               <th class="text-right">Sisa</th>
+              <th class="col-md-1">Nota</th>
             </tr>
           </thead>
           <tbody>
@@ -140,6 +141,9 @@
               <td>{{$bayar->tanggal}}</td>
               <td class="text-right">{{number_format($bayar->biaya)}}</td>
               <td class="text-right">{{number_format($sisa)}}</td>
+              <td>
+                <a class="btn btn-primary fa fa-download" href="/transaksi/pembayaran/kuitansi/{{$bayar->id}}"></a>
+              </td>
             </tr>
             @empty
             <tr>
