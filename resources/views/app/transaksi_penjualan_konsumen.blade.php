@@ -17,7 +17,7 @@
             <div class="form-group">
               <label class="col-sm-3 control-label">Konsumen</label>
               <div class="col-sm-8 content-label">
-              {{$konsumen->nama}}
+              {{$konsumen->nama_restoran}}
               <input type="hidden" name="konsumen" value="{{$konsumen->id}}">
               </div>
             </div>

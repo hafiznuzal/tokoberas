@@ -14,46 +14,16 @@
         <form data-parsley-validate class="form-horizontal form-label-left" method="post" action="{{url('konsumen')}}">
           {{csrf_field()}}
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3">Nama <span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3">Nama Restoran <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
-              <input type="text" name="nama" required="required" class="form-control col-md-7">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-3 control-label">Tanggal Lahir <span class="required">*</span></label>
-            <div class="col-sm-6">
-              <div class="input-group">
-                <div class="input-group-addon">
-                  <i class="fa fa-calendar"></i>
-                </div>
-                <input type="text" class="form-control pull-right datepicker" name="tanggal_lahir" placeholder="YYYY-MM-DD">
-              </div>
+              <input type="text" name="nama_restoran" required="required" class="form-control col-md-7">
             </div>
           </div>
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-3">Alamat <span class="required">*</span></label>
             <div class="col-md-6 col-sm-6">
               <input type="text" name="alamat" required="required" class="form-control col-md-7">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3">Nomor telepon</label>
-            <div class="col-md-6 col-sm-6">
-              <input type="text" class="form-control col-md-7" name="telepon">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3">Nomor handphone <span class="required">*</span></label>
-            <div class="col-md-6 col-sm-6">
-              <input type="text" name="hp" required="required" class="form-control col-md-7">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3">Nama Restoran <span class="required">*</span>
-            </label>
-            <div class="col-md-6 col-sm-6">
-              <input type="text" name="nama_restoran" required="required" class="form-control col-md-7">
             </div>
           </div>
           <div class="form-group">
@@ -95,11 +65,8 @@
           <thead>
             <tr>
               <th>No</th>
-              <th>Nama</th>
-              <th>Alamat</th>
-              <th>No Telepon</th>
-              <th>No Handphone</th>
               <th>Nama Restoran</th>
+              <th>Alamat</th>
               <th>Telepon Restoran</th>
               <th>Nama CP</th>
               <th>Telepon CP</th>
@@ -110,11 +77,8 @@
             @foreach($konsumen as $kons)
             <tr>
               <td>{{$loop->iteration}}</td>
-              <td>{{$kons->nama}}</td>
-              <td>{{$kons->alamat}}</td>
-              <td>{{$kons->telepon}}</td>
-              <td>{{$kons->hp}}</td>
               <td>{{$kons->nama_restoran}}</td>
+              <td>{{$kons->alamat}}</td>
               <td>{{$kons->telepon_restoran}}</td>
               <td>{{$kons->nama_cp}}</td>
               <td>{{$kons->telepon_cp}}</td>
