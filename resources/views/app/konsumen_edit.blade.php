@@ -17,7 +17,7 @@
             <label class="control-label col-md-3 col-sm-3">Nama Restoran <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
-              <input type="text" name="nama_restoran" required="required" class="form-control col-md-7" value="{{$konsumen->nama_restoran}}">
+              <input type="text" name="nama" required="required" class="form-control col-md-7" value="{{$konsumen->nama}}">
             </div>
           </div>
           <div class="form-group">

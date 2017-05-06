@@ -17,7 +17,7 @@
             <label class="control-label col-md-3 col-sm-3">Nama Restoran <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
-              <input type="text" name="nama_restoran" required="required" class="form-control col-md-7">
+              <input type="text" name="nama" required="required" class="form-control col-md-7">
             </div>
           </div>
           <div class="form-group">
@@ -77,7 +77,7 @@
             @foreach($konsumen as $kons)
             <tr>
               <td>{{$loop->iteration}}</td>
-              <td>{{$kons->nama_restoran}}</td>
+              <td>{{$kons->nama}}</td>
               <td>{{$kons->alamat}}</td>
               <td>{{$kons->telepon_restoran}}</td>
               <td>{{$kons->nama_cp}}</td>

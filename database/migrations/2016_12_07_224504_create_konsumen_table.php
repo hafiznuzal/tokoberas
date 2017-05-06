@@ -15,7 +15,7 @@ class CreateKonsumenTable extends Migration
     {
         Schema::create('konsumen', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nama_restoran');
+            $table->string('nama');
             $table->string('alamat')->nullable();
             $table->string('telepon_restoran')->nullable();
             $table->string('nama_cp')->nullable();

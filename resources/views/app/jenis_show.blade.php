@@ -54,7 +54,7 @@
               @forelse ($jenis->konsumen as $konsumen)
               <tr>
                 <td class="text-center">{{$loop->iteration}}</td>
-                <td>{{$konsumen->nama_restoran}}</td>
+                <td>{{$konsumen->nama}}</td>
                 <td class="text-right">{{number_format($konsumen->pivot->harga)}}</td>
                 <td class="text-center">
                   <a href="/crud/jenis/{{$jenis->id}}/konsumen/{{$konsumen->id}}" class="btn btn-primary btn-sm">Edit</a>

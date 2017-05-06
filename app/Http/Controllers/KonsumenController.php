@@ -37,7 +37,7 @@ class KonsumenController extends Controller
     public function store(Request $request)
     {
         $konsumen = new Konsumen;
-        $konsumen->nama_restoran = $request->input('nama_restoran');
+        $konsumen->nama = $request->input('nama');
         $konsumen->alamat = $request->input('alamat');
         $konsumen->telepon_restoran = $request->input('telepon_restoran');
         $konsumen->nama_cp = $request->input('nama_cp');
@@ -81,7 +81,7 @@ class KonsumenController extends Controller
     {
         //
         $konsumen = Konsumen::find($id);
-        $konsumen->nama_restoran = $request->input('nama_restoran');
+        $konsumen->nama = $request->input('nama');
         $konsumen->alamat = $request->input('alamat');
         $konsumen->telepon_restoran = $request->input('telepon_restoran');
         $konsumen->nama_cp = $request->input('nama_cp');

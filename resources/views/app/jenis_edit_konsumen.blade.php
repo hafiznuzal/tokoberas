@@ -15,7 +15,7 @@
   <div class="col-lg-6 col-sm-6">
     <div class="box box-primary">
       <div class="box-header">
-        <h4>{{$jenis->nama}} untuk {{$konsumen->nama_restoran}}</h4>
+        <h4>{{$jenis->nama}} untuk {{$konsumen->nama}}</h4>
       </div>
       <div class="box-body">
         <form method="POST" class="form-horizontal" action="/crud/jenis/{{$jenis->id}}/konsumen/{{$konsumen->id}}">

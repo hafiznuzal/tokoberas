@@ -13,14 +13,14 @@ class KonsumenTableSeeder extends Seeder
     public function run()
     {
         Konsumen::create([
-            'nama_restoran' => 'Gugik Restoran',
+            'nama' => 'Gugik Restoran',
             'alamat'        => 'Jl Blimbing',
             'nama_cp'       => 'Adek Gugik',
             'telepon_cp'    => '08182312371',
             'telepon_restoran' => '08182312371',
         ]);
         Konsumen::create([
-            'nama_restoran' => 'Hendro Restoran',
+            'nama' => 'Hendro Restoran',
             'alamat'        => 'Jl Amerika',
             'nama_cp'       => 'Adek Hendro',
             'telepon_cp'    => '08182312371',
