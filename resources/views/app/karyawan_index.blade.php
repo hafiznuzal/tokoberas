@@ -19,7 +19,7 @@
             <label class="control-label col-md-3 col-sm-3">Nama <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
-              <input type="text" name="nama" required="required" class="form-control col-md-7">
+              <input type="text" name="nama" id="nama" required="required" class="form-control col-md-7">
             </div>
           </div>
           <div class="form-group">
@@ -29,7 +29,7 @@
                 <div class="input-group-addon">
                   <i class="fa fa-calendar"></i>
                 </div>
-                <input type="text" class="form-control pull-right datepicker" name="tanggal_lahir" placeholder="YYYY-MM-DD">
+                <input type="text" class="form-control pull-right datepicker" name="tanggal_lahir" id="tanggal_lahir" placeholder="YYYY-MM-DD">
               </div>
             </div>
           </div>
@@ -37,21 +37,21 @@
             <label class="control-label col-md-3 col-sm-3">Tempat Lahir <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
-              <input type="text" name="tempatlahir" required="required" class="form-control col-md-7">
+              <input type="text" name="tempatlahir" id="tempatlahir" required="required" class="form-control col-md-7">
             </div>
           </div>
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-3">Alamat <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
-              <input type="text" name="alamat" required="required" class="form-control col-md-7">
+              <input type="text" name="alamat" id="alamat" required="required" class="form-control col-md-7">
             </div>
           </div>
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-3">Nomor Handphone <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
-              <input type="number" name="hp" required="required" class="form-control col-md-7">
+              <input type="number" name="hp" id="hp" required="required" class="form-control col-md-7">
             </div>
           </div>
           <div class="form-group">
@@ -69,21 +69,21 @@
             <label class="control-label col-md-3 col-sm-3">Username <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
-              <input type="text" name="username" required="required" class="form-control col-md-7">
+              <input type="text" name="username" id="username" required="required" class="form-control col-md-7">
             </div>
           </div>
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-3">Password <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
-              <input type="password" name="password" required="required" class="form-control col-md-7">
+              <input type="password" name="password" id="password" required="required" class="form-control col-md-7">
             </div>
           </div>
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-3">Confirm Password <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
-              <input type="password" name="confirmpassword" required="required" class="form-control col-md-7">
+              <input type="password" name="confirmpassword" data-parsley-equalto="#password" id="confirmpassword" required="required" class="form-control col-md-7">
             </div>
           </div>
           <div class="form-group">
@@ -103,7 +103,7 @@
           </div>
           <div class="box-body">
             <div class="table-responsive">
-              <table id="datatable-buttons" class="table table-hover">
+              <table class="table table-hover">
                 <thead>
                   <tr>
                     <th>No</th>

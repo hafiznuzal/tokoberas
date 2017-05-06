@@ -73,7 +73,9 @@
 <!-- NProgress -->
 <script src="{{url('bower_components/gentelella/vendors/nprogress/nprogress.js')}}"></script>
 <!-- iCheck -->
-<script src="{{url('bower_components/gentelella/vendors/iCheck/icheck.min.js')}}"></script>
+<script src="{{url('bower_components/gentelella/vendors/iChparsleyeck/icheck.min.js')}}"></script>
+{{-- parsley --}}
+<script src="{{url('bower_components/gentelella/vendors/parsleyjs/dist/parsley.min.js')}}"></script>
 <!-- AdminLTE -->
 <script src="{{url('bower_components/AdminLTE/dist/js/app.min.js')}}"></script>
 <!-- sweetalert -->
