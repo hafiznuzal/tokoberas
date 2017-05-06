@@ -85,7 +85,7 @@ class TransaksiController extends Controller
         $total_operasional = $request->input('total_operasional');
 
         if ($inventory == null) {
-            return $redirect->back();
+            return redirect()->back();
         }
 
         $nota = new Nota;
