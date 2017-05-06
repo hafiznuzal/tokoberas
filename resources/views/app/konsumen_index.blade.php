@@ -30,7 +30,7 @@
             <label class="control-label col-md-3 col-sm-3">Telepon Restoran
             </label>
             <div class="col-md-6 col-sm-6">
-              <input type="text" name="telepon_restoran" class="form-control col-md-7">
+              <input type="number" name="telepon_restoran" class="form-control col-md-7">
             </div>
           </div>
           <div class="form-group">
@@ -44,7 +44,7 @@
             <label class="control-label col-md-3 col-sm-3">Telepon CP <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
-              <input type="text" name="telepon_cp" required="required" class="form-control col-md-7">
+              <input type="number" name="telepon_cp" required="required" class="form-control col-md-7">
             </div>
           </div>
           <div class="form-group">

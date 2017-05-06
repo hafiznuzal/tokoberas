@@ -23,18 +23,6 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3">Tanggal lahir <span class="required">*</span>
-            </label>
-            <div class="col-md-6 col-sm-6">
-              <div class="input-group date">
-                <div class="input-group-addon">
-                  <i class="fa fa-calendar"></i>
-                </div>
-                <input type="text" class="form-control pull-right datepicker" name="tanggal_lahir" value="{{$produsen->tanggal_lahir}}">
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
             <label class="control-label col-md-3 col-sm-3">Alamat <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">

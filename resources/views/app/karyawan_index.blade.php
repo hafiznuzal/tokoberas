@@ -108,7 +108,10 @@
                   <tr>
                     <th>No</th>
                     <th>Nama</th>
+                    <th>Username</th>
                     <th>Tanggal Lahir</th>
+                    <th>Jabatan</th>
+                    <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -116,7 +119,13 @@
                   <tr>
                     <td>{{$loop->iteration}}</td>
                     <td>{{$userdata->nama}}</td>
+                    <td>{{$userdata->username}}</td>
                     <td>{{$userdata->tanggal_lahir}}</td>
+                    <td>{{$userdata->jabatan}}</td>
+                    <td>
+                      <a class="btn btn-primary fa fa-edit" href="/users/{{$userdata->id}}/edit"></a>
+                      <a class="btn btn-danger fa fa-trash delete-resource" data-id="{{encrypt($userdata->id)}}"></a>
+                    </td>
                   </tr>
                   @endforeach
                 </tbody>

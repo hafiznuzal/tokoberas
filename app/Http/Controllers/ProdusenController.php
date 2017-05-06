@@ -41,7 +41,6 @@ class ProdusenController extends Controller
         // dd($request->input());
         $produsen = new Produsen;
         $produsen->nama = $request->input('nama');
-        $produsen->tanggal_lahir = $request->input('tanggal_lahir');
         $produsen->alamat = $request->input('alamat');
         $produsen->telepon = $request->input('telepon');
         $produsen->hp = $request->input('hp');
@@ -85,7 +84,6 @@ class ProdusenController extends Controller
         // dd($request->input());
         $produsen = Produsen::find($id);
         $produsen->nama = $request->input('nama');
-        $produsen->tanggal_lahir = $request->input('tanggal_lahir');
         $produsen->alamat = $request->input('alamat');
         $produsen->telepon = $request->input('telepon');
         $produsen->hp = $request->input('hp');

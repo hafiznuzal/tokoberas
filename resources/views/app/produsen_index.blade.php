@@ -21,17 +21,6 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="col-sm-3 control-label">Tanggal Lahir <span class="required">*</span></label>
-            <div class="col-sm-6">
-              <div class="input-group">
-                <div class="input-group-addon">
-                  <i class="fa fa-calendar"></i>
-                </div>
-                <input type="text" class="form-control pull-right datepicker" name="tanggal_lahir" placeholder="YYYY-MM-DD">
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
             <label class="control-label col-md-3 col-sm-3">Alamat <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6">
@@ -70,7 +59,6 @@
               <tr>
                 <th class="text-center">No</th>
                 <th>Nama</th>
-                <th>Tanggal lahir</th>
                 <th>Alamat</th>
                 <th>No Telepon</th>
                 <th>No Handphone</th>
@@ -82,7 +70,6 @@
               <tr>
                 <td class="text-center">{{$loop->iteration}}</td>
                 <td>{{$prod->nama}}</td>
-                <td>{{$prod->tanggal_lahir}}</td>
                 <td>{{$prod->alamat}}</td>
                 <td>{{$prod->telepon}}</td>
                 <td>{{$prod->hp}}</td>
