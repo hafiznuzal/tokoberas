@@ -97,7 +97,9 @@
               <td class="text-right">{{number_format($bayar->biaya)}}</td>
               <td>
                 <a class="btn btn-primary fa fa-download" href="/transaksi/pembayaran/kuitansi/{{$bayar->id}}"></a>
+                @if (Auth::user()->jabatan == 'admin')
                 <a class="btn btn-danger fa fa-trash delete-resource" data-id="{{encrypt($bayar->id)}}"></a>
+                @endif
               </td>
             </tr>
             @endforeach
@@ -125,6 +127,47 @@ $(function(){
     $('#rangeend').val(end.format('YYYY-MM-DD'));
     $("#formrange").submit()
   });
+
+  $(".delete-resource").click(function() {
+    id = $(this).data('id');
+    swal({
+      title: "Apakah anda yakin akan menghapus?",
+      text: "Anda tidak dapat mengembalikan data yang terhapus!",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#DD6B55",
+      confirmButtonText: "Hapus",
+      cancelButtonText: "Batal",
+      closeOnConfirm: false,
+      closeOnCancel: true
+    },
+    function(isConfirm){
+      if (isConfirm) {
+        $.ajax({
+          url: $('meta[name="base_url"]').attr('content') + '/transaksi/pembayaran/' + id,
+          method: 'POST',
+          data: {
+            '_method': 'DELETE'
+          },
+          success: function(result) {
+            console.log('result: ', result)
+            swal({
+              title:"Deleted!",
+              text: "Data berhasil dihapus.",
+              type: "success"
+            },
+            function() {
+              window.location = window.location
+            });
+          },
+          error: function(result) {
+            swal("Gagal!", "Data gagal dihapus.", "error");
+          }
+        });
+      }
+      return isConfirm
+    });
+  })
 })
 
 @if (session('tambah_success'))

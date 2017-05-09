@@ -114,7 +114,9 @@
                 <td class="text-right">{{number_format($klr->biaya)}}</td>
                 <td>
                   <a class="btn btn-primary fa fa-edit" href="/transaksi/pengeluaran/{{$klr->id}}/edit"></a>
+                  @if (Auth::user()->jabatan == 'admin')
                   <a class="btn btn-danger fa fa-trash delete-resource" data-id="{{encrypt($klr->id)}}"></a>
+                  @endif
                 </td>
               </tr>
               @endforeach
@@ -160,7 +162,7 @@ $(function() {
     function(isConfirm){
       if (isConfirm) {
         $.ajax({
-          url: $('meta[name="base_url"]').attr('content') + '/pengeluaran/' + id,
+          url: $('meta[name="base_url"]').attr('content') + '/transaksi/pengeluaran/' + id,
           method: 'POST',
           data: {
             '_method': 'DELETE'

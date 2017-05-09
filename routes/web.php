@@ -47,6 +47,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('transaksi/pembayaran/create/nota/{nota}','PembayaranController@createNota');
     Route::post('transaksi/pembayaran','PembayaranController@store');
     Route::get('transaksi/pembayaran/kuitansi/{pembayaran}','PembayaranController@excelPembayaran');
+    Route::delete('transaksi/pembayaran/{id}','PembayaranController@destroy');
 
     /* Laporan dll */
     Route::get('laporan/penjualan','LaporanTransaksiController@indexPenjualan');
