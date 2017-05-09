@@ -190,7 +190,7 @@ class PembayaranController extends Controller
 
     public function destroy($id)
     {
-        Pembayaran::findOrFail($id)->delete();
+        Pembayaran::findOrFail(decrypt($id))->delete();
         echo 'success';
     }
 }

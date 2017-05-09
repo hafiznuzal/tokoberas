@@ -120,7 +120,7 @@ class PengeluaranController extends Controller
      */
     public function destroy($id)
     {
-        $pengeluaran = Pengeluaran::find(decrypt($id));
+        $pengeluaran = Pengeluaran::findOrFail(decrypt($id));
         $pengeluaran->delete();
 
         echo 'success';
