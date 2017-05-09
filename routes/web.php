@@ -34,9 +34,11 @@ Route::group(['middleware' => 'auth'], function () {
     /* Transaksi pembelian dan penjualan, serta pengeluaran dan pembayaran */
     Route::get('transaksi/pembelian','TransaksiController@getPembelian');
     Route::post('transaksi/pembelian','TransaksiController@postPembelian');
+    Route::delete('transaksi/pembelian/{modal}', 'TransaksiController@deletePembelian');
     Route::get('transaksi/penjualan','TransaksiController@getPenjualan');
     Route::get('transaksi/penjualan/{konsumen}','TransaksiController@getPenjualan');
     Route::post('transaksi/penjualan','TransaksiController@postPenjualan');
+    Route::delete('transaksi/penjualan/{nota}', 'TransaksiController@deletePenjualan');
     
     Route::resource('transaksi/pengeluaran','PengeluaranController');
 

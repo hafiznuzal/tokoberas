@@ -15,17 +15,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Jenis::created(function ($jenis) {
-            foreach (Konsumen::select('id')->get() as $konsumen) {
-                $jenis->konsumen()->attach($konsumen->id, ['harga' => $jenis->harga]);
-            }
-        });
-
-        Konsumen::created(function ($konsumen) {
-            foreach (Jenis::select(['id', 'harga'])->get() as $jenis) {
-                $jenis->konsumen()->attach($konsumen->id, ['harga' => $jenis->harga]);
-            }
-        });
+        //
     }
 
     /**

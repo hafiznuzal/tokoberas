@@ -60,7 +60,7 @@
             <div class="form-group">
               <label class="col-md-3 control-label">Harga Satuan</label>
               <div class="col-md-9">
-                <input class="form-control input-accounting" id="hargainventory" ng-model="hargainventory" disabled>
+                <input class="form-control input-accounting" ng-model="hargainventory">
               </div>
             </div>
             <div class="form-group">
@@ -90,7 +90,7 @@
                   <input name="inventory[{{$index}}][inventory_jenis]" value="{{row.jenis_id}}">
                   <input name="inventory[{{$index}}][jumlah]" value="{{row.jumlah_terpilih}}">
                   <input name="inventory[{{$index}}][modal]" value="{{row.harga_beli * row.jumlah_terpilih}}">
-                  <input name="inventory[{{$index}}][biaya]" value="{{row.harga}}">
+                  <input name="inventory[{{$index}}][biaya]" value="{{row.harga_terpilih}}">
                 </td>
                 <td class="text-center">{{$index + 1}}</td>
                 <td>{{row.nama}} {{row.merek}}</td>
@@ -193,7 +193,8 @@ app.controller("penjualan", function($scope) {
       return swal('Error', 'Jumlah harus sesuai dengan stok yang ada', 'warning');
     }
     selected.jumlah_terpilih = $scope.jumlahinventory;
-    selected.harga_terpilih_total = selected.harga * $scope.jumlahinventory;
+    selected.harga_terpilih = unaccounting($scope.hargainventory);
+    selected.harga_terpilih_total = selected.harga_terpilih * $scope.jumlahinventory;
     $scope.table_inventory.push(selected);
     selected_inventory.push(index);
     $scope.total += selected.harga_terpilih_total;

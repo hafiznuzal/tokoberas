@@ -17,4 +17,13 @@ class Modal extends Model
     {
         return $this->belongsTo('App\Produsen');
     }
+
+    public function terkait()
+    {
+        $inventory = $this->inventory;
+        $string = 'Ada ' . $inventory->count() . ' inventory.';
+        if ($inventory->count() > 0) {
+            
+        }
+    }
 }

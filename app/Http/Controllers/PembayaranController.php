@@ -84,7 +84,7 @@ class PembayaranController extends Controller
 
         /* update nota nya */
         $nota->total_pembayaran += $pembayaran->biaya;
-        if ($nota->total_pembayaran > $nota->total_harga) {
+        if ($nota->total_pembayaran >= $nota->total_harga) {
             $nota->status = 1;
         }
         $nota->save();

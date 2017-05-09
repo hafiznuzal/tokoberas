@@ -52,6 +52,14 @@ class TransaksiController extends Controller
         return redirect()->back()->with('tambah_success', true);
     }
 
+    public function deletePembelian($modal_id)
+    {
+        $modal = Modal::findOrFail($modal_id);
+        $modal->delete();
+
+        echo 'success';
+    }
+
     public function getPenjualan($konsumen_id = false)
     {
         if (!$konsumen_id) {
@@ -74,6 +82,7 @@ class TransaksiController extends Controller
 
     public function postPenjualan(Request $request)
     {
+        // dd($request->input());
         if ($request->input('pilih_konsumen')) {
             $konsumen = $request->input('konsumen');
             return redirect('transaksi/penjualan/' . $konsumen);
@@ -82,7 +91,9 @@ class TransaksiController extends Controller
         $inventory = $request->input('inventory');
         $operasional = $request->input('operasional');
         $total = $request->input('total');
+        $test_total = $total;
         $total_operasional = $request->input('total_operasional');
+        $test_total_operasional = $total_operasional;
 
         if ($inventory == null) {
             return redirect()->back();
@@ -116,7 +127,12 @@ class TransaksiController extends Controller
             $item->inventory_jenis = $value['inventory_jenis'];
             $item->save();
 
+            $test_total -= $item->jumlah * $item->biaya;
+
             $nota->total_modal += $item->jumlah * $realitem->harga_beli;
+        }
+        if ($test_total) {
+            dd('Balance salaah!! test_total = ' . $test_total);
         }
         $nota->keuntungan_bersih = $total - $nota->total_modal - $total_operasional;
         $nota->save();
@@ -127,9 +143,21 @@ class TransaksiController extends Controller
             $item->jenis_operasional_id = $value['jenis_operasional_id'];
             $item->nota_id = $nota->id;
             $item->save();
+            $total_operasional -= $item->biaya;
+        }
+        if ($total_operasional != 0) {
+            dd('Balance salaah!! test_total_operasional = ' . $test_total_operasional);
         }
         return redirect('transaksi/pembayaran/create/nota/' . $nota->id)
             ->with('nota_id', $nota->id)
             ->with('transaksi_success', true);
+    }
+
+    public function deletePenjualan($nota_id)
+    {
+        $nota = Nota::findOrFail($nota_id);
+        $nota->delete();
+
+        echo 'success';
     }
 }

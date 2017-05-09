@@ -12,4 +12,9 @@ class RiwayatOperasional extends Model
     {
         return $this->belongsTo('App\JenisOperasional');
     }
+
+    public function nota()
+    {
+        return $this->belongsTo('App\Nota');
+    }
 }

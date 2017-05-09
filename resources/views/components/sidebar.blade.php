@@ -27,6 +27,8 @@
         <ul class="treeview-menu">
           <li><a href="{{url('laporan/pembelian')}}"><i class="fa fa-circle-o"></i> Pembelian</a></li>
           <li><a href="{{url('laporan/penjualan')}}"><i class="fa fa-circle-o"></i> Penjualan</a></li>
+          <li><a href="{{url('transaksi/pengeluaran')}}"><i class="fa fa-circle-o"></i> Pengeluaran</a></li>
+          <li><a href="{{url('transaksi/pembayaran')}}"><i class="fa fa-circle-o"></i> Pembayaran</a></li>
           <li><a href="{{url('laporan/inventory/stok')}}"><i class="fa fa-circle-o"></i> Inventory stok</a></li>
           <li><a href="{{url('laporan/inventory/harian')}}"><i class="fa fa-circle-o"></i> Inventory harian</a></li>
         </ul>
