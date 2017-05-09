@@ -18,7 +18,7 @@
         <h4>Tambah Pembayaran</h4>
       </div>
       <div class="box-body">
-        <form data-parsley-validate class="form-horizontal form-label-left" method="post" action="{{url('transaksi/pembayaran')}}">
+        <form id="pembayaran" class="form-horizontal form-label-left" method="post" action="/transaksi/pembayaran">
           {{csrf_field()}}
           <div class="form-group">
             <label class="control-label col-md-3">
@@ -62,7 +62,8 @@
           </div>
           <div class="form-group">
             <div class="col-md-6 col-md-offset-3">
-              <button type="submit" class="btn btn-success">Submit</button>
+              <button type="button" id="submit" class="btn btn-success">Submit</button>
+              <button type="submit" id="realsubmit" class="hidden">Submit</button>
             </div>
           </div>
         </form>
@@ -103,20 +104,29 @@ $(function(){
       }
     },
   })[0].selectize;
+  temp_biaya = 0
   inventory.on('change', function(value) {
-    selected = inventory.options[value];
-    $("#biaya").val(accounting(selected.total_harga - selected.total_pembayaran));
+    if (value) {
+      selected = inventory.options[value];
+      temp_biaya = selected.total_harga - selected.total_pembayaran;
+      $("#biaya").val(accounting(temp_biaya));
+    }
+  });
+
+  $("#submit").click(function(e) {
+    value = $("#pilihnota").val();
+    if (!value) {
+      swal("Warning", "Pilih nota terlebih dahulu", "warning");
+      return false;
+    }
+
+    if (Number(unaccounting($("#biaya").val())) > Number(temp_biaya)) {
+      swal("Warning", "Harga melebihi biaya nota (" + accounting(temp_biaya) + ')', "warning");
+      return false;
+    }
+
+    $("#realsubmit").click();
   });
 })
-
-@if (session('transaksi_success'))
-  swal("Success", "Transaksi berhasil dilakukan", "success");
-@endif
-@if (session('tambah_success'))
-  swal("Success", "Pembayaran berhasil dilakukan", "success");
-@endif
-@if (session('edit_success'))
-  swal("Success", "Data berhasil diubah", "success");
-@endif
 </script>
 @endsection
