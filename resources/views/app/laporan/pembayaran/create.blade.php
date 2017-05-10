@@ -128,5 +128,15 @@ $(function(){
     $("#realsubmit").click();
   });
 })
+
+@if (session('transaksi_success'))
+  swal("Success", "Transaksi berhasil dilakukan", "success");
+@endif
+@if (session('tambah_success'))
+  swal("Success", "Pembayaran berhasil dilakukan", "success");
+@endif
+@if (session('edit_success'))
+  swal("Success", "Data berhasil diubah", "success");
+@endif
 </script>
 @endsection
