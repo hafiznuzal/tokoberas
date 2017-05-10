@@ -44,6 +44,9 @@
           <td>{{$beli->tanggal}}</td>
           <td>
             <a href="{{url('laporan/pembelian/'.$beli->id)}}" class="btn btn-primary btn-sm">Detail</a>
+            @if (Auth::user()->jabatan == 'admin')
+            <button class="btn btn-danger btn-sm delete-resource" data-id="{{$beli->id}}"><i class="fa fa-trash"></i> Delete</button>
+            @endif
           </td>
         </tr>
         @endforeach
@@ -68,6 +71,48 @@ $(function() {
     $('#rangestart').val(start.format('YYYY-MM-DD'));
     $('#rangeend').val(end.format('YYYY-MM-DD'));
     $("#formrange").submit()
+  });
+
+  $(".delete-resource").click(function() {
+    id = $(this).data('id');
+
+    swal({
+      title: "Apakah anda yakin akan menghapus?",
+      text: "Anda tidak dapat mengembalikan data yang terhapus!",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#DD6B55",
+      confirmButtonText: "Hapus",
+      cancelButtonText: "Batal",
+      closeOnConfirm: false,
+      closeOnCancel: true
+    },
+    function(isConfirm){
+      if (isConfirm) {
+        $.ajax({
+          url: '/transaksi/pembelian/' + id,
+          method: 'POST',
+          data: {
+            '_method': 'DELETE'
+          },
+          success: function(result) {
+            console.log('result: ', result)
+            swal({
+              title:"Deleted!",
+              text: "Data berhasil dihapus.",
+              type: "success"
+            },
+            function() {
+              window.location = '/laporan/pembelian';
+            });
+          },
+          error: function(result) {
+            swal("Gagal!", "Data gagal dihapus.", "error");
+          }
+        });
+      }
+      return isConfirm
+    });
   });
 })
 </script>
