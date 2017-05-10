@@ -12,4 +12,9 @@ class Produsen extends Model
     protected $table = 'produsen';
 
     protected $guarded = [];
+
+    public function modal()
+    {
+        return $this->hasMany('App\Modal');
+    }
 }

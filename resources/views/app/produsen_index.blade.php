@@ -75,7 +75,11 @@
                 <td>{{$prod->hp}}</td>
                 <td>
                   <a class="btn btn-primary fa fa-edit" href="/produsen/{{$prod->id}}/edit"></a>
+                  @if ($prod->modal()->count() > 0)
+                  <a class="btn btn-danger fa fa-trash" title="Produsen terkait sudah pernah melakukan transaksi" disabled></a>
+                  @else
                   <a class="btn btn-danger fa fa-trash delete-resource" data-id="{{encrypt($prod->id)}}"></a>
+                  @endif
                 </td>
               </tr>
               @endforeach

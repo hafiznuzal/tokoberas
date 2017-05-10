@@ -84,7 +84,11 @@
               <td>{{$kons->telepon_cp}}</td>
               <td>
                 <a class="btn btn-primary fa fa-edit" href="/konsumen/{{$kons->id}}/edit"></a>
+                @if ($prod->nota()->count() > 0)
+                <a class="btn btn-danger fa fa-trash" title="Konsumen terkait sudah pernah melakukan transaksi" disabled></a>
+                @else
                 <a class="btn btn-danger fa fa-trash delete-resource" data-id="{{encrypt($kons->id)}}"></a>
+                @endif
               </td>
             </tr>
             @endforeach

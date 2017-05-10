@@ -41,7 +41,7 @@
           <td class="text-center">{{$beli->id}}</td>
           <td>{{$beli->produsen->nama}}</td>
           <td>{{$beli->inventory->count()}}</td>
-        <td>{{$beli->tanggal}}</td>
+          <td>{{$beli->tanggal}}</td>
           <td>
             <a href="{{url('laporan/pembelian/'.$beli->id)}}" class="btn btn-primary btn-sm">Detail</a>
           </td>
